@@ -35,9 +35,9 @@ sudo apt-get install m4
 ## Install Coq and dependencies
 opam pin add coq 8.12.2
 opam repo add coq-released https://coq.inria.fr/opam/released
-opam install coq-vst # this requires a long time. (almost 30 min)
+opam install coq-vst # this requires a long time. (30 min)
 
-# 3. build project
+# 3. build project{}
 make
 ```
 
