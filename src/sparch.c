@@ -1,3 +1,4 @@
+#include <stddef.h>
 #include "sparch.h"
 
 #define LOW_COMP 4
