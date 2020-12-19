@@ -33,11 +33,23 @@ opam-depext coq
 sudo apt-get install m4
 
 ## Install Coq and dependencies
-opam pin add coq 8.12.2
+opam pin add coq 8.12.1
 opam repo add coq-released https://coq.inria.fr/opam/released
 opam install coq-vst # this requires a long time. (30 min)
 
-# 3. build project{}
-make
+## Install CompCert
+wget -O compcert.tar.gz https://github.com/AbsInt/CompCert/archive/v3.8.tar.gz 
+tar xf compcert.tar.gz
+mv CompCert-3.8 compcert
+cd compcert
+./configure -clightgen x86_32-linux; make # this also requires very long time.
+cd ..
+rm compcert.tag.gz
+
+# 3. build project
+make main # build executable SpGEMM program
+./sparch # generate random two 1000*1000 matrices and multply it.
+
+make # verify sparch.c by Coq/VST.
 ```
 

@@ -31,4 +31,12 @@ typedef struct _CSRMatrix {
     unsigned int* rows;
 } CSRMatrix;
 
+CSRMatrix* Matrix_toCSR(Matrix* matrix);
+COOMatrix* CSR_toCOO(CSRMatrix* csr);
+CSRMatrix* COO_toCSR(COOMatrix* coo);
+Matrix* CSR_dense(CSRMatrix* csr);
+
+Matrix* gemm_sparch(Matrix* matA, Matrix* matB);
+CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB);
+
 #endif // __SPARCH_H_

@@ -9,6 +9,7 @@ OBJ := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 	+make -f Makefile.coq $@
 
 all: Makefile.coq
+	./compcert/bin/clightgen -normalize src/sparch.c
 	+make -f Makefile.coq all
 
 clean: Makefile.coq
