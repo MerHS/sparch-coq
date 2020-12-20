@@ -587,11 +587,11 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
 Matrix* gemm_sparch(Matrix* matA, Matrix* matB) {
     CSRMatrix* left = Matrix_toCSR(matA);
     CSRMatrix* right = Matrix_toCSR(matB);
-    CSRMatrix* mm = spgemm_sparch(left, right);
+    // CSRMatrix* mm = spgemm_sparch(left, right);
 
-    Matrix* result = CSR_dense(mm);
+    Matrix* result = CSR_dense(left);
 
-    CSR_free(mm);
+    // CSR_free(mm);
     CSR_free(right);
     CSR_free(left);
 

@@ -1,2 +1,3 @@
 -Q . Lib
-src/SpArch.v
+src/sparch.v
+src/sparch_verif.v

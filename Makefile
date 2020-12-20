@@ -5,34 +5,35 @@ CFLAGS := -Wall -O2
 SRC := $(wildcard $(SRC_DIR)/*.c)
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 
-%: Makefile.coq phony
-	+make -f Makefile.coq $@
+COQMFFLAGS := -Q . SpArch
+ALLVFILES := src/sparch.v src/verif_sparch.v
 
-all: Makefile.coq
-	./compcert/bin/clightgen -normalize src/sparch.c
+debug: CFLAGS += -DDEBUG -g
+debug: main
+
+all: main Makefile.coq $(ALLVFILES)
+	$(MAKE) -f Makefile.coq
 	+make -f Makefile.coq all
 
-clean: Makefile.coq
-	+make -f Makefile.coq clean
-	rm -f Makefile.coq
+clean: 
+	if [ -e Makefile.coq ]; then $(MAKE) -f Makefile.coq clean; fi
+	rm -f Makefile.coq Makefile.coq.conf
 	rm -f *.o src/*.o
 
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.h $(SRC_DIR)/$.c
 	gcc $(CFLAGS) -c $< -o $@
 
 main.o: src/sparch.h main.c
+	./compcert/clightgen -normalize -short-idents src/sparch.c
 	gcc $(CFLAGS) -c main.c -o main.o
 
 main: $(OBJ) main.o
 	gcc $(CFLAGS) src/sparch.o main.o -o sparch
 
-Makefile.coq: _CoqProject Makefile
-	coq_makefile -f _CoqProject | sed 's/$$(COQCHK) $$(COQCHKFLAGS) $$(COQLIBS)/$$(COQCHK) $$(COQCHKFLAGS) $$(subst -Q,-R,$$(COQLIBS))/' > Makefile.coq
+#Makefile.coq: _CoqProject Makefile
+#	coq_makefile -f _CoqProject | sed 's/$$(COQCHK) $$(COQCHKFLAGS) $$(COQLIBS)/$$(COQCHK) $$(COQCHKFLAGS) $$(subst -Q,-R,$$(COQLIBS))/' > Makefile.coq
 
-_CoqProject: ;
+Makefile.coq:
+	coq_makefile $(COQMFFLAGS) -o Makefile.coq $(ALLVFILES)
 
-Makefile: ;
-
-phony: ;
-
-.PHONY: all clean phony
+.PHONY: all clean
