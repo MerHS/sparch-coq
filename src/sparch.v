@@ -17,13 +17,25 @@ Module Info.
   Definition normalized := false.
 End Info.
 
-Definition _COO_toCSR : ident := $"COO_toCSR".
+Definition _COOChunk_append : ident := $"COOChunk_append".
+Definition _COOChunk_free : ident := $"COOChunk_free".
+Definition _COOChunk_freeList : ident := $"COOChunk_freeList".
+Definition _COOChunk_malloc : ident := $"COOChunk_malloc".
+Definition _COOChunk_push : ident := $"COOChunk_push".
+Definition _COOChunk_toCSR : ident := $"COOChunk_toCSR".
+Definition _COOItem_free : ident := $"COOItem_free".
+Definition _COOItem_malloc : ident := $"COOItem_malloc".
 Definition _CSR_dense : ident := $"CSR_dense".
-Definition _CSR_toCOO : ident := $"CSR_toCOO".
+Definition _CSR_free : ident := $"CSR_free".
+Definition _CSR_malloc : ident := $"CSR_malloc".
+Definition _LLNode_free : ident := $"LLNode_free".
+Definition _LLNode_freeAll : ident := $"LLNode_freeAll".
+Definition _LLNode_malloc : ident := $"LLNode_malloc".
+Definition _Matrix_free : ident := $"Matrix_free".
+Definition _Matrix_malloc : ident := $"Matrix_malloc".
 Definition _Matrix_toCSR : ident := $"Matrix_toCSR".
 Definition __COOChunk : ident := $"_COOChunk".
 Definition __COOItem : ident := $"_COOItem".
-Definition __COOMatrix : ident := $"_COOMatrix".
 Definition __CSRMatrix : ident := $"_CSRMatrix".
 Definition __LLNode : ident := $"_LLNode".
 Definition __Matrix : ident := $"_Matrix".
@@ -86,40 +98,86 @@ Definition _addQueue : ident := $"addQueue".
 Definition _chunk : ident := $"chunk".
 Definition _chunks : ident := $"chunks".
 Definition _col : ident := $"col".
+Definition _colHead : ident := $"colHead".
 Definition _cols : ident := $"cols".
 Definition _condense : ident := $"condense".
-Definition _coo : ident := $"coo".
 Definition _count : ident := $"count".
 Definition _csr : ident := $"csr".
+Definition _currLen : ident := $"currLen".
 Definition _elimZero : ident := $"elimZero".
 Definition _flattenByMergeTree : ident := $"flattenByMergeTree".
+Definition _free : ident := $"free".
 Definition _gemm_sparch : ident := $"gemm_sparch".
 Definition _head : ident := $"head".
 Definition _heap : ident := $"heap".
 Definition _height : ident := $"height".
+Definition _i : ident := $"i".
+Definition _i__1 : ident := $"i__1".
+Definition _i__2 : ident := $"i__2".
+Definition _i__3 : ident := $"i__3".
+Definition _i__4 : ident := $"i__4".
+Definition _idx : ident := $"idx".
+Definition _index : ident := $"index".
 Definition _item : ident := $"item".
+Definition _j : ident := $"j".
+Definition _kInit : ident := $"kInit".
 Definition _left : ident := $"left".
+Definition _leftChunk : ident := $"leftChunk".
+Definition _leftIdx : ident := $"leftIdx".
+Definition _leftLen : ident := $"leftLen".
+Definition _leftVal : ident := $"leftVal".
 Definition _len : ident := $"len".
-Definition _lenCol : ident := $"lenCol".
-Definition _lenRow : ident := $"lenRow".
 Definition _lenVal : ident := $"lenVal".
+Definition _li : ident := $"li".
+Definition _litem : ident := $"litem".
 Definition _main : ident := $"main".
+Definition _malloc : ident := $"malloc".
+Definition _mat : ident := $"mat".
 Definition _matA : ident := $"matA".
 Definition _matB : ident := $"matB".
 Definition _matrix : ident := $"matrix".
+Definition _maxBound : ident := $"maxBound".
+Definition _maxCount : ident := $"maxCount".
+Definition _merge : ident := $"merge".
 Definition _mergeLow : ident := $"mergeLow".
 Definition _mergeTop : ident := $"mergeTop".
+Definition _mergedIdx : ident := $"mergedIdx".
+Definition _mergedVal : ident := $"mergedVal".
+Definition _merger : ident := $"merger".
+Definition _mm : ident := $"mm".
+Definition _multVal : ident := $"multVal".
+Definition _newItem : ident := $"newItem".
 Definition _next : ident := $"next".
+Definition _nextLen : ident := $"nextLen".
+Definition _node : ident := $"node".
+Definition _offset : ident := $"offset".
 Definition _outLen : ident := $"outLen".
 Definition _outerProd : ident := $"outerProd".
+Definition _parent : ident := $"parent".
 Definition _popQueue : ident := $"popQueue".
+Definition _pq : ident := $"pq".
 Definition _queue : ident := $"queue".
 Definition _result : ident := $"result".
+Definition _ri : ident := $"ri".
 Definition _right : ident := $"right".
+Definition _rightIdx : ident := $"rightIdx".
+Definition _rightRowEnd : ident := $"rightRowEnd".
+Definition _rightRowStart : ident := $"rightRowStart".
+Definition _rightVal : ident := $"rightVal".
+Definition _ritem : ident := $"ritem".
 Definition _row : ident := $"row".
+Definition _rowCnt : ident := $"rowCnt".
+Definition _rowCnt__1 : ident := $"rowCnt__1".
+Definition _rowEnd : ident := $"rowEnd".
+Definition _rowId : ident := $"rowId".
+Definition _rowStart : ident := $"rowStart".
 Definition _rows : ident := $"rows".
 Definition _spgemm_sparch : ident := $"spgemm_sparch".
+Definition _swapHeap : ident := $"swapHeap".
 Definition _tail : ident := $"tail".
+Definition _tailItem : ident := $"tailItem".
+Definition _temp : ident := $"temp".
+Definition _treeItems : ident := $"treeItems".
 Definition _value : ident := $"value".
 Definition _values : ident := $"values".
 Definition _width : ident := $"width".
@@ -127,38 +185,645 @@ Definition _t'1 : ident := 128%positive.
 Definition _t'2 : ident := 129%positive.
 Definition _t'3 : ident := 130%positive.
 Definition _t'4 : ident := 131%positive.
+Definition _t'5 : ident := 132%positive.
+Definition _t'6 : ident := 133%positive.
+Definition _t'7 : ident := 134%positive.
+Definition _t'8 : ident := 135%positive.
+Definition _t'9 : ident := 136%positive.
 
-Definition f_outerProd := {|
-  fn_return := (tptr (Tstruct __COOChunk noattr));
+Definition f_LLNode_malloc := {|
+  fn_return := (tptr (Tstruct __LLNode noattr));
   fn_callconv := cc_default;
-  fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
-                (_right, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
+  fn_params := ((_item, (tptr (Tstruct __COOItem noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_node, (tptr (Tstruct __LLNode noattr))) ::
+               (_t'1, (tptr tvoid)) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+      ((Esizeof (Tstruct __LLNode noattr) tuint) :: nil))
+    (Sset _node
+      (Ecast (Etempvar _t'1 (tptr tvoid)) (tptr (Tstruct __LLNode noattr)))))
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+          (Tstruct __LLNode noattr)) _item (tptr (Tstruct __COOItem noattr)))
+      (Etempvar _item (tptr (Tstruct __COOItem noattr))))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+            (Tstruct __LLNode noattr)) _next
+          (tptr (Tstruct __LLNode noattr)))
+        (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+      (Sreturn (Some (Etempvar _node (tptr (Tstruct __LLNode noattr))))))))
+|}.
+
+Definition f_LLNode_free := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_node, (tptr (Tstruct __LLNode noattr))) :: nil);
   fn_vars := nil;
   fn_temps := nil;
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Scall None
+  (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+  ((Etempvar _node (tptr (Tstruct __LLNode noattr))) :: nil))
+|}.
+
+Definition f_LLNode_freeAll := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_node, (tptr (Tstruct __LLNode noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := nil;
+  fn_body :=
+(Ssequence
+  (Scall None
+    (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+    ((Efield
+       (Ederef (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+         (Tstruct __LLNode noattr)) _item (tptr (Tstruct __COOItem noattr))) ::
+     nil))
+  (Scall None
+    (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+    ((Etempvar _node (tptr (Tstruct __LLNode noattr))) :: nil)))
+|}.
+
+Definition f_COOChunk_malloc := {|
+  fn_return := (tptr (Tstruct __COOChunk noattr));
+  fn_callconv := cc_default;
+  fn_params := nil;
+  fn_vars := nil;
+  fn_temps := ((_chunk, (tptr (Tstruct __COOChunk noattr))) ::
+               (_t'1, (tptr tvoid)) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+      ((Esizeof (Tstruct __COOChunk noattr) tuint) :: nil))
+    (Sset _chunk
+      (Ecast (Etempvar _t'1 (tptr tvoid)) (tptr (Tstruct __COOChunk noattr)))))
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint)
+      (Econst_int (Int.repr 0) tint))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _head
+          (tptr (Tstruct __LLNode noattr)))
+        (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+        (Sreturn (Some (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))))))))
+|}.
+
+Definition f_COOChunk_free := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := nil;
+  fn_body :=
+(Scall None
+  (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+  ((Etempvar _chunk (tptr (Tstruct __COOChunk noattr))) :: nil))
+|}.
+
+Definition f_COOChunk_freeList := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_head, (tptr (Tstruct __LLNode noattr))) ::
+               (_next, (tptr (Tstruct __LLNode noattr))) :: nil);
+  fn_body :=
+(Ssequence
+  (Sset _head
+    (Efield
+      (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+        (Tstruct __COOChunk noattr)) _head (tptr (Tstruct __LLNode noattr))))
+  (Swhile
+    (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+    (Ssequence
+      (Sset _next
+        (Efield
+          (Ederef (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+            (Tstruct __LLNode noattr)) _next
+          (tptr (Tstruct __LLNode noattr))))
+      (Ssequence
+        (Scall None
+          (Evar _LLNode_free (Tfunction
+                               (Tcons (tptr (Tstruct __LLNode noattr)) Tnil)
+                               tvoid cc_default))
+          ((Etempvar _head (tptr (Tstruct __LLNode noattr))) :: nil))
+        (Sset _head (Etempvar _next (tptr (Tstruct __LLNode noattr))))))))
+|}.
+
+Definition f_COOChunk_push := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) ::
+                (_item, (tptr (Tstruct __COOItem noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_node, (tptr (Tstruct __LLNode noattr))) ::
+               (_t'1, (tptr (Tstruct __LLNode noattr))) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _LLNode_malloc (Tfunction
+                             (Tcons (tptr (Tstruct __COOItem noattr)) Tnil)
+                             (tptr (Tstruct __LLNode noattr)) cc_default))
+      ((Etempvar _item (tptr (Tstruct __COOItem noattr))) :: nil))
+    (Sset _node (Etempvar _t'1 (tptr (Tstruct __LLNode noattr)))))
+  (Ssequence
+    (Sifthenelse (Efield
+                   (Ederef
+                     (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                     (Tstruct __COOChunk noattr)) _tail
+                   (tptr (Tstruct __LLNode noattr)))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef
+              (Efield
+                (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _tail
+                (tptr (Tstruct __LLNode noattr))) (Tstruct __LLNode noattr))
+            _next (tptr (Tstruct __LLNode noattr)))
+          (Etempvar _node (tptr (Tstruct __LLNode noattr))))
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Etempvar _node (tptr (Tstruct __LLNode noattr)))))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Etempvar _node (tptr (Tstruct __LLNode noattr))))
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr)))
+          (Etempvar _node (tptr (Tstruct __LLNode noattr))))))
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint)
+      (Ebinop Oadd
+        (Efield
+          (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _len tuint)
+        (Econst_int (Int.repr 1) tint) tuint))))
+|}.
+
+Definition f_COOChunk_append := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
+                (_right, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := nil;
+  fn_body :=
+(Sifthenelse (Efield
+               (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+                 (Tstruct __COOChunk noattr)) _tail
+               (tptr (Tstruct __LLNode noattr)))
+  (Sifthenelse (Efield
+                 (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+                   (Tstruct __COOChunk noattr)) _tail
+                 (tptr (Tstruct __LLNode noattr)))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _len tuint)
+        (Ebinop Oadd
+          (Efield
+            (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _len tuint)
+          (Efield
+            (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _len tuint) tuint))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef
+              (Efield
+                (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _tail
+                (tptr (Tstruct __LLNode noattr))) (Tstruct __LLNode noattr))
+            _next (tptr (Tstruct __LLNode noattr)))
+          (Efield
+            (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr))))
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Efield
+            (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr))))))
+    Sskip)
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint)
+      (Efield
+        (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _head
+          (tptr (Tstruct __LLNode noattr)))
+        (Efield
+          (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _head
+          (tptr (Tstruct __LLNode noattr))))
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _tail
+          (tptr (Tstruct __LLNode noattr)))
+        (Efield
+          (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _tail
+          (tptr (Tstruct __LLNode noattr)))))))
+|}.
+
+Definition f_COOChunk_toCSR := {|
+  fn_return := (tptr (Tstruct __CSRMatrix noattr));
+  fn_callconv := cc_default;
+  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) ::
+                (_height, tuint) :: (_width, tuint) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_len, tuint) ::
+               (_csr, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_head, (tptr (Tstruct __LLNode noattr))) ::
+               (_item, (tptr (Tstruct __COOItem noattr))) ::
+               (_rowId, tuint) :: (_i, tuint) ::
+               (_t'1, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
+  fn_body :=
+(Ssequence
+  (Sset _len
+    (Efield
+      (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+        (Tstruct __COOChunk noattr)) _len tuint))
+  (Ssequence
+    (Ssequence
+      (Scall (Some _t'1)
+        (Evar _CSR_malloc (Tfunction
+                            (Tcons tuint (Tcons tuint (Tcons tuint Tnil)))
+                            (tptr (Tstruct __CSRMatrix noattr)) cc_default))
+        ((Etempvar _height tuint) :: (Etempvar _width tuint) ::
+         (Etempvar _len tuint) :: nil))
+      (Sset _csr (Etempvar _t'1 (tptr (Tstruct __CSRMatrix noattr)))))
+    (Ssequence
+      (Sset _head
+        (Efield
+          (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _head
+          (tptr (Tstruct __LLNode noattr))))
+      (Ssequence
+        (Sset _rowId (Econst_int (Int.repr 0) tint))
+        (Ssequence
+          (Sassign
+            (Ederef
+              (Ebinop Oadd
+                (Efield
+                  (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                    (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                (Econst_int (Int.repr 0) tint) (tptr tuint)) tuint)
+            (Econst_int (Int.repr 0) tint))
+          (Ssequence
+            (Ssequence
+              (Sset _i (Econst_int (Int.repr 0) tint))
+              (Sloop
+                (Ssequence
+                  (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                                 (Etempvar _len tuint) tint)
+                    Sskip
+                    Sbreak)
+                  (Ssequence
+                    (Sset _item
+                      (Efield
+                        (Ederef
+                          (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+                          (Tstruct __LLNode noattr)) _item
+                        (tptr (Tstruct __COOItem noattr))))
+                    (Ssequence
+                      (Sassign
+                        (Ederef
+                          (Ebinop Oadd
+                            (Efield
+                              (Ederef
+                                (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                (Tstruct __CSRMatrix noattr)) _values
+                              (tptr tfloat)) (Etempvar _i tuint)
+                            (tptr tfloat)) tfloat)
+                        (Efield
+                          (Ederef
+                            (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                            (Tstruct __COOItem noattr)) _value tfloat))
+                      (Ssequence
+                        (Sassign
+                          (Ederef
+                            (Ebinop Oadd
+                              (Efield
+                                (Ederef
+                                  (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                  (Tstruct __CSRMatrix noattr)) _cols
+                                (tptr tuint)) (Etempvar _i tuint)
+                              (tptr tuint)) tuint)
+                          (Efield
+                            (Ederef
+                              (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                              (Tstruct __COOItem noattr)) _col tuint))
+                        (Ssequence
+                          (Swhile
+                            (Ebinop Olt (Etempvar _rowId tuint)
+                              (Efield
+                                (Ederef
+                                  (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                                  (Tstruct __COOItem noattr)) _row tuint)
+                              tint)
+                            (Ssequence
+                              (Sset _rowId
+                                (Ebinop Oadd (Etempvar _rowId tuint)
+                                  (Econst_int (Int.repr 1) tint) tuint))
+                              (Sassign
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                        (Tstruct __CSRMatrix noattr)) _rows
+                                      (tptr tuint)) (Etempvar _rowId tuint)
+                                    (tptr tuint)) tuint)
+                                (Ebinop Oadd (Etempvar _i tuint)
+                                  (Econst_int (Int.repr 1) tint) tuint))))
+                          (Sset _head
+                            (Efield
+                              (Ederef
+                                (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+                                (Tstruct __LLNode noattr)) _next
+                              (tptr (Tstruct __LLNode noattr)))))))))
+                (Sset _i
+                  (Ebinop Oadd (Etempvar _i tuint)
+                    (Econst_int (Int.repr 1) tint) tuint))))
+            (Ssequence
+              (Swhile
+                (Ebinop Ole (Etempvar _rowId tuint) (Etempvar _height tuint)
+                  tint)
+                (Ssequence
+                  (Sassign
+                    (Ederef
+                      (Ebinop Oadd
+                        (Efield
+                          (Ederef
+                            (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                            (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                        (Etempvar _rowId tuint) (tptr tuint)) tuint)
+                    (Ebinop Omul (Etempvar _height tuint)
+                      (Etempvar _width tuint) tuint))
+                  (Sset _rowId
+                    (Ebinop Oadd (Etempvar _rowId tuint)
+                      (Econst_int (Int.repr 1) tint) tuint))))
+              (Sreturn (Some (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr))))))))))))
+|}.
+
+Definition f_outerProd := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
+                (_right, (tptr (Tstruct __CSRMatrix noattr))) ::
+                (_result, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_len, tuint) ::
+               (_colHead, (tptr (Tstruct __LLNode noattr))) :: (_i, tuint) ::
+               (_item, (tptr (Tstruct __COOItem noattr))) ::
+               (_leftVal, tuint) :: (_row, tuint) :: (_rowId, tuint) ::
+               (_rightRowStart, tuint) :: (_rightRowEnd, tuint) ::
+               (_i__1, tuint) :: (_rightVal, tfloat) :: (_col, tuint) ::
+               (_newItem, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'1, (tptr (Tstruct __COOItem noattr))) :: nil);
+  fn_body :=
+(Ssequence
+  (Sset _len
+    (Efield
+      (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+        (Tstruct __COOChunk noattr)) _len tuint))
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint)
+      (Econst_int (Int.repr 0) tint))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _head
+          (tptr (Tstruct __LLNode noattr)))
+        (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+        (Ssequence
+          (Sset _colHead
+            (Efield
+              (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _head
+              (tptr (Tstruct __LLNode noattr))))
+          (Ssequence
+            (Ssequence
+              (Sset _i (Econst_int (Int.repr 0) tint))
+              (Sloop
+                (Ssequence
+                  (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                                 (Etempvar _len tuint) tint)
+                    Sskip
+                    Sbreak)
+                  (Ssequence
+                    (Sset _item
+                      (Efield
+                        (Ederef
+                          (Etempvar _colHead (tptr (Tstruct __LLNode noattr)))
+                          (Tstruct __LLNode noattr)) _item
+                        (tptr (Tstruct __COOItem noattr))))
+                    (Ssequence
+                      (Sset _leftVal
+                        (Ecast
+                          (Efield
+                            (Ederef
+                              (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                              (Tstruct __COOItem noattr)) _value tfloat)
+                          tuint))
+                      (Ssequence
+                        (Sset _row
+                          (Efield
+                            (Ederef
+                              (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                              (Tstruct __COOItem noattr)) _row tuint))
+                        (Ssequence
+                          (Sset _rowId
+                            (Efield
+                              (Ederef
+                                (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                                (Tstruct __COOItem noattr)) _col tuint))
+                          (Ssequence
+                            (Sset _rightRowStart
+                              (Ederef
+                                (Ebinop Oadd
+                                  (Efield
+                                    (Ederef
+                                      (Etempvar _right (tptr (Tstruct __CSRMatrix noattr)))
+                                      (Tstruct __CSRMatrix noattr)) _rows
+                                    (tptr tuint)) (Etempvar _rowId tuint)
+                                  (tptr tuint)) tuint))
+                            (Ssequence
+                              (Sset _rightRowEnd
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _right (tptr (Tstruct __CSRMatrix noattr)))
+                                        (Tstruct __CSRMatrix noattr)) _rows
+                                      (tptr tuint))
+                                    (Ebinop Oadd (Etempvar _rowId tuint)
+                                      (Econst_int (Int.repr 1) tint) tuint)
+                                    (tptr tuint)) tuint))
+                              (Ssequence
+                                (Ssequence
+                                  (Sset _i__1
+                                    (Etempvar _rightRowStart tuint))
+                                  (Sloop
+                                    (Ssequence
+                                      (Sifthenelse (Ebinop Olt
+                                                     (Etempvar _i__1 tuint)
+                                                     (Etempvar _rightRowEnd tuint)
+                                                     tint)
+                                        Sskip
+                                        Sbreak)
+                                      (Ssequence
+                                        (Sset _rightVal
+                                          (Ederef
+                                            (Ebinop Oadd
+                                              (Efield
+                                                (Ederef
+                                                  (Etempvar _right (tptr (Tstruct __CSRMatrix noattr)))
+                                                  (Tstruct __CSRMatrix noattr))
+                                                _values (tptr tfloat))
+                                              (Etempvar _i__1 tuint)
+                                              (tptr tfloat)) tfloat))
+                                        (Ssequence
+                                          (Sset _col
+                                            (Ederef
+                                              (Ebinop Oadd
+                                                (Efield
+                                                  (Ederef
+                                                    (Etempvar _right (tptr (Tstruct __CSRMatrix noattr)))
+                                                    (Tstruct __CSRMatrix noattr))
+                                                  _cols (tptr tuint))
+                                                (Etempvar _i__1 tuint)
+                                                (tptr tuint)) tuint))
+                                          (Ssequence
+                                            (Ssequence
+                                              (Scall (Some _t'1)
+                                                (Evar _COOItem_malloc 
+                                                (Tfunction
+                                                  (Tcons tuint
+                                                    (Tcons tuint
+                                                      (Tcons tfloat Tnil)))
+                                                  (tptr (Tstruct __COOItem noattr))
+                                                  cc_default))
+                                                ((Etempvar _row tuint) ::
+                                                 (Etempvar _col tuint) ::
+                                                 (Ebinop Omul
+                                                   (Etempvar _leftVal tuint)
+                                                   (Etempvar _rightVal tfloat)
+                                                   tfloat) :: nil))
+                                              (Sset _newItem
+                                                (Etempvar _t'1 (tptr (Tstruct __COOItem noattr)))))
+                                            (Scall None
+                                              (Evar _COOChunk_push (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOItem noattr))
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                              ((Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
+                                               (Etempvar _newItem (tptr (Tstruct __COOItem noattr))) ::
+                                               nil))))))
+                                    (Sset _i__1
+                                      (Ebinop Oadd (Etempvar _i__1 tuint)
+                                        (Econst_int (Int.repr 1) tint) tuint))))
+                                (Sset _colHead
+                                  (Efield
+                                    (Ederef
+                                      (Etempvar _colHead (tptr (Tstruct __LLNode noattr)))
+                                      (Tstruct __LLNode noattr)) _next
+                                    (tptr (Tstruct __LLNode noattr))))))))))))
+                (Sset _i
+                  (Ebinop Oadd (Etempvar _i tuint)
+                    (Econst_int (Int.repr 1) tint) tuint))))
+            (Sreturn None)))))))
 |}.
 
 Definition f_mergeLow := {|
-  fn_return := (tptr (Tstruct __COOChunk noattr));
+  fn_return := tvoid;
   fn_callconv := cc_default;
   fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
-                (_right, (tptr (Tstruct __COOChunk noattr))) :: nil);
+                (_right, (tptr (Tstruct __COOChunk noattr))) ::
+                (_result, (tptr (Tstruct __COOChunk noattr))) :: nil);
   fn_vars := nil;
   fn_temps := nil;
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+Sskip
 |}.
 
 Definition f_mergeTop := {|
-  fn_return := (tptr (Tstruct __COOChunk noattr));
+  fn_return := tvoid;
   fn_callconv := cc_default;
   fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
-                (_right, (tptr (Tstruct __COOChunk noattr))) :: nil);
+                (_right, (tptr (Tstruct __COOChunk noattr))) ::
+                (_result, (tptr (Tstruct __COOChunk noattr))) ::
+                (_maxBound, tuint) :: nil);
   fn_vars := nil;
   fn_temps := nil;
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+Sskip
 |}.
 
 Definition f_elimZero := {|
@@ -171,15 +836,669 @@ Definition f_elimZero := {|
 (Sreturn None)
 |}.
 
+Definition f_merge := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_left, (tptr (Tstruct __COOChunk noattr))) ::
+                (_right, (tptr (Tstruct __COOChunk noattr))) ::
+                (_result, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_li, (tptr (Tstruct __LLNode noattr))) ::
+               (_ri, (tptr (Tstruct __LLNode noattr))) ::
+               (_node, (tptr (Tstruct __LLNode noattr))) ::
+               (_litem, (tptr (Tstruct __COOItem noattr))) ::
+               (_ritem, (tptr (Tstruct __COOItem noattr))) ::
+               (_item, (tptr (Tstruct __COOItem noattr))) ::
+               (_tailItem, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'3, tint) :: (_t'2, tint) :: (_t'1, tint) :: nil);
+  fn_body :=
+(Ssequence
+  (Sset _li
+    (Efield
+      (Ederef (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+        (Tstruct __COOChunk noattr)) _head (tptr (Tstruct __LLNode noattr))))
+  (Ssequence
+    (Sset _ri
+      (Efield
+        (Ederef (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _head
+        (tptr (Tstruct __LLNode noattr))))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _len tuint)
+        (Econst_int (Int.repr 0) tint))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+        (Ssequence
+          (Sassign
+            (Efield
+              (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _tail
+              (tptr (Tstruct __LLNode noattr)))
+            (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+          (Sloop
+            (Ssequence
+              (Ssequence
+                (Sifthenelse (Ebinop Oeq
+                               (Etempvar _li (tptr (Tstruct __LLNode noattr)))
+                               (Ecast (Econst_int (Int.repr 0) tint)
+                                 (tptr tvoid)) tint)
+                  (Sset _t'1
+                    (Ecast
+                      (Ebinop Oeq
+                        (Etempvar _ri (tptr (Tstruct __LLNode noattr)))
+                        (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))
+                        tint) tbool))
+                  (Sset _t'1 (Econst_int (Int.repr 0) tint)))
+                (Sifthenelse (Eunop Onotbool (Etempvar _t'1 tint) tint)
+                  Sskip
+                  Sbreak))
+              (Ssequence
+                (Sifthenelse (Ebinop Oeq
+                               (Etempvar _li (tptr (Tstruct __LLNode noattr)))
+                               (Ecast (Econst_int (Int.repr 0) tint)
+                                 (tptr tvoid)) tint)
+                  (Ssequence
+                    (Sset _node
+                      (Etempvar _ri (tptr (Tstruct __LLNode noattr))))
+                    (Sset _ri
+                      (Efield
+                        (Ederef
+                          (Etempvar _ri (tptr (Tstruct __LLNode noattr)))
+                          (Tstruct __LLNode noattr)) _next
+                        (tptr (Tstruct __LLNode noattr)))))
+                  (Sifthenelse (Ebinop Oeq
+                                 (Etempvar _ri (tptr (Tstruct __LLNode noattr)))
+                                 (Ecast (Econst_int (Int.repr 0) tint)
+                                   (tptr tvoid)) tint)
+                    (Ssequence
+                      (Sset _node
+                        (Etempvar _li (tptr (Tstruct __LLNode noattr))))
+                      (Sset _li
+                        (Efield
+                          (Ederef
+                            (Etempvar _li (tptr (Tstruct __LLNode noattr)))
+                            (Tstruct __LLNode noattr)) _next
+                          (tptr (Tstruct __LLNode noattr)))))
+                    (Ssequence
+                      (Sset _litem
+                        (Efield
+                          (Ederef
+                            (Etempvar _li (tptr (Tstruct __LLNode noattr)))
+                            (Tstruct __LLNode noattr)) _item
+                          (tptr (Tstruct __COOItem noattr))))
+                      (Ssequence
+                        (Sset _ritem
+                          (Efield
+                            (Ederef
+                              (Etempvar _ri (tptr (Tstruct __LLNode noattr)))
+                              (Tstruct __LLNode noattr)) _item
+                            (tptr (Tstruct __COOItem noattr))))
+                        (Ssequence
+                          (Sifthenelse (Ebinop Olt
+                                         (Efield
+                                           (Ederef
+                                             (Etempvar _litem (tptr (Tstruct __COOItem noattr)))
+                                             (Tstruct __COOItem noattr)) _row
+                                           tuint)
+                                         (Efield
+                                           (Ederef
+                                             (Etempvar _ritem (tptr (Tstruct __COOItem noattr)))
+                                             (Tstruct __COOItem noattr)) _row
+                                           tuint) tint)
+                            (Sset _t'2 (Econst_int (Int.repr 1) tint))
+                            (Sifthenelse (Ebinop Oeq
+                                           (Efield
+                                             (Ederef
+                                               (Etempvar _litem (tptr (Tstruct __COOItem noattr)))
+                                               (Tstruct __COOItem noattr))
+                                             _row tuint)
+                                           (Efield
+                                             (Ederef
+                                               (Etempvar _ritem (tptr (Tstruct __COOItem noattr)))
+                                               (Tstruct __COOItem noattr))
+                                             _row tuint) tint)
+                              (Ssequence
+                                (Sset _t'2
+                                  (Ecast
+                                    (Ebinop Olt
+                                      (Efield
+                                        (Ederef
+                                          (Etempvar _litem (tptr (Tstruct __COOItem noattr)))
+                                          (Tstruct __COOItem noattr)) _row
+                                        tuint)
+                                      (Efield
+                                        (Ederef
+                                          (Etempvar _ritem (tptr (Tstruct __COOItem noattr)))
+                                          (Tstruct __COOItem noattr)) _row
+                                        tuint) tint) tbool))
+                                (Sset _t'2
+                                  (Ecast (Etempvar _t'2 tint) tbool)))
+                              (Sset _t'2
+                                (Ecast (Econst_int (Int.repr 0) tint) tbool))))
+                          (Sifthenelse (Etempvar _t'2 tint)
+                            (Ssequence
+                              (Sset _node
+                                (Etempvar _li (tptr (Tstruct __LLNode noattr))))
+                              (Sset _li
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _li (tptr (Tstruct __LLNode noattr)))
+                                    (Tstruct __LLNode noattr)) _next
+                                  (tptr (Tstruct __LLNode noattr)))))
+                            (Ssequence
+                              (Sset _node
+                                (Etempvar _ri (tptr (Tstruct __LLNode noattr))))
+                              (Sset _ri
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _ri (tptr (Tstruct __LLNode noattr)))
+                                    (Tstruct __LLNode noattr)) _next
+                                  (tptr (Tstruct __LLNode noattr)))))))))))
+                (Ssequence
+                  (Sassign
+                    (Efield
+                      (Ederef
+                        (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                        (Tstruct __LLNode noattr)) _next
+                      (tptr (Tstruct __LLNode noattr)))
+                    (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+                  (Ssequence
+                    (Sset _item
+                      (Efield
+                        (Ederef
+                          (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                          (Tstruct __LLNode noattr)) _item
+                        (tptr (Tstruct __COOItem noattr))))
+                    (Sifthenelse (Efield
+                                   (Ederef
+                                     (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                     (Tstruct __COOChunk noattr)) _tail
+                                   (tptr (Tstruct __LLNode noattr)))
+                      (Ssequence
+                        (Sset _tailItem
+                          (Efield
+                            (Ederef
+                              (Efield
+                                (Ederef
+                                  (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                  (Tstruct __COOChunk noattr)) _tail
+                                (tptr (Tstruct __LLNode noattr)))
+                              (Tstruct __LLNode noattr)) _item
+                            (tptr (Tstruct __COOItem noattr))))
+                        (Ssequence
+                          (Sassign
+                            (Efield
+                              (Ederef
+                                (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                (Tstruct __COOChunk noattr)) _len tuint)
+                            (Ebinop Oadd
+                              (Efield
+                                (Ederef
+                                  (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                  (Tstruct __COOChunk noattr)) _len tuint)
+                              (Econst_int (Int.repr 1) tint) tuint))
+                          (Ssequence
+                            (Sifthenelse (Ebinop Oeq
+                                           (Efield
+                                             (Ederef
+                                               (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                                               (Tstruct __COOItem noattr))
+                                             _row tuint)
+                                           (Efield
+                                             (Ederef
+                                               (Etempvar _tailItem (tptr (Tstruct __COOItem noattr)))
+                                               (Tstruct __COOItem noattr))
+                                             _row tuint) tint)
+                              (Sset _t'3
+                                (Ecast
+                                  (Ebinop Oeq
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                                        (Tstruct __COOItem noattr)) _col
+                                      tuint)
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _tailItem (tptr (Tstruct __COOItem noattr)))
+                                        (Tstruct __COOItem noattr)) _col
+                                      tuint) tint) tbool))
+                              (Sset _t'3 (Econst_int (Int.repr 0) tint)))
+                            (Sifthenelse (Etempvar _t'3 tint)
+                              (Sassign
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _tailItem (tptr (Tstruct __COOItem noattr)))
+                                    (Tstruct __COOItem noattr)) _value
+                                  tfloat)
+                                (Ebinop Oadd
+                                  (Efield
+                                    (Ederef
+                                      (Etempvar _tailItem (tptr (Tstruct __COOItem noattr)))
+                                      (Tstruct __COOItem noattr)) _value
+                                    tfloat)
+                                  (Efield
+                                    (Ederef
+                                      (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+                                      (Tstruct __COOItem noattr)) _value
+                                    tfloat) tfloat))
+                              (Sassign
+                                (Efield
+                                  (Ederef
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                        (Tstruct __COOChunk noattr)) _tail
+                                      (tptr (Tstruct __LLNode noattr)))
+                                    (Tstruct __LLNode noattr)) _next
+                                  (tptr (Tstruct __LLNode noattr)))
+                                (Etempvar _node (tptr (Tstruct __LLNode noattr))))))))
+                      (Ssequence
+                        (Sassign
+                          (Efield
+                            (Ederef
+                              (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                              (Tstruct __COOChunk noattr)) _len tuint)
+                          (Econst_int (Int.repr 1) tint))
+                        (Ssequence
+                          (Sassign
+                            (Efield
+                              (Ederef
+                                (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                (Tstruct __COOChunk noattr)) _head
+                              (tptr (Tstruct __LLNode noattr)))
+                            (Etempvar _node (tptr (Tstruct __LLNode noattr))))
+                          (Sassign
+                            (Efield
+                              (Ederef
+                                (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                                (Tstruct __COOChunk noattr)) _tail
+                              (tptr (Tstruct __LLNode noattr)))
+                            (Etempvar _node (tptr (Tstruct __LLNode noattr)))))))))))
+            Sskip))))))
+|}.
+
 Definition f_flattenByMergeTree := {|
-  fn_return := (tptr (Tstruct __COOChunk noattr));
+  fn_return := tvoid;
   fn_callconv := cc_default;
   fn_params := ((_chunks, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
-                (_len, tuint) :: nil);
+                (_len, tuint) ::
+                (_result, (tptr (Tstruct __COOChunk noattr))) :: nil);
   fn_vars := nil;
-  fn_temps := nil;
+  fn_temps := ((_currLen, tuint) ::
+               (_merger, (tptr (Tstruct __COOChunk noattr))) ::
+               (_temp, (tptr (Tstruct __COOChunk noattr))) :: (_i, tuint) ::
+               (_nextLen, tuint) :: (_i__1, tuint) ::
+               (_left, (tptr (Tstruct __COOChunk noattr))) ::
+               (_right, (tptr (Tstruct __COOChunk noattr))) ::
+               (_i__2, tuint) :: (_t'3, (tptr tvoid)) ::
+               (_t'2, (tptr tvoid)) :: (_t'1, (tptr tvoid)) :: nil);
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Sifthenelse (Ebinop Ole (Etempvar _len tuint)
+                 (Econst_int (Int.repr 0) tint) tint)
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _len tuint)
+        (Econst_int (Int.repr 0) tint))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+        (Ssequence
+          (Sassign
+            (Efield
+              (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _tail
+              (tptr (Tstruct __LLNode noattr)))
+            (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+          (Sreturn None))))
+    (Sifthenelse (Ebinop Oeq (Etempvar _len tuint)
+                   (Econst_int (Int.repr 1) tint) tint)
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _len tuint)
+          (Efield
+            (Ederef
+              (Ederef
+                (Ebinop Oadd
+                  (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                  (Econst_int (Int.repr 0) tint)
+                  (tptr (tptr (Tstruct __COOChunk noattr))))
+                (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _len tuint))
+        (Ssequence
+          (Sassign
+            (Efield
+              (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _head
+              (tptr (Tstruct __LLNode noattr)))
+            (Efield
+              (Ederef
+                (Ederef
+                  (Ebinop Oadd
+                    (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                    (Econst_int (Int.repr 0) tint)
+                    (tptr (tptr (Tstruct __COOChunk noattr))))
+                  (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _head
+              (tptr (Tstruct __LLNode noattr))))
+          (Ssequence
+            (Sassign
+              (Efield
+                (Ederef (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _tail
+                (tptr (Tstruct __LLNode noattr)))
+              (Efield
+                (Ederef
+                  (Ederef
+                    (Ebinop Oadd
+                      (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                      (Econst_int (Int.repr 0) tint)
+                      (tptr (tptr (Tstruct __COOChunk noattr))))
+                    (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _tail
+                (tptr (Tstruct __LLNode noattr))))
+            (Sreturn None))))
+      Sskip))
+  (Ssequence
+    (Sset _currLen (Etempvar _len tuint))
+    (Ssequence
+      (Ssequence
+        (Scall (Some _t'1)
+          (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                          cc_default))
+          ((Ebinop Omul (Etempvar _len tuint)
+             (Esizeof (Tstruct __COOChunk noattr) tuint) tuint) :: nil))
+        (Sset _merger
+          (Ecast (Etempvar _t'1 (tptr tvoid))
+            (tptr (Tstruct __COOChunk noattr)))))
+      (Ssequence
+        (Ssequence
+          (Scall (Some _t'2)
+            (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                            cc_default))
+            ((Ebinop Omul
+               (Ebinop Oadd
+                 (Ebinop Odiv (Etempvar _len tuint)
+                   (Econst_int (Int.repr 2) tint) tuint)
+                 (Econst_int (Int.repr 1) tint) tuint)
+               (Esizeof (Tstruct __COOChunk noattr) tuint) tuint) :: nil))
+          (Sset _temp
+            (Ecast (Etempvar _t'2 (tptr tvoid))
+              (tptr (Tstruct __COOChunk noattr)))))
+        (Ssequence
+          (Ssequence
+            (Sset _i (Econst_int (Int.repr 0) tint))
+            (Sloop
+              (Ssequence
+                (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                               (Etempvar _len tuint) tint)
+                  Sskip
+                  Sbreak)
+                (Ssequence
+                  (Sassign
+                    (Efield
+                      (Ederef
+                        (Ebinop Oadd
+                          (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                          (Etempvar _i tuint)
+                          (tptr (Tstruct __COOChunk noattr)))
+                        (Tstruct __COOChunk noattr)) _len tuint)
+                    (Efield
+                      (Ederef
+                        (Ederef
+                          (Ebinop Oadd
+                            (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                            (Etempvar _i tuint)
+                            (tptr (tptr (Tstruct __COOChunk noattr))))
+                          (tptr (Tstruct __COOChunk noattr)))
+                        (Tstruct __COOChunk noattr)) _len tuint))
+                  (Ssequence
+                    (Sassign
+                      (Efield
+                        (Ederef
+                          (Ebinop Oadd
+                            (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                            (Etempvar _i tuint)
+                            (tptr (Tstruct __COOChunk noattr)))
+                          (Tstruct __COOChunk noattr)) _head
+                        (tptr (Tstruct __LLNode noattr)))
+                      (Efield
+                        (Ederef
+                          (Ederef
+                            (Ebinop Oadd
+                              (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                              (Etempvar _i tuint)
+                              (tptr (tptr (Tstruct __COOChunk noattr))))
+                            (tptr (Tstruct __COOChunk noattr)))
+                          (Tstruct __COOChunk noattr)) _head
+                        (tptr (Tstruct __LLNode noattr))))
+                    (Sassign
+                      (Efield
+                        (Ederef
+                          (Ebinop Oadd
+                            (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                            (Etempvar _i tuint)
+                            (tptr (Tstruct __COOChunk noattr)))
+                          (Tstruct __COOChunk noattr)) _tail
+                        (tptr (Tstruct __LLNode noattr)))
+                      (Efield
+                        (Ederef
+                          (Ederef
+                            (Ebinop Oadd
+                              (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                              (Etempvar _i tuint)
+                              (tptr (tptr (Tstruct __COOChunk noattr))))
+                            (tptr (Tstruct __COOChunk noattr)))
+                          (Tstruct __COOChunk noattr)) _tail
+                        (tptr (Tstruct __LLNode noattr)))))))
+              (Sset _i
+                (Ebinop Oadd (Etempvar _i tuint)
+                  (Econst_int (Int.repr 1) tint) tuint))))
+          (Ssequence
+            (Swhile
+              (Ebinop Ogt (Etempvar _currLen tuint)
+                (Econst_int (Int.repr 1) tint) tint)
+              (Ssequence
+                (Sset _nextLen
+                  (Ebinop Odiv
+                    (Ebinop Oadd (Etempvar _currLen tuint)
+                      (Econst_int (Int.repr 1) tint) tuint)
+                    (Econst_int (Int.repr 2) tint) tuint))
+                (Ssequence
+                  (Ssequence
+                    (Sset _i__1 (Econst_int (Int.repr 0) tint))
+                    (Sloop
+                      (Ssequence
+                        (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                       (Etempvar _nextLen tuint) tint)
+                          Sskip
+                          Sbreak)
+                        (Ssequence
+                          (Sset _left
+                            (Ebinop Oadd
+                              (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                              (Ebinop Omul (Econst_int (Int.repr 2) tint)
+                                (Etempvar _i__1 tuint) tuint)
+                              (tptr (Tstruct __COOChunk noattr))))
+                          (Ssequence
+                            (Ssequence
+                              (Sifthenelse (Ebinop Oge
+                                             (Ebinop Oadd
+                                               (Ebinop Omul
+                                                 (Econst_int (Int.repr 2) tint)
+                                                 (Etempvar _i__1 tuint)
+                                                 tuint)
+                                               (Econst_int (Int.repr 1) tint)
+                                               tuint)
+                                             (Etempvar _currLen tuint) tint)
+                                (Sset _t'3
+                                  (Ecast
+                                    (Ecast (Econst_int (Int.repr 0) tint)
+                                      (tptr tvoid)) (tptr tvoid)))
+                                (Sset _t'3
+                                  (Ecast
+                                    (Ebinop Oadd
+                                      (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                                      (Ebinop Oadd
+                                        (Ebinop Omul
+                                          (Econst_int (Int.repr 2) tint)
+                                          (Etempvar _i__1 tuint) tuint)
+                                        (Econst_int (Int.repr 1) tint) tuint)
+                                      (tptr (Tstruct __COOChunk noattr)))
+                                    (tptr tvoid))))
+                              (Sset _right (Etempvar _t'3 (tptr tvoid))))
+                            (Scall None
+                              (Evar _merge (Tfunction
+                                             (Tcons
+                                               (tptr (Tstruct __COOChunk noattr))
+                                               (Tcons
+                                                 (tptr (Tstruct __COOChunk noattr))
+                                                 (Tcons
+                                                   (tptr (Tstruct __COOChunk noattr))
+                                                   Tnil))) tvoid cc_default))
+                              ((Etempvar _left (tptr (Tstruct __COOChunk noattr))) ::
+                               (Etempvar _right (tptr (Tstruct __COOChunk noattr))) ::
+                               (Ebinop Oadd
+                                 (Etempvar _temp (tptr (Tstruct __COOChunk noattr)))
+                                 (Etempvar _i__1 tuint)
+                                 (tptr (Tstruct __COOChunk noattr))) :: nil)))))
+                      (Sset _i__1
+                        (Ebinop Oadd (Etempvar _i__1 tuint)
+                          (Econst_int (Int.repr 1) tint) tuint))))
+                  (Ssequence
+                    (Ssequence
+                      (Sset _i__2 (Econst_int (Int.repr 0) tint))
+                      (Sloop
+                        (Ssequence
+                          (Sifthenelse (Ebinop Olt (Etempvar _i__2 tuint)
+                                         (Etempvar _nextLen tuint) tint)
+                            Sskip
+                            Sbreak)
+                          (Ssequence
+                            (Sassign
+                              (Efield
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                                    (Etempvar _i__2 tuint)
+                                    (tptr (Tstruct __COOChunk noattr)))
+                                  (Tstruct __COOChunk noattr)) _len tuint)
+                              (Efield
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Etempvar _temp (tptr (Tstruct __COOChunk noattr)))
+                                    (Etempvar _i__2 tuint)
+                                    (tptr (Tstruct __COOChunk noattr)))
+                                  (Tstruct __COOChunk noattr)) _len tuint))
+                            (Ssequence
+                              (Sassign
+                                (Efield
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                                      (Etempvar _i__2 tuint)
+                                      (tptr (Tstruct __COOChunk noattr)))
+                                    (Tstruct __COOChunk noattr)) _head
+                                  (tptr (Tstruct __LLNode noattr)))
+                                (Efield
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Etempvar _temp (tptr (Tstruct __COOChunk noattr)))
+                                      (Etempvar _i__2 tuint)
+                                      (tptr (Tstruct __COOChunk noattr)))
+                                    (Tstruct __COOChunk noattr)) _head
+                                  (tptr (Tstruct __LLNode noattr))))
+                              (Sassign
+                                (Efield
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                                      (Etempvar _i__2 tuint)
+                                      (tptr (Tstruct __COOChunk noattr)))
+                                    (Tstruct __COOChunk noattr)) _tail
+                                  (tptr (Tstruct __LLNode noattr)))
+                                (Efield
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Etempvar _temp (tptr (Tstruct __COOChunk noattr)))
+                                      (Etempvar _i__2 tuint)
+                                      (tptr (Tstruct __COOChunk noattr)))
+                                    (Tstruct __COOChunk noattr)) _tail
+                                  (tptr (Tstruct __LLNode noattr)))))))
+                        (Sset _i__2
+                          (Ebinop Oadd (Etempvar _i__2 tuint)
+                            (Econst_int (Int.repr 1) tint) tuint))))
+                    (Sset _currLen (Etempvar _nextLen tuint))))))
+            (Ssequence
+              (Sassign
+                (Efield
+                  (Ederef
+                    (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                    (Tstruct __COOChunk noattr)) _len tuint)
+                (Efield
+                  (Ederef
+                    (Ebinop Oadd
+                      (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                      (Econst_int (Int.repr 0) tint)
+                      (tptr (Tstruct __COOChunk noattr)))
+                    (Tstruct __COOChunk noattr)) _len tuint))
+              (Ssequence
+                (Sassign
+                  (Efield
+                    (Ederef
+                      (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                      (Tstruct __COOChunk noattr)) _head
+                    (tptr (Tstruct __LLNode noattr)))
+                  (Efield
+                    (Ederef
+                      (Ebinop Oadd
+                        (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                        (Econst_int (Int.repr 0) tint)
+                        (tptr (Tstruct __COOChunk noattr)))
+                      (Tstruct __COOChunk noattr)) _head
+                    (tptr (Tstruct __LLNode noattr))))
+                (Ssequence
+                  (Sassign
+                    (Efield
+                      (Ederef
+                        (Etempvar _result (tptr (Tstruct __COOChunk noattr)))
+                        (Tstruct __COOChunk noattr)) _tail
+                      (tptr (Tstruct __LLNode noattr)))
+                    (Efield
+                      (Ederef
+                        (Ebinop Oadd
+                          (Etempvar _merger (tptr (Tstruct __COOChunk noattr)))
+                          (Econst_int (Int.repr 0) tint)
+                          (tptr (Tstruct __COOChunk noattr)))
+                        (Tstruct __COOChunk noattr)) _tail
+                      (tptr (Tstruct __LLNode noattr))))
+                  (Ssequence
+                    (Scall None
+                      (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid
+                                    cc_default))
+                      ((Etempvar _merger (tptr (Tstruct __COOChunk noattr))) ::
+                       nil))
+                    (Scall None
+                      (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid
+                                    cc_default))
+                      ((Etempvar _temp (tptr (Tstruct __COOChunk noattr))) ::
+                       nil))))))))))))
 |}.
 
 Definition f_condense := {|
@@ -188,9 +1507,242 @@ Definition f_condense := {|
   fn_params := ((_csr, (tptr (Tstruct __CSRMatrix noattr))) ::
                 (_outLen, (tptr tuint)) :: nil);
   fn_vars := nil;
-  fn_temps := nil;
+  fn_temps := ((_len, tuint) :: (_i, tuint) :: (_rowCnt, tuint) ::
+               (_chunks, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+               (_height, tuint) :: (_i__1, tuint) ::
+               (_chunk, (tptr (Tstruct __COOChunk noattr))) :: (_j, tuint) ::
+               (_rowCnt__1, tuint) :: (_idx, tuint) :: (_col, tuint) ::
+               (_value, tfloat) ::
+               (_item, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'3, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'2, (tptr (Tstruct __COOChunk noattr))) ::
+               (_t'1, (tptr tvoid)) :: nil);
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Sset _len (Econst_int (Int.repr 0) tint))
+  (Ssequence
+    (Ssequence
+      (Sset _i (Econst_int (Int.repr 0) tint))
+      (Sloop
+        (Ssequence
+          (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                         (Efield
+                           (Ederef
+                             (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                             (Tstruct __CSRMatrix noattr)) _height tuint)
+                         tint)
+            Sskip
+            Sbreak)
+          (Ssequence
+            (Sset _rowCnt
+              (Ebinop Osub
+                (Ederef
+                  (Ebinop Oadd
+                    (Efield
+                      (Ederef
+                        (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                        (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                    (Ebinop Oadd (Etempvar _i tuint)
+                      (Econst_int (Int.repr 1) tint) tuint) (tptr tuint))
+                  tuint)
+                (Ederef
+                  (Ebinop Oadd
+                    (Efield
+                      (Ederef
+                        (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                        (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                    (Etempvar _i tuint) (tptr tuint)) tuint) tuint))
+            (Sifthenelse (Ebinop Ogt (Etempvar _rowCnt tuint)
+                           (Etempvar _len tuint) tint)
+              (Sset _len (Etempvar _rowCnt tuint))
+              Sskip)))
+        (Sset _i
+          (Ebinop Oadd (Etempvar _i tuint) (Econst_int (Int.repr 1) tint)
+            tuint))))
+    (Ssequence
+      (Sassign (Ederef (Etempvar _outLen (tptr tuint)) tuint)
+        (Etempvar _len tuint))
+      (Ssequence
+        (Ssequence
+          (Scall (Some _t'1)
+            (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                            cc_default))
+            ((Ebinop Omul (Etempvar _len tuint)
+               (Esizeof (tptr (Tstruct __COOChunk noattr)) tuint) tuint) ::
+             nil))
+          (Sset _chunks
+            (Ecast (Etempvar _t'1 (tptr tvoid))
+              (tptr (tptr (Tstruct __COOChunk noattr))))))
+        (Ssequence
+          (Sset _height
+            (Efield
+              (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                (Tstruct __CSRMatrix noattr)) _height tuint))
+          (Ssequence
+            (Ssequence
+              (Sset _i__1 (Econst_int (Int.repr 0) tint))
+              (Sloop
+                (Ssequence
+                  (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                 (Etempvar _len tuint) tint)
+                    Sskip
+                    Sbreak)
+                  (Ssequence
+                    (Ssequence
+                      (Scall (Some _t'2)
+                        (Evar _COOChunk_malloc (Tfunction Tnil
+                                                 (tptr (Tstruct __COOChunk noattr))
+                                                 cc_default)) nil)
+                      (Sset _chunk
+                        (Etempvar _t'2 (tptr (Tstruct __COOChunk noattr)))))
+                    (Ssequence
+                      (Sassign
+                        (Ederef
+                          (Ebinop Oadd
+                            (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))
+                            (Etempvar _i__1 tuint)
+                            (tptr (tptr (Tstruct __COOChunk noattr))))
+                          (tptr (Tstruct __COOChunk noattr)))
+                        (Etempvar _chunk (tptr (Tstruct __COOChunk noattr))))
+                      (Ssequence
+                        (Sset _j (Econst_int (Int.repr 0) tint))
+                        (Sloop
+                          (Ssequence
+                            (Sifthenelse (Ebinop Olt (Etempvar _j tuint)
+                                           (Etempvar _height tuint) tint)
+                              Sskip
+                              Sbreak)
+                            (Ssequence
+                              (Sset _rowCnt__1
+                                (Ebinop Osub
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Efield
+                                        (Ederef
+                                          (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                          (Tstruct __CSRMatrix noattr)) _rows
+                                        (tptr tuint))
+                                      (Ebinop Oadd (Etempvar _j tuint)
+                                        (Econst_int (Int.repr 1) tint) tuint)
+                                      (tptr tuint)) tuint)
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Efield
+                                        (Ederef
+                                          (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                          (Tstruct __CSRMatrix noattr)) _rows
+                                        (tptr tuint)) (Etempvar _j tuint)
+                                      (tptr tuint)) tuint) tuint))
+                              (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                             (Etempvar _rowCnt__1 tuint)
+                                             tint)
+                                (Ssequence
+                                  (Sset _idx
+                                    (Ebinop Oadd
+                                      (Ederef
+                                        (Ebinop Oadd
+                                          (Efield
+                                            (Ederef
+                                              (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                              (Tstruct __CSRMatrix noattr))
+                                            _rows (tptr tuint))
+                                          (Etempvar _j tuint) (tptr tuint))
+                                        tuint) (Etempvar _i__1 tuint) tuint))
+                                  (Ssequence
+                                    (Sset _col
+                                      (Ederef
+                                        (Ebinop Oadd
+                                          (Efield
+                                            (Ederef
+                                              (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                              (Tstruct __CSRMatrix noattr))
+                                            _cols (tptr tuint))
+                                          (Etempvar _idx tuint) (tptr tuint))
+                                        tuint))
+                                    (Ssequence
+                                      (Sset _value
+                                        (Ederef
+                                          (Ebinop Oadd
+                                            (Efield
+                                              (Ederef
+                                                (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                                (Tstruct __CSRMatrix noattr))
+                                              _values (tptr tfloat))
+                                            (Etempvar _idx tuint)
+                                            (tptr tfloat)) tfloat))
+                                      (Ssequence
+                                        (Ssequence
+                                          (Scall (Some _t'3)
+                                            (Evar _COOItem_malloc (Tfunction
+                                                                    (Tcons
+                                                                    tuint
+                                                                    (Tcons
+                                                                    tuint
+                                                                    (Tcons
+                                                                    tfloat
+                                                                    Tnil)))
+                                                                    (tptr (Tstruct __COOItem noattr))
+                                                                    cc_default))
+                                            ((Etempvar _j tuint) ::
+                                             (Etempvar _col tuint) ::
+                                             (Etempvar _value tfloat) :: nil))
+                                          (Sset _item
+                                            (Etempvar _t'3 (tptr (Tstruct __COOItem noattr)))))
+                                        (Scall None
+                                          (Evar _COOChunk_push (Tfunction
+                                                                 (Tcons
+                                                                   (tptr (Tstruct __COOChunk noattr))
+                                                                   (Tcons
+                                                                    (tptr (Tstruct __COOItem noattr))
+                                                                    Tnil))
+                                                                 tvoid
+                                                                 cc_default))
+                                          ((Etempvar _chunk (tptr (Tstruct __COOChunk noattr))) ::
+                                           (Etempvar _item (tptr (Tstruct __COOItem noattr))) ::
+                                           nil))))))
+                                Sskip)))
+                          (Sset _j
+                            (Ebinop Oadd (Etempvar _j tuint)
+                              (Econst_int (Int.repr 1) tint) tuint)))))))
+                (Sset _i__1
+                  (Ebinop Oadd (Etempvar _i__1 tuint)
+                    (Econst_int (Int.repr 1) tint) tuint))))
+            (Sreturn (Some (Etempvar _chunks (tptr (tptr (Tstruct __COOChunk noattr))))))))))))
+|}.
+
+Definition f_swapHeap := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_heap, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                (_i, tuint) :: (_j, tuint) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_temp, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_body :=
+(Ssequence
+  (Sset _temp
+    (Ederef
+      (Ebinop Oadd (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+        (Etempvar _i tuint) (tptr (tptr (Tstruct __COOChunk noattr))))
+      (tptr (Tstruct __COOChunk noattr))))
+  (Ssequence
+    (Sassign
+      (Ederef
+        (Ebinop Oadd
+          (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+          (Etempvar _i tuint) (tptr (tptr (Tstruct __COOChunk noattr))))
+        (tptr (Tstruct __COOChunk noattr)))
+      (Ederef
+        (Ebinop Oadd
+          (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+          (Etempvar _j tuint) (tptr (tptr (Tstruct __COOChunk noattr))))
+        (tptr (Tstruct __COOChunk noattr))))
+    (Sassign
+      (Ederef
+        (Ebinop Oadd
+          (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+          (Etempvar _j tuint) (tptr (tptr (Tstruct __COOChunk noattr))))
+        (tptr (Tstruct __COOChunk noattr)))
+      (Etempvar _temp (tptr (Tstruct __COOChunk noattr))))))
 |}.
 
 Definition f_addQueue := {|
@@ -199,20 +1751,445 @@ Definition f_addQueue := {|
   fn_params := ((_queue, (tptr (Tstruct __PriorQ noattr))) ::
                 (_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
   fn_vars := nil;
-  fn_temps := nil;
+  fn_temps := ((_heap, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+               (_idx, tuint) :: (_parent, tuint) :: nil);
   fn_body :=
-(Sreturn None)
+(Ssequence
+  (Sifthenelse (Ebinop Oge
+                 (Efield
+                   (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+                     (Tstruct __PriorQ noattr)) _count tuint)
+                 (Efield
+                   (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+                     (Tstruct __PriorQ noattr)) _maxCount tuint) tint)
+    (Sreturn None)
+    Sskip)
+  (Ssequence
+    (Sset _heap
+      (Efield
+        (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+          (Tstruct __PriorQ noattr)) _heap
+        (tptr (tptr (Tstruct __COOChunk noattr)))))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+            (Tstruct __PriorQ noattr)) _count tuint)
+        (Ebinop Oadd
+          (Efield
+            (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+              (Tstruct __PriorQ noattr)) _count tuint)
+          (Econst_int (Int.repr 1) tint) tuint))
+      (Ssequence
+        (Sset _idx
+          (Efield
+            (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+              (Tstruct __PriorQ noattr)) _count tuint))
+        (Ssequence
+          (Sassign
+            (Ederef
+              (Ebinop Oadd
+                (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                (Etempvar _idx tuint)
+                (tptr (tptr (Tstruct __COOChunk noattr))))
+              (tptr (Tstruct __COOChunk noattr)))
+            (Etempvar _chunk (tptr (Tstruct __COOChunk noattr))))
+          (Swhile
+            (Ebinop Ogt (Etempvar _idx tuint) (Econst_int (Int.repr 1) tint)
+              tint)
+            (Ssequence
+              (Sset _parent
+                (Ebinop Odiv (Etempvar _idx tuint)
+                  (Econst_int (Int.repr 2) tint) tuint))
+              (Ssequence
+                (Sifthenelse (Ebinop Olt
+                               (Efield
+                                 (Ederef
+                                   (Ederef
+                                     (Ebinop Oadd
+                                       (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                       (Etempvar _idx tuint)
+                                       (tptr (tptr (Tstruct __COOChunk noattr))))
+                                     (tptr (Tstruct __COOChunk noattr)))
+                                   (Tstruct __COOChunk noattr)) _len tuint)
+                               (Efield
+                                 (Ederef
+                                   (Ederef
+                                     (Ebinop Oadd
+                                       (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                       (Etempvar _parent tuint)
+                                       (tptr (tptr (Tstruct __COOChunk noattr))))
+                                     (tptr (Tstruct __COOChunk noattr)))
+                                   (Tstruct __COOChunk noattr)) _len tuint)
+                               tint)
+                  (Scall None
+                    (Evar _swapHeap (Tfunction
+                                      (Tcons
+                                        (tptr (tptr (Tstruct __COOChunk noattr)))
+                                        (Tcons tuint (Tcons tuint Tnil)))
+                                      tvoid cc_default))
+                    ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                     (Etempvar _idx tuint) :: (Etempvar _parent tuint) ::
+                     nil))
+                  Sskip)
+                (Sset _idx (Etempvar _parent tuint))))))))))
 |}.
 
 Definition f_popQueue := {|
   fn_return := (tptr (Tstruct __COOChunk noattr));
   fn_callconv := cc_default;
-  fn_params := ((_queue, (tptr (Tstruct __PriorQ noattr))) ::
-                (_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_params := ((_queue, (tptr (Tstruct __PriorQ noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_idx, tuint) :: (_count, tuint) ::
+               (_heap, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+               (_result, (tptr (Tstruct __COOChunk noattr))) ::
+               (_leftIdx, tuint) :: (_rightIdx, tuint) :: nil);
+  fn_body :=
+(Ssequence
+  (Sifthenelse (Ebinop Oeq
+                 (Efield
+                   (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+                     (Tstruct __PriorQ noattr)) _count tuint)
+                 (Econst_int (Int.repr 0) tint) tint)
+    (Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+    Sskip)
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+          (Tstruct __PriorQ noattr)) _count tuint)
+      (Ebinop Osub
+        (Efield
+          (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+            (Tstruct __PriorQ noattr)) _count tuint)
+        (Econst_int (Int.repr 1) tint) tuint))
+    (Ssequence
+      (Sset _idx (Econst_int (Int.repr 1) tint))
+      (Ssequence
+        (Sset _count
+          (Efield
+            (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+              (Tstruct __PriorQ noattr)) _count tuint))
+        (Ssequence
+          (Sset _heap
+            (Efield
+              (Ederef (Etempvar _queue (tptr (Tstruct __PriorQ noattr)))
+                (Tstruct __PriorQ noattr)) _heap
+              (tptr (tptr (Tstruct __COOChunk noattr)))))
+          (Ssequence
+            (Sset _result
+              (Ederef
+                (Ebinop Oadd
+                  (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                  (Econst_int (Int.repr 1) tint)
+                  (tptr (tptr (Tstruct __COOChunk noattr))))
+                (tptr (Tstruct __COOChunk noattr))))
+            (Ssequence
+              (Scall None
+                (Evar _swapHeap (Tfunction
+                                  (Tcons
+                                    (tptr (tptr (Tstruct __COOChunk noattr)))
+                                    (Tcons tuint (Tcons tuint Tnil))) tvoid
+                                  cc_default))
+                ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                 (Econst_int (Int.repr 0) tint) :: (Etempvar _count tuint) ::
+                 nil))
+              (Ssequence
+                (Swhile
+                  (Ebinop Olt (Etempvar _idx tuint) (Etempvar _count tuint)
+                    tint)
+                  (Ssequence
+                    (Sset _leftIdx
+                      (Ebinop Omul (Etempvar _idx tuint)
+                        (Econst_int (Int.repr 2) tint) tuint))
+                    (Ssequence
+                      (Sset _rightIdx
+                        (Ebinop Oadd
+                          (Ebinop Omul (Etempvar _idx tuint)
+                            (Econst_int (Int.repr 2) tint) tuint)
+                          (Econst_int (Int.repr 1) tint) tuint))
+                      (Sifthenelse (Ebinop Olt (Etempvar _count tuint)
+                                     (Etempvar _leftIdx tuint) tint)
+                        (Sset _idx (Etempvar _leftIdx tuint))
+                        (Sifthenelse (Ebinop Oeq (Etempvar _count tuint)
+                                       (Etempvar _leftIdx tuint) tint)
+                          (Ssequence
+                            (Sifthenelse (Ebinop Ogt
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _idx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint)
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _leftIdx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint) tint)
+                              (Scall None
+                                (Evar _swapHeap (Tfunction
+                                                  (Tcons
+                                                    (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                    (Tcons tuint
+                                                      (Tcons tuint Tnil)))
+                                                  tvoid cc_default))
+                                ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                 (Etempvar _idx tuint) ::
+                                 (Etempvar _leftIdx tuint) :: nil))
+                              Sskip)
+                            (Sset _idx (Etempvar _leftIdx tuint)))
+                          (Sifthenelse (Ebinop Ogt
+                                         (Efield
+                                           (Ederef
+                                             (Ederef
+                                               (Ebinop Oadd
+                                                 (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (Etempvar _idx tuint)
+                                                 (tptr (tptr (Tstruct __COOChunk noattr))))
+                                               (tptr (Tstruct __COOChunk noattr)))
+                                             (Tstruct __COOChunk noattr))
+                                           _len tuint)
+                                         (Efield
+                                           (Ederef
+                                             (Ederef
+                                               (Ebinop Oadd
+                                                 (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (Etempvar _leftIdx tuint)
+                                                 (tptr (tptr (Tstruct __COOChunk noattr))))
+                                               (tptr (Tstruct __COOChunk noattr)))
+                                             (Tstruct __COOChunk noattr))
+                                           _len tuint) tint)
+                            (Sifthenelse (Ebinop Ogt
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _idx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint)
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _rightIdx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint) tint)
+                              (Sifthenelse (Ebinop Olt
+                                             (Efield
+                                               (Ederef
+                                                 (Ederef
+                                                   (Ebinop Oadd
+                                                     (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                     (Etempvar _leftIdx tuint)
+                                                     (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (tptr (Tstruct __COOChunk noattr)))
+                                                 (Tstruct __COOChunk noattr))
+                                               _len tuint)
+                                             (Efield
+                                               (Ederef
+                                                 (Ederef
+                                                   (Ebinop Oadd
+                                                     (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                     (Etempvar _rightIdx tuint)
+                                                     (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (tptr (Tstruct __COOChunk noattr)))
+                                                 (Tstruct __COOChunk noattr))
+                                               _len tuint) tint)
+                                (Ssequence
+                                  (Scall None
+                                    (Evar _swapHeap (Tfunction
+                                                      (Tcons
+                                                        (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                        (Tcons tuint
+                                                          (Tcons tuint Tnil)))
+                                                      tvoid cc_default))
+                                    ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                     (Etempvar _idx tuint) ::
+                                     (Etempvar _leftIdx tuint) :: nil))
+                                  (Sset _idx (Etempvar _leftIdx tuint)))
+                                (Ssequence
+                                  (Scall None
+                                    (Evar _swapHeap (Tfunction
+                                                      (Tcons
+                                                        (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                        (Tcons tuint
+                                                          (Tcons tuint Tnil)))
+                                                      tvoid cc_default))
+                                    ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                     (Etempvar _idx tuint) ::
+                                     (Etempvar _rightIdx tuint) :: nil))
+                                  (Sset _idx (Etempvar _rightIdx tuint))))
+                              (Ssequence
+                                (Scall None
+                                  (Evar _swapHeap (Tfunction
+                                                    (Tcons
+                                                      (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                      (Tcons tuint
+                                                        (Tcons tuint Tnil)))
+                                                    tvoid cc_default))
+                                  ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                   (Etempvar _idx tuint) ::
+                                   (Etempvar _leftIdx tuint) :: nil))
+                                (Sset _idx (Etempvar _leftIdx tuint))))
+                            (Sifthenelse (Ebinop Ogt
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _idx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint)
+                                           (Efield
+                                             (Ederef
+                                               (Ederef
+                                                 (Ebinop Oadd
+                                                   (Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                   (Etempvar _rightIdx tuint)
+                                                   (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (tptr (Tstruct __COOChunk noattr)))
+                                               (Tstruct __COOChunk noattr))
+                                             _len tuint) tint)
+                              (Ssequence
+                                (Scall None
+                                  (Evar _swapHeap (Tfunction
+                                                    (Tcons
+                                                      (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                      (Tcons tuint
+                                                        (Tcons tuint Tnil)))
+                                                    tvoid cc_default))
+                                  ((Etempvar _heap (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                   (Etempvar _idx tuint) ::
+                                   (Etempvar _rightIdx tuint) :: nil))
+                                (Sset _idx (Etempvar _rightIdx tuint)))
+                              (Sset _idx (Etempvar _rightIdx tuint)))))))))
+                (Sreturn (Some (Etempvar _result (tptr (Tstruct __COOChunk noattr)))))))))))))
+|}.
+
+Definition f_COOItem_malloc := {|
+  fn_return := (tptr (Tstruct __COOItem noattr));
+  fn_callconv := cc_default;
+  fn_params := ((_row, tuint) :: (_col, tuint) :: (_value, tfloat) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_item, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'1, (tptr tvoid)) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+      ((Esizeof (Tstruct __COOItem noattr) tuint) :: nil))
+    (Sset _item
+      (Ecast (Etempvar _t'1 (tptr tvoid)) (tptr (Tstruct __COOItem noattr)))))
+  (Ssequence
+    (Sassign
+      (Efield
+        (Ederef (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+          (Tstruct __COOItem noattr)) _row tuint) (Etempvar _row tuint))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+            (Tstruct __COOItem noattr)) _col tuint) (Etempvar _col tuint))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _item (tptr (Tstruct __COOItem noattr)))
+              (Tstruct __COOItem noattr)) _value tfloat)
+          (Etempvar _value tfloat))
+        (Sreturn (Some (Etempvar _item (tptr (Tstruct __COOItem noattr)))))))))
+|}.
+
+Definition f_COOItem_free := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_item, (tptr (Tstruct __COOItem noattr))) :: nil);
   fn_vars := nil;
   fn_temps := nil;
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Scall None
+  (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+  ((Etempvar _item (tptr (Tstruct __COOItem noattr))) :: nil))
+|}.
+
+Definition f_Matrix_malloc := {|
+  fn_return := (tptr (Tstruct __Matrix noattr));
+  fn_callconv := cc_default;
+  fn_params := ((_height, tuint) :: (_width, tuint) :: nil);
+  fn_vars := nil;
+  fn_temps := ((_matrix, (tptr (Tstruct __Matrix noattr))) ::
+               (_values, (tptr tfloat)) :: (_t'2, (tptr tvoid)) ::
+               (_t'1, (tptr tvoid)) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+      ((Ebinop Omul
+         (Ebinop Omul (Etempvar _height tuint) (Etempvar _width tuint) tuint)
+         (Esizeof tfloat tuint) tuint) :: nil))
+    (Sset _values (Ecast (Etempvar _t'1 (tptr tvoid)) (tptr tfloat))))
+  (Ssequence
+    (Ssequence
+      (Scall (Some _t'2)
+        (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+        ((Esizeof (Tstruct __Matrix noattr) tuint) :: nil))
+      (Sset _matrix
+        (Ecast (Etempvar _t'2 (tptr tvoid)) (tptr (Tstruct __Matrix noattr)))))
+    (Ssequence
+      (Sassign
+        (Efield
+          (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+            (Tstruct __Matrix noattr)) _height tuint)
+        (Etempvar _height tuint))
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+              (Tstruct __Matrix noattr)) _width tuint)
+          (Etempvar _width tuint))
+        (Ssequence
+          (Sassign
+            (Efield
+              (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+                (Tstruct __Matrix noattr)) _values (tptr tfloat))
+            (Etempvar _values (tptr tfloat)))
+          (Sreturn (Some (Etempvar _matrix (tptr (Tstruct __Matrix noattr))))))))))
+|}.
+
+Definition f_Matrix_free := {|
+  fn_return := tvoid;
+  fn_callconv := cc_default;
+  fn_params := ((_matrix, (tptr (Tstruct __Matrix noattr))) :: nil);
+  fn_vars := nil;
+  fn_temps := nil;
+  fn_body :=
+(Ssequence
+  (Scall None
+    (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+    ((Efield
+       (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+         (Tstruct __Matrix noattr)) _values (tptr tfloat)) :: nil))
+  (Scall None
+    (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+    ((Etempvar _matrix (tptr (Tstruct __Matrix noattr))) :: nil)))
 |}.
 
 Definition f_Matrix_toCSR := {|
@@ -220,29 +2197,282 @@ Definition f_Matrix_toCSR := {|
   fn_callconv := cc_default;
   fn_params := ((_matrix, (tptr (Tstruct __Matrix noattr))) :: nil);
   fn_vars := nil;
-  fn_temps := nil;
+  fn_temps := ((_height, tuint) :: (_width, tuint) :: (_count, tuint) ::
+               (_lenVal, tuint) :: (_i, tuint) ::
+               (_csr, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_index, tuint) :: (_i__1, tuint) :: (_j, tuint) ::
+               (_offset, tuint) :: (_value, tfloat) ::
+               (_t'1, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Sset _height
+    (Efield
+      (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+        (Tstruct __Matrix noattr)) _height tuint))
+  (Ssequence
+    (Sset _width
+      (Efield
+        (Ederef (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+          (Tstruct __Matrix noattr)) _width tuint))
+    (Ssequence
+      (Sset _count
+        (Ebinop Omul (Etempvar _height tuint) (Etempvar _width tuint) tuint))
+      (Ssequence
+        (Sset _lenVal (Econst_int (Int.repr 0) tint))
+        (Ssequence
+          (Ssequence
+            (Sset _i (Econst_int (Int.repr 0) tint))
+            (Sloop
+              (Ssequence
+                (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                               (Etempvar _count tuint) tint)
+                  Sskip
+                  Sbreak)
+                (Sifthenelse (Ebinop One
+                               (Ederef
+                                 (Ebinop Oadd
+                                   (Efield
+                                     (Ederef
+                                       (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+                                       (Tstruct __Matrix noattr)) _values
+                                     (tptr tfloat)) (Etempvar _i tuint)
+                                   (tptr tfloat)) tfloat)
+                               (Econst_float (Float.of_bits (Int64.repr 0)) tdouble)
+                               tint)
+                  (Sset _lenVal
+                    (Ebinop Oadd (Etempvar _lenVal tuint)
+                      (Econst_int (Int.repr 1) tint) tuint))
+                  Sskip))
+              (Sset _i
+                (Ebinop Oadd (Etempvar _i tuint)
+                  (Econst_int (Int.repr 1) tint) tuint))))
+          (Ssequence
+            (Ssequence
+              (Scall (Some _t'1)
+                (Evar _CSR_malloc (Tfunction
+                                    (Tcons tuint
+                                      (Tcons tuint (Tcons tuint Tnil)))
+                                    (tptr (Tstruct __CSRMatrix noattr))
+                                    cc_default))
+                ((Etempvar _height tuint) :: (Etempvar _width tuint) ::
+                 (Etempvar _lenVal tuint) :: nil))
+              (Sset _csr (Etempvar _t'1 (tptr (Tstruct __CSRMatrix noattr)))))
+            (Ssequence
+              (Sset _index (Econst_int (Int.repr 0) tint))
+              (Ssequence
+                (Sassign
+                  (Ederef
+                    (Ebinop Oadd
+                      (Efield
+                        (Ederef
+                          (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                          (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                      (Econst_int (Int.repr 0) tint) (tptr tuint)) tuint)
+                  (Econst_int (Int.repr 0) tint))
+                (Ssequence
+                  (Ssequence
+                    (Sset _i__1 (Econst_int (Int.repr 0) tint))
+                    (Sloop
+                      (Ssequence
+                        (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                       (Etempvar _height tuint) tint)
+                          Sskip
+                          Sbreak)
+                        (Ssequence
+                          (Ssequence
+                            (Sset _j (Econst_int (Int.repr 0) tint))
+                            (Sloop
+                              (Ssequence
+                                (Sifthenelse (Ebinop Olt (Etempvar _j tuint)
+                                               (Etempvar _width tuint) tint)
+                                  Sskip
+                                  Sbreak)
+                                (Ssequence
+                                  (Sset _offset
+                                    (Ebinop Oadd
+                                      (Ebinop Omul (Etempvar _i__1 tuint)
+                                        (Etempvar _width tuint) tuint)
+                                      (Etempvar _j tuint) tuint))
+                                  (Ssequence
+                                    (Sset _value
+                                      (Ederef
+                                        (Ebinop Oadd
+                                          (Efield
+                                            (Ederef
+                                              (Etempvar _matrix (tptr (Tstruct __Matrix noattr)))
+                                              (Tstruct __Matrix noattr))
+                                            _values (tptr tfloat))
+                                          (Etempvar _offset tuint)
+                                          (tptr tfloat)) tfloat))
+                                    (Sifthenelse (Ebinop One
+                                                   (Etempvar _value tfloat)
+                                                   (Econst_float (Float.of_bits (Int64.repr 0)) tdouble)
+                                                   tint)
+                                      (Ssequence
+                                        (Sassign
+                                          (Ederef
+                                            (Ebinop Oadd
+                                              (Efield
+                                                (Ederef
+                                                  (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                                  (Tstruct __CSRMatrix noattr))
+                                                _values (tptr tfloat))
+                                              (Etempvar _index tuint)
+                                              (tptr tfloat)) tfloat)
+                                          (Etempvar _value tfloat))
+                                        (Ssequence
+                                          (Sassign
+                                            (Ederef
+                                              (Ebinop Oadd
+                                                (Efield
+                                                  (Ederef
+                                                    (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                                    (Tstruct __CSRMatrix noattr))
+                                                  _cols (tptr tuint))
+                                                (Etempvar _index tuint)
+                                                (tptr tuint)) tuint)
+                                            (Etempvar _j tuint))
+                                          (Sset _index
+                                            (Ebinop Oadd
+                                              (Etempvar _index tuint)
+                                              (Econst_int (Int.repr 1) tint)
+                                              tuint))))
+                                      Sskip))))
+                              (Sset _j
+                                (Ebinop Oadd (Etempvar _j tuint)
+                                  (Econst_int (Int.repr 1) tint) tuint))))
+                          (Sassign
+                            (Ederef
+                              (Ebinop Oadd
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                    (Tstruct __CSRMatrix noattr)) _rows
+                                  (tptr tuint))
+                                (Ebinop Oadd (Etempvar _i__1 tuint)
+                                  (Econst_int (Int.repr 1) tint) tuint)
+                                (tptr tuint)) tuint) (Etempvar _index tuint))))
+                      (Sset _i__1
+                        (Ebinop Oadd (Etempvar _i__1 tuint)
+                          (Econst_int (Int.repr 1) tint) tuint))))
+                  (Sreturn (Some (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr))))))))))))))
 |}.
 
-Definition f_CSR_toCOO := {|
-  fn_return := (tptr (Tstruct __COOMatrix noattr));
+Definition f_CSR_malloc := {|
+  fn_return := (tptr (Tstruct __CSRMatrix noattr));
+  fn_callconv := cc_default;
+  fn_params := ((_height, tuint) :: (_width, tuint) :: (_lenVal, tuint) ::
+                nil);
+  fn_vars := nil;
+  fn_temps := ((_csr, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_cols, (tptr tuint)) :: (_rows, (tptr tuint)) ::
+               (_values, (tptr tfloat)) :: (_t'4, (tptr tvoid)) ::
+               (_t'3, (tptr tvoid)) :: (_t'2, (tptr tvoid)) ::
+               (_t'1, (tptr tvoid)) :: nil);
+  fn_body :=
+(Ssequence
+  (Ssequence
+    (Scall (Some _t'1)
+      (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+      ((Ebinop Omul (Etempvar _lenVal tuint) (Esizeof tfloat tuint) tuint) ::
+       nil))
+    (Sset _values (Ecast (Etempvar _t'1 (tptr tvoid)) (tptr tfloat))))
+  (Ssequence
+    (Ssequence
+      (Scall (Some _t'2)
+        (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid) cc_default))
+        ((Ebinop Omul (Etempvar _lenVal tuint) (Esizeof tuint tuint) tuint) ::
+         nil))
+      (Sset _cols (Ecast (Etempvar _t'2 (tptr tvoid)) (tptr tuint))))
+    (Ssequence
+      (Ssequence
+        (Scall (Some _t'3)
+          (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                          cc_default))
+          ((Ebinop Omul
+             (Ebinop Oadd (Etempvar _height tuint)
+               (Econst_int (Int.repr 1) tint) tuint) (Esizeof tuint tuint)
+             tuint) :: nil))
+        (Sset _rows (Ecast (Etempvar _t'3 (tptr tvoid)) (tptr tuint))))
+      (Ssequence
+        (Ssequence
+          (Scall (Some _t'4)
+            (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                            cc_default))
+            ((Esizeof (Tstruct __CSRMatrix noattr) tuint) :: nil))
+          (Sset _csr
+            (Ecast (Etempvar _t'4 (tptr tvoid))
+              (tptr (Tstruct __CSRMatrix noattr)))))
+        (Ssequence
+          (Sassign
+            (Efield
+              (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                (Tstruct __CSRMatrix noattr)) _height tuint)
+            (Etempvar _height tuint))
+          (Ssequence
+            (Sassign
+              (Efield
+                (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                  (Tstruct __CSRMatrix noattr)) _width tuint)
+              (Etempvar _width tuint))
+            (Ssequence
+              (Sassign
+                (Efield
+                  (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                    (Tstruct __CSRMatrix noattr)) _lenVal tuint)
+                (Etempvar _lenVal tuint))
+              (Ssequence
+                (Sassign
+                  (Efield
+                    (Ederef
+                      (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                      (Tstruct __CSRMatrix noattr)) _values (tptr tfloat))
+                  (Etempvar _values (tptr tfloat)))
+                (Ssequence
+                  (Sassign
+                    (Efield
+                      (Ederef
+                        (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                        (Tstruct __CSRMatrix noattr)) _cols (tptr tuint))
+                    (Etempvar _cols (tptr tuint)))
+                  (Ssequence
+                    (Sassign
+                      (Efield
+                        (Ederef
+                          (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                          (Tstruct __CSRMatrix noattr)) _rows (tptr tuint))
+                      (Etempvar _rows (tptr tuint)))
+                    (Sreturn (Some (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))))))))))))))
+|}.
+
+Definition f_CSR_free := {|
+  fn_return := tvoid;
   fn_callconv := cc_default;
   fn_params := ((_csr, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
   fn_vars := nil;
   fn_temps := nil;
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
-|}.
-
-Definition f_COO_toCSR := {|
-  fn_return := (tptr (Tstruct __CSRMatrix noattr));
-  fn_callconv := cc_default;
-  fn_params := ((_coo, (tptr (Tstruct __COOMatrix noattr))) :: nil);
-  fn_vars := nil;
-  fn_temps := nil;
-  fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Scall None
+    (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+    ((Efield
+       (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+         (Tstruct __CSRMatrix noattr)) _values (tptr tfloat)) :: nil))
+  (Ssequence
+    (Scall None
+      (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+      ((Efield
+         (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+           (Tstruct __CSRMatrix noattr)) _cols (tptr tuint)) :: nil))
+    (Ssequence
+      (Scall None
+        (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+        ((Efield
+           (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+             (Tstruct __CSRMatrix noattr)) _rows (tptr tuint)) :: nil))
+      (Scall None
+        (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+        ((Etempvar _csr (tptr (Tstruct __CSRMatrix noattr))) :: nil)))))
 |}.
 
 Definition f_CSR_dense := {|
@@ -250,9 +2480,130 @@ Definition f_CSR_dense := {|
   fn_callconv := cc_default;
   fn_params := ((_csr, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
   fn_vars := nil;
-  fn_temps := nil;
+  fn_temps := ((_width, tuint) :: (_height, tuint) ::
+               (_mat, (tptr (Tstruct __Matrix noattr))) :: (_count, tuint) ::
+               (_i, tuint) :: (_i__1, tuint) :: (_rowStart, tuint) ::
+               (_rowEnd, tuint) :: (_j, tuint) :: (_idx, tuint) ::
+               (_t'1, (tptr (Tstruct __Matrix noattr))) :: nil);
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Sset _width
+    (Efield
+      (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+        (Tstruct __CSRMatrix noattr)) _width tuint))
+  (Ssequence
+    (Sset _height
+      (Efield
+        (Ederef (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+          (Tstruct __CSRMatrix noattr)) _height tuint))
+    (Ssequence
+      (Ssequence
+        (Scall (Some _t'1)
+          (Evar _Matrix_malloc (Tfunction (Tcons tuint (Tcons tuint Tnil))
+                                 (tptr (Tstruct __Matrix noattr)) cc_default))
+          ((Etempvar _height tuint) :: (Etempvar _width tuint) :: nil))
+        (Sset _mat (Etempvar _t'1 (tptr (Tstruct __Matrix noattr)))))
+      (Ssequence
+        (Sset _count
+          (Ebinop Omul (Etempvar _height tuint) (Etempvar _width tuint)
+            tuint))
+        (Ssequence
+          (Ssequence
+            (Sset _i (Econst_int (Int.repr 0) tint))
+            (Sloop
+              (Ssequence
+                (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                               (Etempvar _count tuint) tint)
+                  Sskip
+                  Sbreak)
+                (Sassign
+                  (Ederef
+                    (Ebinop Oadd
+                      (Efield
+                        (Ederef
+                          (Etempvar _mat (tptr (Tstruct __Matrix noattr)))
+                          (Tstruct __Matrix noattr)) _values (tptr tfloat))
+                      (Etempvar _i tuint) (tptr tfloat)) tfloat)
+                  (Econst_int (Int.repr 0) tint)))
+              (Sset _i
+                (Ebinop Oadd (Etempvar _i tuint)
+                  (Econst_int (Int.repr 1) tint) tuint))))
+          (Ssequence
+            (Ssequence
+              (Sset _i__1 (Econst_int (Int.repr 0) tint))
+              (Sloop
+                (Ssequence
+                  (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                 (Etempvar _height tuint) tint)
+                    Sskip
+                    Sbreak)
+                  (Ssequence
+                    (Sset _rowStart
+                      (Ederef
+                        (Ebinop Oadd
+                          (Efield
+                            (Ederef
+                              (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                              (Tstruct __CSRMatrix noattr)) _rows
+                            (tptr tuint)) (Etempvar _i__1 tuint)
+                          (tptr tuint)) tuint))
+                    (Ssequence
+                      (Sset _rowEnd
+                        (Ederef
+                          (Ebinop Oadd
+                            (Efield
+                              (Ederef
+                                (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                (Tstruct __CSRMatrix noattr)) _rows
+                              (tptr tuint))
+                            (Ebinop Oadd (Etempvar _i__1 tuint)
+                              (Econst_int (Int.repr 1) tint) tuint)
+                            (tptr tuint)) tuint))
+                      (Ssequence
+                        (Sset _j (Etempvar _rowStart tuint))
+                        (Sloop
+                          (Ssequence
+                            (Sifthenelse (Ebinop Olt (Etempvar _j tuint)
+                                           (Etempvar _rowEnd tuint) tint)
+                              Sskip
+                              Sbreak)
+                            (Ssequence
+                              (Sset _idx
+                                (Ebinop Oadd
+                                  (Ebinop Omul (Etempvar _i__1 tuint)
+                                    (Etempvar _width tuint) tuint)
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Efield
+                                        (Ederef
+                                          (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                          (Tstruct __CSRMatrix noattr)) _cols
+                                        (tptr tuint)) (Etempvar _j tuint)
+                                      (tptr tuint)) tuint) tuint))
+                              (Sassign
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _mat (tptr (Tstruct __Matrix noattr)))
+                                        (Tstruct __Matrix noattr)) _values
+                                      (tptr tfloat)) (Etempvar _idx tuint)
+                                    (tptr tfloat)) tfloat)
+                                (Ederef
+                                  (Ebinop Oadd
+                                    (Efield
+                                      (Ederef
+                                        (Etempvar _csr (tptr (Tstruct __CSRMatrix noattr)))
+                                        (Tstruct __CSRMatrix noattr)) _values
+                                      (tptr tfloat)) (Etempvar _j tuint)
+                                    (tptr tfloat)) tfloat))))
+                          (Sset _j
+                            (Ebinop Oadd (Etempvar _j tuint)
+                              (Econst_int (Int.repr 1) tint) tuint)))))))
+                (Sset _i__1
+                  (Ebinop Oadd (Etempvar _i__1 tuint)
+                    (Econst_int (Int.repr 1) tint) tuint))))
+            (Sreturn (Some (Etempvar _mat (tptr (Tstruct __Matrix noattr)))))))))))
 |}.
 
 Definition f_spgemm_sparch := {|
@@ -260,10 +2611,427 @@ Definition f_spgemm_sparch := {|
   fn_callconv := cc_default;
   fn_params := ((_matA, (tptr (Tstruct __CSRMatrix noattr))) ::
                 (_matB, (tptr (Tstruct __CSRMatrix noattr))) :: nil);
-  fn_vars := nil;
-  fn_temps := nil;
+  fn_vars := ((_leftLen, tuint) :: (_pq, (Tstruct __PriorQ noattr)) ::
+              (_treeItems, (tarray (tptr (Tstruct __COOChunk noattr)) 64)) ::
+              nil);
+  fn_temps := ((_leftChunk, (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+               (_multVal, (tptr (Tstruct __COOChunk noattr))) ::
+               (_i, tuint) :: (_i__1, tuint) :: (_mergedIdx, tuint) ::
+               (_kInit, tuint) ::
+               (_mergedVal, (tptr (Tstruct __COOChunk noattr))) ::
+               (_i__2, tuint) :: (_count, tuint) :: (_i__3, tuint) ::
+               (_result, (tptr (Tstruct __COOChunk noattr))) ::
+               (_i__4, tuint) ::
+               (_t'9, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_t'8, (tptr (Tstruct __COOChunk noattr))) ::
+               (_t'7, (tptr (Tstruct __COOChunk noattr))) :: (_t'6, tuint) ::
+               (_t'5, (tptr (Tstruct __COOChunk noattr))) ::
+               (_t'4, (tptr tvoid)) :: (_t'3, (tptr tvoid)) ::
+               (_t'2, (tptr tvoid)) ::
+               (_t'1, (tptr (tptr (Tstruct __COOChunk noattr)))) :: nil);
   fn_body :=
-(Sreturn (Some (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+(Ssequence
+  (Sassign (Evar _leftLen tuint) (Econst_int (Int.repr 0) tint))
+  (Ssequence
+    (Ssequence
+      (Scall (Some _t'1)
+        (Evar _condense (Tfunction
+                          (Tcons (tptr (Tstruct __CSRMatrix noattr))
+                            (Tcons (tptr tuint) Tnil))
+                          (tptr (tptr (Tstruct __COOChunk noattr)))
+                          cc_default))
+        ((Etempvar _matA (tptr (Tstruct __CSRMatrix noattr))) ::
+         (Eaddrof (Evar _leftLen tuint) (tptr tuint)) :: nil))
+      (Sset _leftChunk
+        (Etempvar _t'1 (tptr (tptr (Tstruct __COOChunk noattr))))))
+    (Ssequence
+      (Ssequence
+        (Scall (Some _t'2)
+          (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                          cc_default))
+          ((Ebinop Omul (Evar _leftLen tuint)
+             (Esizeof (Tstruct __COOChunk noattr) tuint) tuint) :: nil))
+        (Sset _multVal
+          (Ecast (Etempvar _t'2 (tptr tvoid))
+            (tptr (Tstruct __COOChunk noattr)))))
+      (Ssequence
+        (Ssequence
+          (Sset _i (Econst_int (Int.repr 0) tint))
+          (Sloop
+            (Ssequence
+              (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                             (Evar _leftLen tuint) tint)
+                Sskip
+                Sbreak)
+              (Scall None
+                (Evar _outerProd (Tfunction
+                                   (Tcons (tptr (Tstruct __COOChunk noattr))
+                                     (Tcons
+                                       (tptr (Tstruct __CSRMatrix noattr))
+                                       (Tcons
+                                         (tptr (Tstruct __COOChunk noattr))
+                                         Tnil))) tvoid cc_default))
+                ((Ederef
+                   (Ebinop Oadd
+                     (Etempvar _leftChunk (tptr (tptr (Tstruct __COOChunk noattr))))
+                     (Etempvar _i tuint)
+                     (tptr (tptr (Tstruct __COOChunk noattr))))
+                   (tptr (Tstruct __COOChunk noattr))) ::
+                 (Etempvar _matB (tptr (Tstruct __CSRMatrix noattr))) ::
+                 (Ebinop Oadd
+                   (Etempvar _multVal (tptr (Tstruct __COOChunk noattr)))
+                   (Etempvar _i tuint) (tptr (Tstruct __COOChunk noattr))) ::
+                 nil)))
+            (Sset _i
+              (Ebinop Oadd (Etempvar _i tuint) (Econst_int (Int.repr 1) tint)
+                tuint))))
+        (Ssequence
+          (Sassign (Efield (Evar _pq (Tstruct __PriorQ noattr)) _count tuint)
+            (Econst_int (Int.repr 0) tint))
+          (Ssequence
+            (Sassign
+              (Efield (Evar _pq (Tstruct __PriorQ noattr)) _maxCount tuint)
+              (Evar _leftLen tuint))
+            (Ssequence
+              (Ssequence
+                (Scall (Some _t'3)
+                  (Evar _malloc (Tfunction (Tcons tuint Tnil) (tptr tvoid)
+                                  cc_default))
+                  ((Ebinop Omul
+                     (Ebinop Oadd (Evar _leftLen tuint)
+                       (Econst_int (Int.repr 1) tint) tuint)
+                     (Esizeof (tptr (Tstruct __COOChunk noattr)) tuint)
+                     tuint) :: nil))
+                (Sassign
+                  (Efield (Evar _pq (Tstruct __PriorQ noattr)) _heap
+                    (tptr (tptr (Tstruct __COOChunk noattr))))
+                  (Ecast (Etempvar _t'3 (tptr tvoid))
+                    (tptr (tptr (Tstruct __COOChunk noattr))))))
+              (Ssequence
+                (Ssequence
+                  (Sset _i__1 (Econst_int (Int.repr 0) tint))
+                  (Sloop
+                    (Ssequence
+                      (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                     (Evar _leftLen tuint) tint)
+                        Sskip
+                        Sbreak)
+                      (Scall None
+                        (Evar _addQueue (Tfunction
+                                          (Tcons
+                                            (tptr (Tstruct __PriorQ noattr))
+                                            (Tcons
+                                              (tptr (Tstruct __COOChunk noattr))
+                                              Tnil)) tvoid cc_default))
+                        ((Eaddrof (Evar _pq (Tstruct __PriorQ noattr))
+                           (tptr (Tstruct __PriorQ noattr))) ::
+                         (Ebinop Oadd
+                           (Etempvar _multVal (tptr (Tstruct __COOChunk noattr)))
+                           (Etempvar _i__1 tuint)
+                           (tptr (Tstruct __COOChunk noattr))) :: nil)))
+                    (Sset _i__1
+                      (Ebinop Oadd (Etempvar _i__1 tuint)
+                        (Econst_int (Int.repr 1) tint) tuint))))
+                (Ssequence
+                  (Sset _mergedIdx (Econst_int (Int.repr 0) tint))
+                  (Ssequence
+                    (Sset _kInit
+                      (Ebinop Oadd
+                        (Ebinop Omod
+                          (Ebinop Osub (Evar _leftLen tuint)
+                            (Econst_int (Int.repr 2) tint) tuint)
+                          (Ebinop Osub (Econst_int (Int.repr 64) tint)
+                            (Econst_int (Int.repr 1) tint) tint) tuint)
+                        (Econst_int (Int.repr 2) tint) tuint))
+                    (Ssequence
+                      (Ssequence
+                        (Scall (Some _t'4)
+                          (Evar _malloc (Tfunction (Tcons tuint Tnil)
+                                          (tptr tvoid) cc_default))
+                          ((Ebinop Omul
+                             (Ebinop Oadd
+                               (Ebinop Odiv (Evar _leftLen tuint)
+                                 (Ebinop Osub (Econst_int (Int.repr 64) tint)
+                                   (Econst_int (Int.repr 1) tint) tint)
+                                 tuint) (Econst_int (Int.repr 1) tint) tuint)
+                             (Esizeof (Tstruct __COOChunk noattr) tuint)
+                             tuint) :: nil))
+                        (Sset _mergedVal
+                          (Ecast (Etempvar _t'4 (tptr tvoid))
+                            (tptr (Tstruct __COOChunk noattr)))))
+                      (Ssequence
+                        (Ssequence
+                          (Sset _i__2 (Econst_int (Int.repr 0) tint))
+                          (Sloop
+                            (Ssequence
+                              (Sifthenelse (Ebinop Olt (Etempvar _i__2 tuint)
+                                             (Etempvar _kInit tuint) tint)
+                                Sskip
+                                Sbreak)
+                              (Ssequence
+                                (Scall (Some _t'5)
+                                  (Evar _popQueue (Tfunction
+                                                    (Tcons
+                                                      (tptr (Tstruct __PriorQ noattr))
+                                                      Tnil)
+                                                    (tptr (Tstruct __COOChunk noattr))
+                                                    cc_default))
+                                  ((Eaddrof
+                                     (Evar _pq (Tstruct __PriorQ noattr))
+                                     (tptr (Tstruct __PriorQ noattr))) ::
+                                   nil))
+                                (Sassign
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Evar _treeItems (tarray (tptr (Tstruct __COOChunk noattr)) 64))
+                                      (Etempvar _i__2 tuint)
+                                      (tptr (tptr (Tstruct __COOChunk noattr))))
+                                    (tptr (Tstruct __COOChunk noattr)))
+                                  (Etempvar _t'5 (tptr (Tstruct __COOChunk noattr))))))
+                            (Sset _i__2
+                              (Ebinop Oadd (Etempvar _i__2 tuint)
+                                (Econst_int (Int.repr 1) tint) tuint))))
+                        (Ssequence
+                          (Scall None
+                            (Evar _flattenByMergeTree (Tfunction
+                                                        (Tcons
+                                                          (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                          (Tcons tuint
+                                                            (Tcons
+                                                              (tptr (Tstruct __COOChunk noattr))
+                                                              Tnil))) tvoid
+                                                        cc_default))
+                            ((Evar _treeItems (tarray (tptr (Tstruct __COOChunk noattr)) 64)) ::
+                             (Etempvar _kInit tuint) ::
+                             (Ebinop Oadd
+                               (Etempvar _mergedVal (tptr (Tstruct __COOChunk noattr)))
+                               (Econst_int (Int.repr 0) tint)
+                               (tptr (Tstruct __COOChunk noattr))) :: nil))
+                          (Ssequence
+                            (Scall None
+                              (Evar _addQueue (Tfunction
+                                                (Tcons
+                                                  (tptr (Tstruct __PriorQ noattr))
+                                                  (Tcons
+                                                    (tptr (Tstruct __COOChunk noattr))
+                                                    Tnil)) tvoid cc_default))
+                              ((Eaddrof (Evar _pq (Tstruct __PriorQ noattr))
+                                 (tptr (Tstruct __PriorQ noattr))) ::
+                               (Ebinop Oadd
+                                 (Etempvar _mergedVal (tptr (Tstruct __COOChunk noattr)))
+                                 (Econst_int (Int.repr 0) tint)
+                                 (tptr (Tstruct __COOChunk noattr))) :: nil))
+                            (Ssequence
+                              (Sset _mergedIdx
+                                (Ebinop Oadd (Etempvar _mergedIdx tuint)
+                                  (Econst_int (Int.repr 1) tint) tuint))
+                              (Ssequence
+                                (Swhile
+                                  (Ebinop Ogt
+                                    (Efield
+                                      (Evar _pq (Tstruct __PriorQ noattr))
+                                      _count tuint)
+                                    (Econst_int (Int.repr 1) tint) tint)
+                                  (Ssequence
+                                    (Ssequence
+                                      (Sifthenelse (Ebinop Olt
+                                                     (Efield
+                                                       (Evar _pq (Tstruct __PriorQ noattr))
+                                                       _count tuint)
+                                                     (Econst_int (Int.repr 64) tint)
+                                                     tint)
+                                        (Sset _t'6
+                                          (Ecast
+                                            (Efield
+                                              (Evar _pq (Tstruct __PriorQ noattr))
+                                              _count tuint) tuint))
+                                        (Sset _t'6
+                                          (Ecast
+                                            (Econst_int (Int.repr 64) tint)
+                                            tuint)))
+                                      (Sset _count (Etempvar _t'6 tuint)))
+                                    (Ssequence
+                                      (Ssequence
+                                        (Sset _i__3
+                                          (Econst_int (Int.repr 0) tint))
+                                        (Sloop
+                                          (Ssequence
+                                            (Sifthenelse (Ebinop Olt
+                                                           (Etempvar _i__3 tuint)
+                                                           (Etempvar _count tuint)
+                                                           tint)
+                                              Sskip
+                                              Sbreak)
+                                            (Ssequence
+                                              (Scall (Some _t'7)
+                                                (Evar _popQueue (Tfunction
+                                                                  (Tcons
+                                                                    (tptr (Tstruct __PriorQ noattr))
+                                                                    Tnil)
+                                                                  (tptr (Tstruct __COOChunk noattr))
+                                                                  cc_default))
+                                                ((Eaddrof
+                                                   (Evar _pq (Tstruct __PriorQ noattr))
+                                                   (tptr (Tstruct __PriorQ noattr))) ::
+                                                 nil))
+                                              (Sassign
+                                                (Ederef
+                                                  (Ebinop Oadd
+                                                    (Evar _treeItems (tarray (tptr (Tstruct __COOChunk noattr)) 64))
+                                                    (Etempvar _i__3 tuint)
+                                                    (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                  (tptr (Tstruct __COOChunk noattr)))
+                                                (Etempvar _t'7 (tptr (Tstruct __COOChunk noattr))))))
+                                          (Sset _i__3
+                                            (Ebinop Oadd
+                                              (Etempvar _i__3 tuint)
+                                              (Econst_int (Int.repr 1) tint)
+                                              tuint))))
+                                      (Ssequence
+                                        (Scall None
+                                          (Evar _flattenByMergeTree (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    Tnil)))
+                                                                    tvoid
+                                                                    cc_default))
+                                          ((Evar _treeItems (tarray (tptr (Tstruct __COOChunk noattr)) 64)) ::
+                                           (Etempvar _count tuint) ::
+                                           (Ebinop Oadd
+                                             (Etempvar _mergedVal (tptr (Tstruct __COOChunk noattr)))
+                                             (Etempvar _mergedIdx tuint)
+                                             (tptr (Tstruct __COOChunk noattr))) ::
+                                           nil))
+                                        (Ssequence
+                                          (Scall None
+                                            (Evar _addQueue (Tfunction
+                                                              (Tcons
+                                                                (tptr (Tstruct __PriorQ noattr))
+                                                                (Tcons
+                                                                  (tptr (Tstruct __COOChunk noattr))
+                                                                  Tnil))
+                                                              tvoid
+                                                              cc_default))
+                                            ((Eaddrof
+                                               (Evar _pq (Tstruct __PriorQ noattr))
+                                               (tptr (Tstruct __PriorQ noattr))) ::
+                                             (Ebinop Oadd
+                                               (Etempvar _mergedVal (tptr (Tstruct __COOChunk noattr)))
+                                               (Etempvar _mergedIdx tuint)
+                                               (tptr (Tstruct __COOChunk noattr))) ::
+                                             nil))
+                                          (Sset _mergedIdx
+                                            (Ebinop Oadd
+                                              (Etempvar _mergedIdx tuint)
+                                              (Econst_int (Int.repr 1) tint)
+                                              tuint)))))))
+                                (Ssequence
+                                  (Ssequence
+                                    (Scall (Some _t'8)
+                                      (Evar _popQueue (Tfunction
+                                                        (Tcons
+                                                          (tptr (Tstruct __PriorQ noattr))
+                                                          Tnil)
+                                                        (tptr (Tstruct __COOChunk noattr))
+                                                        cc_default))
+                                      ((Eaddrof
+                                         (Evar _pq (Tstruct __PriorQ noattr))
+                                         (tptr (Tstruct __PriorQ noattr))) ::
+                                       nil))
+                                    (Sset _result
+                                      (Etempvar _t'8 (tptr (Tstruct __COOChunk noattr)))))
+                                  (Ssequence
+                                    (Ssequence
+                                      (Sset _i__4
+                                        (Econst_int (Int.repr 0) tint))
+                                      (Sloop
+                                        (Ssequence
+                                          (Sifthenelse (Ebinop Olt
+                                                         (Etempvar _i__4 tuint)
+                                                         (Evar _leftLen tuint)
+                                                         tint)
+                                            Sskip
+                                            Sbreak)
+                                          (Scall None
+                                            (Evar _COOChunk_free (Tfunction
+                                                                   (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    Tnil)
+                                                                   tvoid
+                                                                   cc_default))
+                                            ((Ederef
+                                               (Ebinop Oadd
+                                                 (Etempvar _leftChunk (tptr (tptr (Tstruct __COOChunk noattr))))
+                                                 (Etempvar _i__4 tuint)
+                                                 (tptr (tptr (Tstruct __COOChunk noattr))))
+                                               (tptr (Tstruct __COOChunk noattr))) ::
+                                             nil)))
+                                        (Sset _i__4
+                                          (Ebinop Oadd (Etempvar _i__4 tuint)
+                                            (Econst_int (Int.repr 1) tint)
+                                            tuint))))
+                                    (Ssequence
+                                      (Scall None
+                                        (Evar _free (Tfunction
+                                                      (Tcons (tptr tvoid)
+                                                        Tnil) tvoid
+                                                      cc_default))
+                                        ((Etempvar _leftChunk (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                         nil))
+                                      (Ssequence
+                                        (Scall None
+                                          (Evar _free (Tfunction
+                                                        (Tcons (tptr tvoid)
+                                                          Tnil) tvoid
+                                                        cc_default))
+                                          ((Efield
+                                             (Evar _pq (Tstruct __PriorQ noattr))
+                                             _heap
+                                             (tptr (tptr (Tstruct __COOChunk noattr)))) ::
+                                           nil))
+                                        (Ssequence
+                                          (Scall None
+                                            (Evar _free (Tfunction
+                                                          (Tcons (tptr tvoid)
+                                                            Tnil) tvoid
+                                                          cc_default))
+                                            ((Etempvar _mergedVal (tptr (Tstruct __COOChunk noattr))) ::
+                                             nil))
+                                          (Ssequence
+                                            (Scall None
+                                              (Evar _free (Tfunction
+                                                            (Tcons
+                                                              (tptr tvoid)
+                                                              Tnil) tvoid
+                                                            cc_default))
+                                              ((Etempvar _multVal (tptr (Tstruct __COOChunk noattr))) ::
+                                               nil))
+                                            (Ssequence
+                                              (Scall (Some _t'9)
+                                                (Evar _COOChunk_toCSR 
+                                                (Tfunction
+                                                  (Tcons
+                                                    (tptr (Tstruct __COOChunk noattr))
+                                                    (Tcons tuint
+                                                      (Tcons tuint Tnil)))
+                                                  (tptr (Tstruct __CSRMatrix noattr))
+                                                  cc_default))
+                                                ((Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
+                                                 (Efield
+                                                   (Ederef
+                                                     (Etempvar _matA (tptr (Tstruct __CSRMatrix noattr)))
+                                                     (Tstruct __CSRMatrix noattr))
+                                                   _height tuint) ::
+                                                 (Efield
+                                                   (Ederef
+                                                     (Etempvar _matB (tptr (Tstruct __CSRMatrix noattr)))
+                                                     (Tstruct __CSRMatrix noattr))
+                                                   _width tuint) :: nil))
+                                              (Sreturn (Some (Etempvar _t'9 (tptr (Tstruct __CSRMatrix noattr))))))))))))))))))))))))))))
 |}.
 
 Definition f_gemm_sparch := {|
@@ -274,7 +3042,8 @@ Definition f_gemm_sparch := {|
   fn_vars := nil;
   fn_temps := ((_left, (tptr (Tstruct __CSRMatrix noattr))) ::
                (_right, (tptr (Tstruct __CSRMatrix noattr))) ::
-               (_result, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_mm, (tptr (Tstruct __CSRMatrix noattr))) ::
+               (_result, (tptr (Tstruct __Matrix noattr))) ::
                (_t'4, (tptr (Tstruct __Matrix noattr))) ::
                (_t'3, (tptr (Tstruct __CSRMatrix noattr))) ::
                (_t'2, (tptr (Tstruct __CSRMatrix noattr))) ::
@@ -307,32 +3076,48 @@ Definition f_gemm_sparch := {|
                                  cc_default))
           ((Etempvar _left (tptr (Tstruct __CSRMatrix noattr))) ::
            (Etempvar _right (tptr (Tstruct __CSRMatrix noattr))) :: nil))
-        (Sset _result (Etempvar _t'3 (tptr (Tstruct __CSRMatrix noattr)))))
+        (Sset _mm (Etempvar _t'3 (tptr (Tstruct __CSRMatrix noattr)))))
       (Ssequence
-        (Scall (Some _t'4)
-          (Evar _CSR_dense (Tfunction
-                             (Tcons (tptr (Tstruct __CSRMatrix noattr)) Tnil)
-                             (tptr (Tstruct __Matrix noattr)) cc_default))
-          ((Etempvar _result (tptr (Tstruct __CSRMatrix noattr))) :: nil))
-        (Sreturn (Some (Etempvar _t'4 (tptr (Tstruct __Matrix noattr)))))))))
+        (Ssequence
+          (Scall (Some _t'4)
+            (Evar _CSR_dense (Tfunction
+                               (Tcons (tptr (Tstruct __CSRMatrix noattr))
+                                 Tnil) (tptr (Tstruct __Matrix noattr))
+                               cc_default))
+            ((Etempvar _mm (tptr (Tstruct __CSRMatrix noattr))) :: nil))
+          (Sset _result (Etempvar _t'4 (tptr (Tstruct __Matrix noattr)))))
+        (Ssequence
+          (Scall None
+            (Evar _CSR_free (Tfunction
+                              (Tcons (tptr (Tstruct __CSRMatrix noattr))
+                                Tnil) tvoid cc_default))
+            ((Etempvar _mm (tptr (Tstruct __CSRMatrix noattr))) :: nil))
+          (Ssequence
+            (Scall None
+              (Evar _CSR_free (Tfunction
+                                (Tcons (tptr (Tstruct __CSRMatrix noattr))
+                                  Tnil) tvoid cc_default))
+              ((Etempvar _right (tptr (Tstruct __CSRMatrix noattr))) :: nil))
+            (Ssequence
+              (Scall None
+                (Evar _CSR_free (Tfunction
+                                  (Tcons (tptr (Tstruct __CSRMatrix noattr))
+                                    Tnil) tvoid cc_default))
+                ((Etempvar _left (tptr (Tstruct __CSRMatrix noattr))) :: nil))
+              (Sreturn (Some (Etempvar _result (tptr (Tstruct __Matrix noattr))))))))))))
 |}.
 
 Definition composites : list composite_definition :=
 (Composite __Matrix Struct
-   ((_height, tuint) :: (_width, tuint) :: (_values, (tptr (tptr tfloat))) ::
-    nil)
+   ((_height, tuint) :: (_width, tuint) :: (_values, (tptr tfloat)) :: nil)
    noattr ::
  Composite __COOItem Struct
    ((_row, tuint) :: (_col, tuint) :: (_value, tfloat) :: nil)
    noattr ::
- Composite __COOMatrix Struct
-   ((_height, tuint) :: (_width, tuint) :: (_len, tuint) ::
-    (_values, (tptr (Tstruct __COOItem noattr))) :: nil)
-   noattr ::
  Composite __CSRMatrix Struct
    ((_height, tuint) :: (_width, tuint) :: (_lenVal, tuint) ::
-    (_lenCol, tuint) :: (_lenRow, tuint) :: (_values, (tptr tfloat)) ::
-    (_cols, (tptr tuint)) :: (_rows, (tptr tuint)) :: nil)
+    (_values, (tptr tfloat)) :: (_cols, (tptr tuint)) ::
+    (_rows, (tptr tuint)) :: nil)
    noattr ::
  Composite __LLNode Struct
    ((_item, (tptr (Tstruct __COOItem noattr))) ::
@@ -343,8 +3128,8 @@ Definition composites : list composite_definition :=
     (_tail, (tptr (Tstruct __LLNode noattr))) :: nil)
    noattr ::
  Composite __PriorQ Struct
-   ((_count, tuint) ::
-    (_heap, (tarray (tptr (Tstruct __COOChunk noattr)) 1280)) :: nil)
+   ((_count, tuint) :: (_maxCount, tuint) ::
+    (_heap, (tptr (tptr (Tstruct __COOChunk noattr)))) :: nil)
    noattr :: nil).
 
 Definition global_definitions : list (ident * globdef fundef type) :=
@@ -606,25 +3391,47 @@ Definition global_definitions : list (ident * globdef fundef type) :=
                      {|cc_vararg:=true; cc_unproto:=false; cc_structret:=false|}))
      (Tcons tint Tnil) tvoid
      {|cc_vararg:=true; cc_unproto:=false; cc_structret:=false|})) ::
+ (_malloc,
+   Gfun(External EF_malloc (Tcons tuint Tnil) (tptr tvoid) cc_default)) ::
+ (_free, Gfun(External EF_free (Tcons (tptr tvoid) Tnil) tvoid cc_default)) ::
+ (_LLNode_malloc, Gfun(Internal f_LLNode_malloc)) ::
+ (_LLNode_free, Gfun(Internal f_LLNode_free)) ::
+ (_LLNode_freeAll, Gfun(Internal f_LLNode_freeAll)) ::
+ (_COOChunk_malloc, Gfun(Internal f_COOChunk_malloc)) ::
+ (_COOChunk_free, Gfun(Internal f_COOChunk_free)) ::
+ (_COOChunk_freeList, Gfun(Internal f_COOChunk_freeList)) ::
+ (_COOChunk_push, Gfun(Internal f_COOChunk_push)) ::
+ (_COOChunk_append, Gfun(Internal f_COOChunk_append)) ::
+ (_COOChunk_toCSR, Gfun(Internal f_COOChunk_toCSR)) ::
  (_outerProd, Gfun(Internal f_outerProd)) ::
  (_mergeLow, Gfun(Internal f_mergeLow)) ::
  (_mergeTop, Gfun(Internal f_mergeTop)) ::
  (_elimZero, Gfun(Internal f_elimZero)) ::
+ (_merge, Gfun(Internal f_merge)) ::
  (_flattenByMergeTree, Gfun(Internal f_flattenByMergeTree)) ::
  (_condense, Gfun(Internal f_condense)) ::
+ (_swapHeap, Gfun(Internal f_swapHeap)) ::
  (_addQueue, Gfun(Internal f_addQueue)) ::
  (_popQueue, Gfun(Internal f_popQueue)) ::
+ (_COOItem_malloc, Gfun(Internal f_COOItem_malloc)) ::
+ (_COOItem_free, Gfun(Internal f_COOItem_free)) ::
+ (_Matrix_malloc, Gfun(Internal f_Matrix_malloc)) ::
+ (_Matrix_free, Gfun(Internal f_Matrix_free)) ::
  (_Matrix_toCSR, Gfun(Internal f_Matrix_toCSR)) ::
- (_CSR_toCOO, Gfun(Internal f_CSR_toCOO)) ::
- (_COO_toCSR, Gfun(Internal f_COO_toCSR)) ::
+ (_CSR_malloc, Gfun(Internal f_CSR_malloc)) ::
+ (_CSR_free, Gfun(Internal f_CSR_free)) ::
  (_CSR_dense, Gfun(Internal f_CSR_dense)) ::
  (_spgemm_sparch, Gfun(Internal f_spgemm_sparch)) ::
  (_gemm_sparch, Gfun(Internal f_gemm_sparch)) :: nil).
 
 Definition public_idents : list ident :=
-(_gemm_sparch :: _spgemm_sparch :: _CSR_dense :: _COO_toCSR :: _CSR_toCOO ::
- _Matrix_toCSR :: _popQueue :: _addQueue :: _condense ::
- _flattenByMergeTree :: _elimZero :: _mergeTop :: _mergeLow :: _outerProd ::
+(_gemm_sparch :: _spgemm_sparch :: _CSR_dense :: _CSR_free :: _CSR_malloc ::
+ _Matrix_toCSR :: _Matrix_free :: _Matrix_malloc :: _COOItem_free ::
+ _COOItem_malloc :: _popQueue :: _addQueue :: _swapHeap :: _condense ::
+ _flattenByMergeTree :: _merge :: _elimZero :: _mergeTop :: _mergeLow ::
+ _outerProd :: _COOChunk_toCSR :: _COOChunk_append :: _COOChunk_push ::
+ _COOChunk_freeList :: _COOChunk_free :: _COOChunk_malloc ::
+ _LLNode_freeAll :: _LLNode_free :: _LLNode_malloc :: _free :: _malloc ::
  ___builtin_debug :: ___builtin_write32_reversed ::
  ___builtin_write16_reversed :: ___builtin_read32_reversed ::
  ___builtin_read16_reversed :: ___builtin_fnmsub :: ___builtin_fnmadd ::
