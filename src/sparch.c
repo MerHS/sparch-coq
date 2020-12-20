@@ -28,7 +28,7 @@ void LLNode_free(LLNode *node);
 void LLNode_freeAll(LLNode *node);
 COOChunk *COOChunk_malloc();
 void COOChunk_free(COOChunk *chunk);
-void COOChunk_freeList(COOChunk *chunk);
+void COOChunk_freeAll(COOChunk *chunk);
 void COOChunk_push(COOChunk *chunk, COOItem *item);
 void COOChunk_append(COOChunk *left, COOChunk *right);
 CSRMatrix* COOChunk_toCSR(COOChunk *chunk, size_t height, size_t width);
@@ -92,12 +92,12 @@ void COOChunk_free(COOChunk *chunk) {
     free(chunk);
 }
 
-void COOChunk_freeList(COOChunk *chunk) {
+void COOChunk_freeAll(COOChunk *chunk) {
     LLNode *head, *next;
     head = chunk->head;
     while (head) {
         next = head->next;
-        LLNode_free(head);
+        LLNode_freeAll(head);
         head = next;
     }
 }
@@ -245,6 +245,7 @@ void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
 
             if (item->row == tailItem->row && item->col == tailItem->col) {
                 tailItem->value += item->value;
+                LLNode_freeAll(node);
             } else {
                 result->tail->next = node;
             }
@@ -561,7 +562,16 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
         mergedIdx++;
     }
 
-    COOChunk* result = popQueue(&pq);
+    COOChunk* result = popQueue(&pq);    
+    CSRMatrix *csr = COOChunk_toCSR(result, matA->height, matB->width);
+
+    LLNode* node = result->head;
+    LLNode* next;
+    while (node) {
+        next = node->next;
+        LLNode_freeAll(node);
+        node = next;
+    }
     
     for (size_t i = 0; i < leftLen; i++) {
         COOChunk_free(leftChunk[i]);
@@ -570,8 +580,8 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
     free(pq.heap);
     free(mergedVal);
     free(multVal);
-    
-    return COOChunk_toCSR(result, matA->height, matB->width);
+
+    return csr;
 }
 
 Matrix* gemm_sparch(Matrix* matA, Matrix* matB) {
