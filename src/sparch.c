@@ -380,9 +380,9 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             break;
     }
     
-    // determine whether we should slide window or not
-    if (lenLeft <= LOW_COMP * TOP_COMP && lenRight <= LOW_COMP * TOP_COMP) {
-        // remained chunks fit to top/low comparator: merge every remained chunks
+    // determine whether we hit the border or not
+    if (lenLeft <= LOW_COMP * TOP_COMP || lenRight <= LOW_COMP * TOP_COMP) {
+        // if we hit the border, remained chunks fit to top/low comparator: merge every remained chunks
 
         while (posX < lenA && posY < lenB) {
             int currComp = comp[posY][posX];
@@ -403,13 +403,18 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
 
             // set max bound
             if (posX < lenA && posY < lenB) {
+                COOChunk *maxChunk;
                 if (direction == 1) { // go right before -> chunk A is min bound
-                    maxBound.row = chunkA[posX].head->item->row;
-                    maxBound.col = chunkA[posX].head->item->col;
+                    maxChunk = &chunkA[posX];
+                    left->len -= currA->len;
+                    left->head = maxChunk->head;
                 } else { // go down before -> chunk B is min bound
-                    maxBound.row = chunkB[posY].head->item->row;
-                    maxBound.col = chunkB[posY].head->item->col;
+                    maxChunk = &chunkB[posY];
+                    right->len -= currB->len;
+                    right->head = maxChunk->head;
                 }
+                maxBound.row = maxChunk->head->item->row;
+                maxBound.col = maxChunk->head->item->col;
                 
                 mergeLow(currA, currB, &minBound, &maxBound, result);
             } else { // hit the border
@@ -424,24 +429,6 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             /*     COOChunk_freeNodes(currB); */
             /* } */
         }
-
-        // append remainder
-        if (posX == lenA) { // append remained <
-            for (size_t i = posY + 1; i < lenB; i++) {
-                COOChunk_concat(result, &chunkB[i]);
-            }
-        } else if (posY == lenB) { // append remained >
-            for (size_t i = posX + 1; i < lenB; i++) {
-                COOChunk_concat(result, &chunkA[i]);
-            }
-        }
-        
-        left->len = 0;
-        left->head = NULL;
-        left->tail = NULL;
-        right->len = 0;
-        right->head = NULL;
-        right->tail = NULL;
     } else {
         // slide top window: merge through border except next head of border
         while (posX < lenA && posY < lenB) {
@@ -460,22 +447,22 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
                 posX++;
                 direction = 1;
             }
-
-            COOChunk *maxChunk;
-            if (direction == 1) { // go right before -> chunk A is min bound
-                maxChunk = &chunkA[posX];
-                left->len -= maxChunk->len;
-                left->head = maxChunk->head;
-            } else { // go down before -> chunk B is min bound
-                maxChunk = &chunkB[posY];
-                right->len -= maxChunk->len;
-                right->head = maxChunk->head;
-            }
-            maxBound.row = maxChunk->head->item->row;
-            maxBound.col = maxChunk->head->item->col;
             
-            // set max bound
             if (posX < lenA && posY < lenB) {
+                // set max bound
+                COOChunk *maxChunk;
+                if (direction == 1) { // go right before -> chunk A is min bound
+                    maxChunk = &chunkA[posX];
+                    left->len -= currA->len;
+                    left->head = maxChunk->head;
+                } else { // go down before -> chunk B is min bound
+                    maxChunk = &chunkB[posY];
+                    right->len -= currB->len;
+                    right->head = maxChunk->head;
+                }
+                maxBound.row = maxChunk->head->item->row;
+                maxBound.col = maxChunk->head->item->col;
+                
                 mergeLow(currA, currB, &minBound, &maxBound, result);
             } // else { } // the last chunk will be the first chunk of next window => do not merge.
 

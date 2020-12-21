@@ -3064,17 +3064,33 @@ Definition f_mergeTop := {|
                                                                   (Econst_int (Int.repr 1) tint))))
                                                             (Ssequence
                                                               (Sifthenelse 
-                                                                (Ebinop Oeq
-                                                                  (Etempvar _direction tint)
-                                                                  (Econst_int (Int.repr 1) tint)
+                                                                (Ebinop Olt
+                                                                  (Etempvar _posX tuint)
+                                                                  (Etempvar _lenA tuint)
                                                                   tint)
+                                                                (Sset _t'10
+                                                                  (Ecast
+                                                                    (Ebinop Olt
+                                                                    (Etempvar _posY tuint)
+                                                                    (Etempvar _lenB tuint)
+                                                                    tint)
+                                                                    tbool))
+                                                                (Sset _t'10
+                                                                  (Econst_int (Int.repr 0) tint)))
+                                                              (Sifthenelse (Etempvar _t'10 tint)
                                                                 (Ssequence
-                                                                  (Sset _maxChunk
+                                                                  (Sifthenelse 
+                                                                    (Ebinop Oeq
+                                                                    (Etempvar _direction tint)
+                                                                    (Econst_int (Int.repr 1) tint)
+                                                                    tint)
+                                                                    (Ssequence
+                                                                    (Sset _maxChunk
                                                                     (Ebinop Oadd
                                                                     (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 2))
                                                                     (Etempvar _posX tuint)
                                                                     (tptr (Tstruct __COOChunk noattr))))
-                                                                  (Ssequence
+                                                                    (Ssequence
                                                                     (Ssequence
                                                                     (Sset _t'22
                                                                     (Efield
@@ -3087,7 +3103,7 @@ Definition f_mergeTop := {|
                                                                     (Sset _t'23
                                                                     (Efield
                                                                     (Ederef
-                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Etempvar _currA__1 (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
                                                                     _len
                                                                     tuint))
@@ -3118,13 +3134,13 @@ Definition f_mergeTop := {|
                                                                     _head
                                                                     (tptr (Tstruct __LLNode noattr)))
                                                                     (Etempvar _t'21 (tptr (Tstruct __LLNode noattr)))))))
-                                                                (Ssequence
-                                                                  (Sset _maxChunk
+                                                                    (Ssequence
+                                                                    (Sset _maxChunk
                                                                     (Ebinop Oadd
                                                                     (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 2))
                                                                     (Etempvar _posY tuint)
                                                                     (tptr (Tstruct __COOChunk noattr))))
-                                                                  (Ssequence
+                                                                    (Ssequence
                                                                     (Ssequence
                                                                     (Sset _t'19
                                                                     (Efield
@@ -3137,7 +3153,7 @@ Definition f_mergeTop := {|
                                                                     (Sset _t'20
                                                                     (Efield
                                                                     (Ederef
-                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Etempvar _currB__1 (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
                                                                     _len
                                                                     tuint))
@@ -3168,16 +3184,16 @@ Definition f_mergeTop := {|
                                                                     _head
                                                                     (tptr (Tstruct __LLNode noattr)))
                                                                     (Etempvar _t'18 (tptr (Tstruct __LLNode noattr))))))))
-                                                              (Ssequence
-                                                                (Ssequence
-                                                                  (Sset _t'15
+                                                                  (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'15
                                                                     (Efield
                                                                     (Ederef
                                                                     (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
                                                                     _head
                                                                     (tptr (Tstruct __LLNode noattr))))
-                                                                  (Ssequence
+                                                                    (Ssequence
                                                                     (Sset _t'16
                                                                     (Efield
                                                                     (Ederef
@@ -3199,8 +3215,8 @@ Definition f_mergeTop := {|
                                                                     _row
                                                                     tuint)
                                                                     (Etempvar _t'17 tuint)))))
-                                                                (Ssequence
-                                                                  (Ssequence
+                                                                    (Ssequence
+                                                                    (Ssequence
                                                                     (Sset _t'12
                                                                     (Efield
                                                                     (Ederef
@@ -3230,22 +3246,6 @@ Definition f_mergeTop := {|
                                                                     _col
                                                                     tuint)
                                                                     (Etempvar _t'14 tuint)))))
-                                                                  (Ssequence
-                                                                    (Sifthenelse 
-                                                                    (Ebinop Olt
-                                                                    (Etempvar _posX tuint)
-                                                                    (Etempvar _lenA tuint)
-                                                                    tint)
-                                                                    (Sset _t'10
-                                                                    (Ecast
-                                                                    (Ebinop Olt
-                                                                    (Etempvar _posY tuint)
-                                                                    (Etempvar _lenB tuint)
-                                                                    tint)
-                                                                    tbool))
-                                                                    (Sset _t'10
-                                                                    (Econst_int (Int.repr 0) tint)))
-                                                                    (Sifthenelse (Etempvar _t'10 tint)
                                                                     (Scall None
                                                                     (Evar _mergeLow 
                                                                     (Tfunction
@@ -3271,8 +3271,8 @@ Definition f_mergeTop := {|
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     (tptr (Tstruct __COOItem noattr))) ::
                                                                     (Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
-                                                                    nil))
-                                                                    Sskip))))))))))))
+                                                                    nil)))))
+                                                                Sskip)))))))))
                                               Sskip)))
                                         (Sreturn (Some (Etempvar _direction tint)))))))))))))))))))))))
 |}.
