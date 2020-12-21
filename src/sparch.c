@@ -1,3 +1,4 @@
+#include <stdio.h>
 #include <stdlib.h>
 #include "sparch.h"
 
@@ -32,7 +33,7 @@ void COOChunk_freeAll(COOChunk *chunk);
 void COOChunk_push(COOChunk *chunk, COOItem *item);
 void COOChunk_append(COOChunk *left, COOChunk *right);
 CSRMatrix* COOChunk_toCSR(COOChunk *chunk, size_t height, size_t width);
-
+void COOChunk_print(COOChunk *chunk);
 // Tier 0. outer product
 // calculate outer product of condensed column and matrix.
 void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result);
@@ -157,6 +158,19 @@ CSRMatrix* COOChunk_toCSR(COOChunk *chunk, size_t height, size_t width) {
     return csr;
 }
 
+void COOChunk_print(COOChunk *chunk) {
+    LLNode *node = chunk->head;
+    if (node) {
+        printf("%zu nodes\n", chunk->len);
+        while (node) {
+            printf("(%zu, %zu, %6.2f)\n", node->item->row, node->item->col, node->item->value);
+            node = node->next;
+        }
+    } else {
+        printf("EMPTY\n");
+    }
+}
+
 void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result) {
     size_t len = left->len;
     LLNode *colHead;
@@ -217,7 +231,7 @@ void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
     result->len = 0;
     result->head = NULL;
     result->tail = NULL;
-
+    
     while (!(li == NULL && ri == NULL)) {
         if (li == NULL) {
             node = ri;
@@ -228,7 +242,7 @@ void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
         } else {
             COOItem *litem = li->item;
             COOItem *ritem = ri->item;
-            if (litem->row < ritem->row || (litem->row == ritem->row && litem->row < ritem->row)) {
+            if (litem->row < ritem->row || (litem->row == ritem->row && litem->col < ritem->col)) {
                 node = li;
                 li = li->next;
             } else {
@@ -241,20 +255,24 @@ void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
         COOItem *item = node->item;
         if (result->tail) {
             COOItem* tailItem = result->tail->item;
-            result->len++;
 
             if (item->row == tailItem->row && item->col == tailItem->col) {
                 tailItem->value += item->value;
                 LLNode_freeAll(node);
             } else {
+                result->len++;
                 result->tail->next = node;
+                result->tail = node;
             }
-            
         } else {
             result->len = 1;
             result->head = node;
             result->tail = node;
         }
+    }
+
+    if (result->tail) {
+        result->tail->next = NULL;
     }
 }
 
@@ -367,21 +385,20 @@ void addQueue(PriorQ *queue, COOChunk *chunk) {
 COOChunk* popQueue(PriorQ *queue) {
     if (queue->count == 0) return NULL;
 
+    COOChunk **heap = queue->heap; 
+    COOChunk *result = heap[1];
+    swapHeap(heap, 1, queue->count);
     queue->count--;
 
     size_t idx = 1;
     size_t count = queue->count;
-    COOChunk **heap = queue->heap; 
-    COOChunk *result = heap[1];
-
-    swapHeap(heap, 0, count);
 
     while (idx < count) {
         size_t leftIdx = idx * 2;
         size_t rightIdx = idx * 2 + 1;
         
         if (count < leftIdx) {
-            idx = leftIdx;
+            break;
         } else if (count == leftIdx) {
             if (heap[idx]->len > heap[leftIdx]->len) {
                 swapHeap(heap, idx, leftIdx);
@@ -405,7 +422,7 @@ COOChunk* popQueue(PriorQ *queue) {
                 swapHeap(heap, idx, rightIdx);
                 idx = rightIdx;
             } else {
-                idx = rightIdx;
+                break;
             }
         }
     }
@@ -587,11 +604,11 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
 Matrix* gemm_sparch(Matrix* matA, Matrix* matB) {
     CSRMatrix* left = Matrix_toCSR(matA);
     CSRMatrix* right = Matrix_toCSR(matB);
-    // CSRMatrix* mm = spgemm_sparch(left, right);
+    CSRMatrix* mm = spgemm_sparch(left, right);
 
-    Matrix* result = CSR_dense(left);
+    Matrix* result = CSR_dense(mm);
 
-    // CSR_free(mm);
+    CSR_free(mm);
     CSR_free(right);
     CSR_free(left);
 
@@ -599,3 +616,28 @@ Matrix* gemm_sparch(Matrix* matA, Matrix* matB) {
 }
 
 
+Matrix* matmul(Matrix* matA, Matrix* matB) {
+    if (matA->width != matB->height) return NULL;
+    
+    Matrix* result = Matrix_malloc(matA->height, matB->width);
+    size_t height = matA->height;
+    size_t width = matB->width;
+    size_t iterLen = matA->width;
+    
+    for (size_t i = 0; i < height; i++) {
+        for (size_t j = 0; j < width; j++) {
+            size_t idx = width * i + j;
+            size_t ai = iterLen * i;
+            size_t bi = j;
+                
+            result->values[idx] = 0;
+            for (size_t k = 0; k < iterLen; k++) {
+                result->values[idx] += matA->values[ai] * matB->values[bi];
+                ai++;
+                bi += width;
+            }
+        }
+    }
+
+    return result;
+}

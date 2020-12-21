@@ -1,7 +1,7 @@
 # Makefile originally taken from coq-club
 
 SRC_DIR := src
-CFLAGS := -Wall -O2
+CFLAGS := -Wall
 SRC := $(wildcard $(SRC_DIR)/*.c)
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 

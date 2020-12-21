@@ -35,6 +35,7 @@ CSRMatrix* CSR_malloc(size_t height, size_t width, size_t lenVal);
 void CSR_free(CSRMatrix *csr);
 Matrix* CSR_dense(CSRMatrix* csr);
 
+Matrix* matmul(Matrix* matA, Matrix* matB);
 Matrix* gemm_sparch(Matrix* matA, Matrix* matB);
 CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB);
 
