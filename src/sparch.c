@@ -848,6 +848,13 @@ Matrix* CSR_dense(CSRMatrix* csr) {
 CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
     size_t leftLen = 0;
     COOChunk **leftChunk = condense(matA, &leftLen);
+
+    // left is zero matrix
+    if (leftLen == 0) {
+        free(leftChunk);
+        return CSR_malloc(matA->height, matB->width, 0);
+    }
+    
     COOChunk *multVal = (COOChunk *)malloc(leftLen * sizeof(COOChunk));
 
     for (size_t i = 0; i < leftLen; i++) {
