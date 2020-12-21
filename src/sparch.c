@@ -39,14 +39,17 @@ void COOChunk_print(COOChunk *chunk);
 void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result);
 
 // Tier 1. hierarchical merger
+// return 1 if coordinate of left is greater than right
+// zero if same coordinate, -1 if less.
+int posCmp(COOItem *left, COOItem* right); 
 // merge naive way
 void merge(COOChunk *left, COOChunk *right, COOChunk *result);
 // hierarchical merger
 void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result);
-// 4x4 low merger 
-void mergeLow(COOChunk *left, COOChunk *right, COOChunk *result);
-// 4x4 top merger 
-void mergeTop(COOChunk *left, COOChunk *right, COOChunk *result, size_t maxBound);
+// 4x4 low merger (append to the result)
+void mergeLow(COOChunk *left, COOChunk *right, COOItem* minBound, COOItem* maxBound, COOChunk *result);
+// 4x4 top merger (append to the result)
+int mergeTop(COOChunk *left, COOChunk *right, COOChunk *result, int lastDirection);
 // 8-chunk zero eliminator
 void elimZero(COOChunk *chunk);
 
@@ -206,20 +209,196 @@ void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result) {
     return;
 }
 
-void mergeLow(COOChunk *left, COOChunk *right, COOChunk* result) {
-    
+int posCmp(COOItem *left, COOItem* right) {
+    if (left->row < right->row) {
+        return -1;
+    } else if (left->row == right->row) {
+        if (left->col < right->col) {
+            return -1;
+        } else if (left->col == right->col) {
+            return 0;
+        } else {
+            return 1;
+        }
+    } else {
+        return 1;
+    }
 }
 
-void mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, size_t maxBound) {
+void mergeLow(COOChunk *left, COOChunk *right, COOItem* minBound, COOItem* maxBound, COOChunk* result) {
+    // comparator array
+    int comp[LOW_COMP+1][LOW_COMP+1];
+}
+
+int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirection) {
+    int comp[TOP_COMP][TOP_COMP] = { 0 };
+    COOChunk chunkA[TOP_COMP];
+    COOChunk chunkB[TOP_COMP];
+
+    // slice by chunk
+    size_t lenLeft, lenRight;
+    size_t lenA, lenB;
+    lenLeft = left->len;
+    lenRight = right->len;
+    lenA = ((left->len + (LOW_COMP - 1)) / LOW_COMP) % TOP_COMP + 1;
+    lenB = ((right->len + (LOW_COMP - 1)) / LOW_COMP) % TOP_COMP + 1;
+
+    LLNode *head = left->head;
+    for (size_t i = 0; i < lenA; i++) {
+        size_t chunkLen = lenLeft - i * LOW_COMP;
+        chunkLen = chunkLen < LOW_COMP ? chunkLen : LOW_COMP;
+        chunkA[i].len = chunkLen;
+        chunkA[i].head = head;
+        for (size_t j = 0; j < chunkLen - 1; j++) {
+            head = head->next;
+        }
+        chunkA[i].tail = head;
+        head = head->next;
+    }
+
+    head = right->head;
+    for (size_t i = 0; i < lenB; i++) {
+        size_t chunkLen = lenLeft - i * LOW_COMP;
+        chunkLen = chunkLen < LOW_COMP ? chunkLen : LOW_COMP;
+        chunkB[i].len = chunkLen;
+        chunkB[i].head = head;
+        for (size_t j = 0; j < chunkLen - 1; j++) {
+            head = head->next;
+        }
+        chunkB[i].tail = head;
+        head = head->next;
+    }
+
+    // making top comparator and bound
+    for (size_t i = 0; i < lenB; i++) {
+        for (size_t j = 0; j < lenA; j++) {
+            comp[i][j] = posCmp(chunkA[j].tail->item, chunkB[i].tail->item) > 0 ? 1 : 0;
+        }
+    }
+
+    int direction = lastDirection;
+    size_t posX = 0;
+    size_t posY = 0;
+    COOItem minBound, maxBound;
     
+    switch (direction) {
+        case 1:
+            maxBound.row = chunkA[posX].head->item->row;
+            maxBound.col = chunkA[posX].head->item->col;
+            break;
+        case -1:
+            maxBound.row = chunkB[posY].head->item->row;
+            maxBound.col = chunkB[posY].head->item->col;
+            break;
+        default:
+            maxBound.row = 0;
+            maxBound.col = 0;
+            break;
+    }
+    
+    // determine whether we should slide window or not
+    if (lenLeft <= LOW_COMP * TOP_COMP && lenRight <= LOW_COMP * TOP_COMP) {
+        // remained chunks fit to top/low comparator: merge every remained chunks
+
+        while (posX < lenA && posY < lenB) {
+            int currComp = comp[posY][posX];
+            COOChunk *currA = &chunkA[posX];
+            COOChunk *currB = &chunkB[posY];
+
+            // set min bound
+            minBound.row = maxBound.row;
+            minBound.col = maxBound.col;
+            
+            if (currComp) { // current cell is > : go down
+                posY++;
+                direction = -1;
+            } else { // current cell is <= : go right
+                posX++;
+                direction = 1;
+            }
+
+            // set max bound
+            if (posX < lenA && posY < lenB) {
+                if (direction == 1) { // go right before -> chunk A is min bound
+                    maxBound.row = chunkA[posX].head->item->row;
+                    maxBound.col = chunkA[posX].head->item->col;
+                } else { // go down before -> chunk B is min bound
+                    maxBound.row = chunkB[posY].head->item->row;
+                    maxBound.col = chunkB[posY].head->item->col;
+                }
+                
+                mergeLow(currA, currB, &minBound, &maxBound, result);
+            } else { // hit the border
+                // maxBound NULL indicates unlimited.
+                mergeLow(currA, currB, &minBound, NULL, result);
+            }
+        }
+
+        // append remainder
+        if (posX == lenA) { // append remained <
+            for (size_t i = posY + 1; i < lenB; i++) {
+                COOChunk_append(result, &chunkB[i]);
+            }
+        } else if (posY == lenB) { // append remained >
+            for (size_t i = posX + 1; i < lenB; i++) {
+                COOChunk_append(result, &chunkA[i]);
+            }
+        }
+        
+        left->len = 0;
+        left->head = NULL;
+        left->tail = NULL;
+        right->len = 0;
+        right->head = NULL;
+        right->tail = NULL;
+    } else {
+        // slide top window: merge through border except next head of border
+        while (posX < lenA && posY < lenB) {
+            int currComp = comp[posY][posX];
+            COOChunk *currA = &chunkA[posX];
+            COOChunk *currB = &chunkB[posY];
+
+            // set min bound
+            minBound.row = maxBound.row;
+            minBound.col = maxBound.col;
+            
+            if (currComp) { // current cell is > : go down
+                posY++;
+                direction = -1;
+            } else { // current cell is <= : go right
+                posX++;
+                direction = 1;
+            }
+
+            COOChunk *maxChunk;
+            if (direction == 1) { // go right before -> chunk A is min bound
+                maxChunk = &chunkA[posX];
+                left->len -= maxChunk->len;
+                left->head = maxChunk->head;
+            } else { // go down before -> chunk B is min bound
+                maxChunk = &chunkB[posY];
+                right->len -= maxChunk->len;
+                right->head = maxChunk->head;
+            }
+            maxBound.row = maxChunk->head->item->row;
+            maxBound.col = maxChunk->head->item->col;
+            
+            // set max bound
+            if (posX < lenA && posY < lenB) {
+                mergeLow(currA, currB, &minBound, &maxBound, result);
+            } // else { } // the last chunk will be the first chunk of next window => do not merge.
+        }
+    }
+
+    return direction;
 }
 
 void elimZero(COOChunk *chunk) {
+    size_t zeroCount[LOW_COMP*2];
     return;
 }
 
 void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
-    LLNode *li, *ri, *node;
     result->len = 0;
     result->head = NULL;
     result->tail = NULL;
@@ -239,8 +418,10 @@ void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
         return;
     }
 
-    li = left->head;
-    ri = right->head;
+    int direction = 0;
+    while (left->len > 0 && right->len > 0) {
+        direction = mergeTop(left, right, result, direction);
+    }
 }
 
 void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
@@ -278,7 +459,7 @@ void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
         } else {
             COOItem *litem = li->item;
             COOItem *ritem = ri->item;
-            if (litem->row < ritem->row || (litem->row == ritem->row && litem->col < ritem->col)) {
+            if (posCmp(litem, ritem) < 0) {
                 node = li;
                 li = li->next;
             } else {

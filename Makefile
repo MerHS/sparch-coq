@@ -1,15 +1,12 @@
 # Makefile originally taken from coq-club
 
 SRC_DIR := src
-CFLAGS := -Wall
+CFLAGS := -Wall -g
 SRC := $(wildcard $(SRC_DIR)/*.c)
 OBJ := $(SRC:$(SRC_DIR)/%.c=$(SRC_DIR)/%.o)
 
 COQMFFLAGS := -Q . SpArch
 ALLVFILES := src/sparch.v src/verif_sparch.v
-
-debug: CFLAGS += -DDEBUG -g
-debug: main
 
 all: main Makefile.coq $(ALLVFILES)
 	$(MAKE) -f Makefile.coq
@@ -23,8 +20,10 @@ clean:
 $(SRC_DIR)/%.o: $(SRC_DIR)/%.h $(SRC_DIR)/$.c
 	gcc $(CFLAGS) -c $< -o $@
 
-main.o: src/sparch.h main.c
+src/sparch.v: src/sparch.h src/sparch.c
 	./compcert/clightgen -normalize -short-idents src/sparch.c
+
+main.o: src/sparch.h main.c
 	gcc $(CFLAGS) -c main.c -o main.o
 
 main: $(OBJ) main.o
