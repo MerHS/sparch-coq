@@ -39,11 +39,13 @@ void COOChunk_print(COOChunk *chunk);
 void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result);
 
 // Tier 1. hierarchical merger
-// merge right to left
+// merge naive way
 void merge(COOChunk *left, COOChunk *right, COOChunk *result);
-// 4x4 low merger (merge right to left)
+// hierarchical merger
+void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result);
+// 4x4 low merger 
 void mergeLow(COOChunk *left, COOChunk *right, COOChunk *result);
-// 4x4 top merger (merge right to left)
+// 4x4 top merger 
 void mergeTop(COOChunk *left, COOChunk *right, COOChunk *result, size_t maxBound);
 // 8-chunk zero eliminator
 void elimZero(COOChunk *chunk);
@@ -144,15 +146,15 @@ CSRMatrix* COOChunk_toCSR(COOChunk *chunk, size_t height, size_t width) {
 
         while (rowId < item->row) {
             rowId++;
-            csr->rows[rowId] = i + 1;
+            csr->rows[rowId] = i;
         }
         
         head = head->next;
     }
 
-    while (rowId <= height) {
-        csr->rows[rowId] = height * width;
+    while (rowId < height) {
         rowId++;
+        csr->rows[rowId] = len;
     }
     
     return csr;
@@ -183,7 +185,7 @@ void outerProd(COOChunk *left, CSRMatrix* right, COOChunk *result) {
     
     for (size_t i = 0; i < len; i++) {
         COOItem *item = colHead->item;
-        size_t leftVal = item->value;
+        float leftVal = item->value;
         size_t row = item->row;
         size_t rowId = item->col;
         size_t rightRowStart = right->rows[rowId];
@@ -215,22 +217,55 @@ void elimZero(COOChunk *chunk) {
     return;
 }
 
-void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
-    /* if (right == NULL) { */
-    /*     result->len = left->len; */
-    /*     result->head = left->head; */
-    /*     result->tail = left->tail; */
-    /*     return; */
-    /* } */
-
-    // naive merge
+void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
     LLNode *li, *ri, *node;
-    li = left->head;
-    ri = right->head;
-
     result->len = 0;
     result->head = NULL;
     result->tail = NULL;
+    
+    if (left == NULL || left->head == NULL) {
+        if (right == NULL || right->head == NULL) {
+            return;
+        }
+        result->len = right->len;
+        result->head = right->head;
+        result->tail = right->tail;
+        return;
+    } else if (right == NULL || right->head == NULL) {
+        result->len = left->len;
+        result->head = left->head;
+        result->tail = left->tail;
+        return;
+    }
+
+    li = left->head;
+    ri = right->head;
+}
+
+void merge(COOChunk *left, COOChunk *right, COOChunk *result) {
+    // naive merge
+    LLNode *li, *ri, *node;
+    result->len = 0;
+    result->head = NULL;
+    result->tail = NULL;
+    
+    if (left == NULL || left->head == NULL) {
+        if (right == NULL || right->head == NULL) {
+            return;
+        }
+        result->len = right->len;
+        result->head = right->head;
+        result->tail = right->tail;
+        return;
+    } else if (right == NULL || right->head == NULL) {
+        result->len = left->len;
+        result->head = left->head;
+        result->tail = left->tail;
+        return;
+    }
+
+    li = left->head;
+    ri = right->head;
     
     while (!(li == NULL && ri == NULL)) {
         if (li == NULL) {
@@ -558,7 +593,7 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
     }
 
     size_t mergedIdx = 0;
-    size_t kInit = (leftLen - 2) % (HUFF_WAY - 1) + 2; 
+    size_t kInit = leftLen >= 2 ? (leftLen - 2) % (HUFF_WAY - 1) + 2 : leftLen; 
     COOChunk *treeItems[HUFF_WAY];
     COOChunk *mergedVal = (COOChunk *)malloc((leftLen / (HUFF_WAY - 1) + 1) * sizeof(COOChunk));
 

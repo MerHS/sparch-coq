@@ -3,6 +3,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
+#include <unistd.h>
 
 #define ZERO_FILL 0.8f
 
@@ -45,7 +46,7 @@ int main(int argc, char *argv[]) {
       if (strcmp("--print", arg) == 0) {
         print = 1;
       } else if (strcmp("--rand", arg) == 0) {
-        srand((unsigned int)time(NULL));
+        srand((unsigned int)time(NULL) * getpid());
         genRand = 1;
         randH = atoi(argv[argc-3]);
         randI = atoi(argv[argc-2]);
@@ -87,6 +88,10 @@ int main(int argc, char *argv[]) {
   Matrix *mm = matmul(a, b);
 
   if (print) {
+    printf("==== matA ====\n");
+    Matrix_print(a);
+    printf("==== matB ====\n");
+    Matrix_print(b);
     printf("==== result of sparch ====\n");
     Matrix_print(gem);
   
