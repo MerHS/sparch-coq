@@ -1,9 +1,9 @@
 # sparch-coq
-Reconstruct SpArch from Coq/Gallina
+Reconstruct SpArch from C-light && Coq/Gallina
 
 ## How to install
 
-I tested it only from Linux (Ubuntu/Arch).
+I tested it on Linux only (Ubuntu/Arch).
 
 1. Install OCaml compiler and OPAM (OCaml Package manager)
 2. Install Coq and Libraries (this requires quite a long time)
@@ -51,5 +51,19 @@ make main # build executable SpGEMM program
 ./sparch # generate random two 1000*1000 matrices and multply it.
 
 make # verify sparch.c by Coq/VST.
+```
+
+## How to run
+
+``` sh
+# multiply two matrices from `./test.mat` and compare with normal matrix multiplication
+./sparch --print
+
+# multiply random matrix (30 x 50, 50 x 70)
+# it first generates random dense matrix and convert to sparse matrix.
+./sparch --random 30 50 70
+
+# multiply random sparse matrix (do not print comparison)
+./sparch --sparse --random 30 50 70
 ```
 
