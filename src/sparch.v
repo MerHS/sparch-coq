@@ -17,26 +17,26 @@ Module Info.
   Definition normalized := true.
 End Info.
 
-Definition _COOChunk_append : ident := 90%positive.
-Definition _COOChunk_concat : ident := 94%positive.
+Definition _COOChunk_append : ident := 92%positive.
+Definition _COOChunk_concat : ident := 96%positive.
 Definition _COOChunk_free : ident := 87%positive.
-Definition _COOChunk_freeAll : ident := 89%positive.
-Definition _COOChunk_freeNodes : ident := 88%positive.
+Definition _COOChunk_freeAll : ident := 91%positive.
+Definition _COOChunk_freeNodes : ident := 89%positive.
 Definition _COOChunk_malloc : ident := 86%positive.
-Definition _COOChunk_print : ident := 103%positive.
-Definition _COOChunk_push : ident := 91%positive.
-Definition _COOChunk_toCSR : ident := 99%positive.
-Definition _COOItem_free : ident := 171%positive.
-Definition _COOItem_malloc : ident := 112%positive.
-Definition _CSR_dense : ident := 182%positive.
-Definition _CSR_free : ident := 178%positive.
-Definition _CSR_malloc : ident := 98%positive.
+Definition _COOChunk_print : ident := 104%positive.
+Definition _COOChunk_push : ident := 93%positive.
+Definition _COOChunk_toCSR : ident := 100%positive.
+Definition _COOItem_free : ident := 172%positive.
+Definition _COOItem_malloc : ident := 113%positive.
+Definition _CSR_dense : ident := 183%positive.
+Definition _CSR_free : ident := 179%positive.
+Definition _CSR_malloc : ident := 99%positive.
 Definition _LLNode_free : ident := 83%positive.
 Definition _LLNode_freeAll : ident := 84%positive.
 Definition _LLNode_malloc : ident := 82%positive.
-Definition _Matrix_free : ident := 174%positive.
-Definition _Matrix_malloc : ident := 173%positive.
-Definition _Matrix_toCSR : ident := 177%positive.
+Definition _Matrix_free : ident := 175%positive.
+Definition _Matrix_malloc : ident := 174%positive.
+Definition _Matrix_toCSR : ident := 178%positive.
 Definition __COOChunk : ident := 19%positive.
 Definition __COOItem : ident := 8%positive.
 Definition __CSRMatrix : ident := 12%positive.
@@ -97,179 +97,171 @@ Definition ___compcert_va_composite : ident := 51%positive.
 Definition ___compcert_va_float64 : ident := 50%positive.
 Definition ___compcert_va_int32 : ident := 48%positive.
 Definition ___compcert_va_int64 : ident := 49%positive.
-Definition ___stringlit_1 : ident := 100%positive.
-Definition ___stringlit_2 : ident := 101%positive.
-Definition ___stringlit_3 : ident := 102%positive.
-Definition _addQueue : ident := 167%positive.
-Definition _ai : ident := 199%positive.
-Definition _an : ident := 121%positive.
-Definition _bi : ident := 200%positive.
-Definition _bn : ident := 122%positive.
+Definition ___stringlit_1 : ident := 101%positive.
+Definition ___stringlit_2 : ident := 102%positive.
+Definition ___stringlit_3 : ident := 103%positive.
+Definition _addQueue : ident := 168%positive.
+Definition _ai : ident := 200%positive.
+Definition _an : ident := 122%positive.
+Definition _bi : ident := 201%positive.
+Definition _bn : ident := 123%positive.
 Definition _chunk : ident := 85%positive.
-Definition _chunkA : ident := 132%positive.
-Definition _chunkB : ident := 133%positive.
-Definition _chunkLen : ident := 136%positive.
-Definition _chunkLen__1 : ident := 137%positive.
-Definition _chunks : ident := 154%positive.
+Definition _chunkA : ident := 133%positive.
+Definition _chunkB : ident := 134%positive.
+Definition _chunkLen : ident := 137%positive.
+Definition _chunkLen__1 : ident := 138%positive.
+Definition _chunks : ident := 155%positive.
+Definition _cnt : ident := 88%positive.
 Definition _col : ident := 6%positive.
-Definition _colHead : ident := 105%positive.
+Definition _colHead : ident := 106%positive.
 Definition _cols : ident := 10%positive.
-Definition _comp : ident := 117%positive.
-Definition _condense : ident := 163%positive.
+Definition _comp : ident := 118%positive.
+Definition _condense : ident := 164%positive.
 Definition _count : ident := 20%positive.
-Definition _csr : ident := 95%positive.
-Definition _currA : ident := 142%positive.
-Definition _currB : ident := 143%positive.
-Definition _currComp : ident := 127%positive.
-Definition _currLen : ident := 155%positive.
-Definition _direction : ident := 140%positive.
-Definition _elimZero : ident := 129%positive.
-Definition _flattenByMergeTree : ident := 158%positive.
+Definition _csr : ident := 97%positive.
+Definition _currA : ident := 143%positive.
+Definition _currB : ident := 144%positive.
+Definition _currComp : ident := 128%positive.
+Definition _currLen : ident := 156%positive.
+Definition _direction : ident := 141%positive.
+Definition _elimZero : ident := 130%positive.
+Definition _flattenByMergeTree : ident := 159%positive.
 Definition _free : ident := 80%positive.
-Definition _gemm_sparch : ident := 197%positive.
+Definition _gemm_sparch : ident := 198%positive.
 Definition _head : ident := 17%positive.
 Definition _heap : ident := 22%positive.
 Definition _height : ident := 1%positive.
-Definition _i : ident := 97%positive.
-Definition _i__1 : ident := 109%positive.
-Definition _i__2 : ident := 138%positive.
-Definition _i__3 : ident := 193%positive.
-Definition _i__4 : ident := 194%positive.
-Definition _idx : ident := 162%positive.
-Definition _index : ident := 175%positive.
+Definition _i : ident := 90%positive.
+Definition _i__1 : ident := 110%positive.
+Definition _i__2 : ident := 139%positive.
+Definition _i__3 : ident := 194%positive.
+Definition _i__4 : ident := 195%positive.
+Definition _idx : ident := 163%positive.
+Definition _index : ident := 176%positive.
 Definition _item : ident := 13%positive.
-Definition _iterLen : ident := 198%positive.
-Definition _j : ident := 123%positive.
-Definition _j__1 : ident := 124%positive.
-Definition _j__2 : ident := 139%positive.
-Definition _k : ident := 201%positive.
-Definition _kInit : ident := 190%positive.
-Definition _lastDir : ident := 141%positive.
-Definition _lastDirection : ident := 131%positive.
-Definition _left : ident := 92%positive.
-Definition _leftChunk : ident := 186%positive.
-Definition _leftIdx : ident := 168%positive.
-Definition _leftLen : ident := 185%positive.
-Definition _leftVal : ident := 106%positive.
+Definition _iterLen : ident := 199%positive.
+Definition _j : ident := 124%positive.
+Definition _j__1 : ident := 125%positive.
+Definition _j__2 : ident := 140%positive.
+Definition _k : ident := 202%positive.
+Definition _kInit : ident := 191%positive.
+Definition _lastDir : ident := 142%positive.
+Definition _lastDirection : ident := 132%positive.
+Definition _left : ident := 94%positive.
+Definition _leftChunk : ident := 187%positive.
+Definition _leftIdx : ident := 169%positive.
+Definition _leftLen : ident := 186%positive.
+Definition _leftVal : ident := 107%positive.
 Definition _len : ident := 16%positive.
-Definition _lenA : ident := 119%positive.
-Definition _lenB : ident := 120%positive.
-Definition _lenLeft : ident := 134%positive.
-Definition _lenRight : ident := 135%positive.
+Definition _lenA : ident := 120%positive.
+Definition _lenB : ident := 121%positive.
+Definition _lenLeft : ident := 135%positive.
+Definition _lenRight : ident := 136%positive.
 Definition _lenVal : ident := 9%positive.
-Definition _li : ident := 148%positive.
-Definition _litem : ident := 150%positive.
-Definition _main : ident := 203%positive.
+Definition _li : ident := 149%positive.
+Definition _litem : ident := 151%positive.
+Definition _main : ident := 204%positive.
 Definition _malloc : ident := 79%positive.
-Definition _mat : ident := 179%positive.
-Definition _matA : ident := 183%positive.
-Definition _matB : ident := 184%positive.
-Definition _matmul : ident := 202%positive.
-Definition _matrix : ident := 172%positive.
-Definition _maxBound : ident := 116%positive.
-Definition _maxChunk : ident := 144%positive.
+Definition _mat : ident := 180%positive.
+Definition _matA : ident := 184%positive.
+Definition _matB : ident := 185%positive.
+Definition _matmul : ident := 203%positive.
+Definition _matrix : ident := 173%positive.
+Definition _maxBound : ident := 117%positive.
+Definition _maxChunk : ident := 145%positive.
 Definition _maxCount : ident := 21%positive.
-Definition _merge : ident := 153%positive.
-Definition _mergeHier : ident := 147%positive.
-Definition _mergeLow : ident := 130%positive.
-Definition _mergeTop : ident := 145%positive.
-Definition _mergedIdx : ident := 189%positive.
-Definition _mergedVal : ident := 192%positive.
-Definition _merger : ident := 156%positive.
-Definition _minBound : ident := 115%positive.
-Definition _mm : ident := 196%positive.
-Definition _multVal : ident := 187%positive.
-Definition _newItem : ident := 111%positive.
+Definition _merge : ident := 154%positive.
+Definition _mergeHier : ident := 148%positive.
+Definition _mergeLow : ident := 131%positive.
+Definition _mergeTop : ident := 146%positive.
+Definition _mergedIdx : ident := 190%positive.
+Definition _mergedVal : ident := 193%positive.
+Definition _merger : ident := 157%positive.
+Definition _minBound : ident := 116%positive.
+Definition _mm : ident := 197%positive.
+Definition _multVal : ident := 188%positive.
+Definition _newItem : ident := 112%positive.
 Definition _next : ident := 15%positive.
-Definition _nextLen : ident := 157%positive.
+Definition _nextLen : ident := 158%positive.
 Definition _node : ident := 81%positive.
-Definition _offset : ident := 176%positive.
-Definition _outLen : ident := 159%positive.
-Definition _outerProd : ident := 113%positive.
-Definition _parent : ident := 166%positive.
-Definition _popQueue : ident := 170%positive.
-Definition _posCmp : ident := 114%positive.
-Definition _posX : ident := 125%positive.
-Definition _posY : ident := 126%positive.
-Definition _pq : ident := 188%positive.
+Definition _offset : ident := 177%positive.
+Definition _outLen : ident := 160%positive.
+Definition _outerProd : ident := 114%positive.
+Definition _parent : ident := 167%positive.
+Definition _popQueue : ident := 171%positive.
+Definition _posCmp : ident := 115%positive.
+Definition _posX : ident := 126%positive.
+Definition _posY : ident := 127%positive.
+Definition _pq : ident := 189%positive.
 Definition _printf : ident := 78%positive.
-Definition _queue : ident := 165%positive.
-Definition _result : ident := 104%positive.
-Definition _ri : ident := 149%positive.
-Definition _right : ident := 93%positive.
-Definition _rightIdx : ident := 169%positive.
-Definition _rightRowEnd : ident := 108%positive.
-Definition _rightRowStart : ident := 107%positive.
-Definition _rightVal : ident := 110%positive.
-Definition _ritem : ident := 151%positive.
+Definition _queue : ident := 166%positive.
+Definition _result : ident := 105%positive.
+Definition _ri : ident := 150%positive.
+Definition _right : ident := 95%positive.
+Definition _rightIdx : ident := 170%positive.
+Definition _rightRowEnd : ident := 109%positive.
+Definition _rightRowStart : ident := 108%positive.
+Definition _rightVal : ident := 111%positive.
+Definition _ritem : ident := 152%positive.
 Definition _row : ident := 5%positive.
-Definition _rowCnt : ident := 160%positive.
-Definition _rowCnt__1 : ident := 161%positive.
-Definition _rowEnd : ident := 181%positive.
-Definition _rowId : ident := 96%positive.
-Definition _rowStart : ident := 180%positive.
+Definition _rowCnt : ident := 161%positive.
+Definition _rowCnt__1 : ident := 162%positive.
+Definition _rowEnd : ident := 182%positive.
+Definition _rowId : ident := 98%positive.
+Definition _rowStart : ident := 181%positive.
 Definition _rows : ident := 11%positive.
-Definition _spgemm_sparch : ident := 195%positive.
-Definition _swapHeap : ident := 164%positive.
+Definition _spgemm_sparch : ident := 196%positive.
+Definition _swapHeap : ident := 165%positive.
 Definition _tail : ident := 18%positive.
-Definition _tailItem : ident := 152%positive.
-Definition _temp : ident := 118%positive.
-Definition _tempLen : ident := 128%positive.
-Definition _treeItems : ident := 191%positive.
+Definition _tailItem : ident := 153%positive.
+Definition _temp : ident := 119%positive.
+Definition _tempLen : ident := 129%positive.
+Definition _treeItems : ident := 192%positive.
 Definition _value : ident := 7%positive.
 Definition _values : ident := 3%positive.
 Definition _width : ident := 2%positive.
-Definition _zeroCount : ident := 146%positive.
-Definition _t'1 : ident := 204%positive.
-Definition _t'10 : ident := 213%positive.
-Definition _t'11 : ident := 214%positive.
-Definition _t'12 : ident := 215%positive.
-Definition _t'13 : ident := 216%positive.
-Definition _t'14 : ident := 217%positive.
-Definition _t'15 : ident := 218%positive.
-Definition _t'16 : ident := 219%positive.
-Definition _t'17 : ident := 220%positive.
-Definition _t'18 : ident := 221%positive.
-Definition _t'19 : ident := 222%positive.
-Definition _t'2 : ident := 205%positive.
-Definition _t'20 : ident := 223%positive.
-Definition _t'21 : ident := 224%positive.
-Definition _t'22 : ident := 225%positive.
-Definition _t'23 : ident := 226%positive.
-Definition _t'24 : ident := 227%positive.
-Definition _t'25 : ident := 228%positive.
-Definition _t'26 : ident := 229%positive.
-Definition _t'27 : ident := 230%positive.
-Definition _t'28 : ident := 231%positive.
-Definition _t'29 : ident := 232%positive.
-Definition _t'3 : ident := 206%positive.
-Definition _t'30 : ident := 233%positive.
-Definition _t'31 : ident := 234%positive.
-Definition _t'32 : ident := 235%positive.
-Definition _t'33 : ident := 236%positive.
-Definition _t'34 : ident := 237%positive.
-Definition _t'35 : ident := 238%positive.
-Definition _t'36 : ident := 239%positive.
-Definition _t'37 : ident := 240%positive.
-Definition _t'38 : ident := 241%positive.
-Definition _t'39 : ident := 242%positive.
-Definition _t'4 : ident := 207%positive.
-Definition _t'40 : ident := 243%positive.
-Definition _t'41 : ident := 244%positive.
-Definition _t'42 : ident := 245%positive.
-Definition _t'43 : ident := 246%positive.
-Definition _t'44 : ident := 247%positive.
-Definition _t'45 : ident := 248%positive.
-Definition _t'46 : ident := 249%positive.
-Definition _t'47 : ident := 250%positive.
-Definition _t'48 : ident := 251%positive.
-Definition _t'49 : ident := 252%positive.
-Definition _t'5 : ident := 208%positive.
-Definition _t'50 : ident := 253%positive.
-Definition _t'6 : ident := 209%positive.
-Definition _t'7 : ident := 210%positive.
-Definition _t'8 : ident := 211%positive.
-Definition _t'9 : ident := 212%positive.
+Definition _zeroCount : ident := 147%positive.
+Definition _t'1 : ident := 205%positive.
+Definition _t'10 : ident := 214%positive.
+Definition _t'11 : ident := 215%positive.
+Definition _t'12 : ident := 216%positive.
+Definition _t'13 : ident := 217%positive.
+Definition _t'14 : ident := 218%positive.
+Definition _t'15 : ident := 219%positive.
+Definition _t'16 : ident := 220%positive.
+Definition _t'17 : ident := 221%positive.
+Definition _t'18 : ident := 222%positive.
+Definition _t'19 : ident := 223%positive.
+Definition _t'2 : ident := 206%positive.
+Definition _t'20 : ident := 224%positive.
+Definition _t'21 : ident := 225%positive.
+Definition _t'22 : ident := 226%positive.
+Definition _t'23 : ident := 227%positive.
+Definition _t'24 : ident := 228%positive.
+Definition _t'25 : ident := 229%positive.
+Definition _t'26 : ident := 230%positive.
+Definition _t'27 : ident := 231%positive.
+Definition _t'28 : ident := 232%positive.
+Definition _t'29 : ident := 233%positive.
+Definition _t'3 : ident := 207%positive.
+Definition _t'30 : ident := 234%positive.
+Definition _t'31 : ident := 235%positive.
+Definition _t'32 : ident := 236%positive.
+Definition _t'33 : ident := 237%positive.
+Definition _t'34 : ident := 238%positive.
+Definition _t'35 : ident := 239%positive.
+Definition _t'36 : ident := 240%positive.
+Definition _t'37 : ident := 241%positive.
+Definition _t'38 : ident := 242%positive.
+Definition _t'39 : ident := 243%positive.
+Definition _t'4 : ident := 208%positive.
+Definition _t'40 : ident := 244%positive.
+Definition _t'41 : ident := 245%positive.
+Definition _t'5 : ident := 209%positive.
+Definition _t'6 : ident := 210%positive.
+Definition _t'7 : ident := 211%positive.
+Definition _t'8 : ident := 212%positive.
+Definition _t'9 : ident := 213%positive.
 
 Definition v___stringlit_1 := {|
   gvar_info := (tarray tschar 7);
@@ -426,31 +418,101 @@ Definition f_COOChunk_free := {|
 Definition f_COOChunk_freeNodes := {|
   fn_return := tvoid;
   fn_callconv := cc_default;
-  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
+  fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) ::
+                (_cnt, tuint) :: nil);
   fn_vars := nil;
-  fn_temps := ((_head, (tptr (Tstruct __LLNode noattr))) ::
-               (_next, (tptr (Tstruct __LLNode noattr))) :: nil);
+  fn_temps := ((_next, (tptr (Tstruct __LLNode noattr))) :: (_t'1, tint) ::
+               (_t'6, tuint) :: (_t'5, (tptr (Tstruct __LLNode noattr))) ::
+               (_t'4, (tptr (Tstruct __LLNode noattr))) :: (_t'3, tuint) ::
+               (_t'2, tuint) :: nil);
   fn_body :=
 (Ssequence
-  (Sset _head
-    (Efield
-      (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
-        (Tstruct __COOChunk noattr)) _head (tptr (Tstruct __LLNode noattr))))
-  (Swhile
-    (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+  (Sloop
     (Ssequence
-      (Sset _next
-        (Efield
-          (Ederef (Etempvar _head (tptr (Tstruct __LLNode noattr)))
-            (Tstruct __LLNode noattr)) _next
-          (tptr (Tstruct __LLNode noattr))))
       (Ssequence
-        (Scall None
-          (Evar _LLNode_freeAll (Tfunction
-                                  (Tcons (tptr (Tstruct __LLNode noattr))
-                                    Tnil) tvoid cc_default))
-          ((Etempvar _head (tptr (Tstruct __LLNode noattr))) :: nil))
-        (Sset _head (Etempvar _next (tptr (Tstruct __LLNode noattr))))))))
+        (Ssequence
+          (Sset _t'6
+            (Efield
+              (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _len tuint))
+          (Sifthenelse (Ebinop Ogt (Etempvar _t'6 tuint)
+                         (Econst_int (Int.repr 0) tint) tint)
+            (Sset _t'1
+              (Ecast
+                (Ebinop Ogt (Etempvar _cnt tuint)
+                  (Econst_int (Int.repr 0) tint) tint) tbool))
+            (Sset _t'1 (Econst_int (Int.repr 0) tint))))
+        (Sifthenelse (Etempvar _t'1 tint) Sskip Sbreak))
+      (Ssequence
+        (Ssequence
+          (Sset _t'5
+            (Efield
+              (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                (Tstruct __COOChunk noattr)) _head
+              (tptr (Tstruct __LLNode noattr))))
+          (Sset _next
+            (Efield
+              (Ederef (Etempvar _t'5 (tptr (Tstruct __LLNode noattr)))
+                (Tstruct __LLNode noattr)) _next
+              (tptr (Tstruct __LLNode noattr)))))
+        (Ssequence
+          (Ssequence
+            (Sset _t'4
+              (Efield
+                (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _head
+                (tptr (Tstruct __LLNode noattr))))
+            (Scall None
+              (Evar _LLNode_freeAll (Tfunction
+                                      (Tcons (tptr (Tstruct __LLNode noattr))
+                                        Tnil) tvoid cc_default))
+              ((Etempvar _t'4 (tptr (Tstruct __LLNode noattr))) :: nil)))
+          (Ssequence
+            (Sassign
+              (Efield
+                (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                  (Tstruct __COOChunk noattr)) _head
+                (tptr (Tstruct __LLNode noattr)))
+              (Etempvar _next (tptr (Tstruct __LLNode noattr))))
+            (Ssequence
+              (Ssequence
+                (Sset _t'3
+                  (Efield
+                    (Ederef
+                      (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                      (Tstruct __COOChunk noattr)) _len tuint))
+                (Sassign
+                  (Efield
+                    (Ederef
+                      (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                      (Tstruct __COOChunk noattr)) _len tuint)
+                  (Ebinop Osub (Etempvar _t'3 tuint)
+                    (Econst_int (Int.repr 1) tint) tuint)))
+              (Sset _cnt
+                (Ebinop Osub (Etempvar _cnt tuint)
+                  (Econst_int (Int.repr 1) tint) tuint)))))))
+    Sskip)
+  (Ssequence
+    (Sset _t'2
+      (Efield
+        (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _len tuint))
+    (Sifthenelse (Ebinop Oeq (Etempvar _t'2 tuint)
+                   (Econst_int (Int.repr 0) tint) tint)
+      (Ssequence
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+        (Sassign
+          (Efield
+            (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+              (Tstruct __COOChunk noattr)) _tail
+            (tptr (Tstruct __LLNode noattr)))
+          (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid))))
+      Sskip)))
 |}.
 
 Definition f_COOChunk_freeAll := {|
@@ -459,32 +521,50 @@ Definition f_COOChunk_freeAll := {|
   fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
   fn_vars := nil;
   fn_temps := ((_head, (tptr (Tstruct __LLNode noattr))) ::
-               (_next, (tptr (Tstruct __LLNode noattr))) :: nil);
+               (_next, (tptr (Tstruct __LLNode noattr))) :: (_len, tuint) ::
+               (_i, tuint) :: nil);
   fn_body :=
 (Ssequence
-  (Sset _head
+  (Sset _len
     (Efield
       (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
-        (Tstruct __COOChunk noattr)) _head (tptr (Tstruct __LLNode noattr))))
+        (Tstruct __COOChunk noattr)) _len tuint))
   (Ssequence
-    (Swhile
-      (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+    (Sset _head
+      (Efield
+        (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+          (Tstruct __COOChunk noattr)) _head
+        (tptr (Tstruct __LLNode noattr))))
+    (Ssequence
       (Ssequence
-        (Sset _next
-          (Efield
-            (Ederef (Etempvar _head (tptr (Tstruct __LLNode noattr)))
-              (Tstruct __LLNode noattr)) _next
-            (tptr (Tstruct __LLNode noattr))))
-        (Ssequence
-          (Scall None
-            (Evar _LLNode_freeAll (Tfunction
-                                    (Tcons (tptr (Tstruct __LLNode noattr))
-                                      Tnil) tvoid cc_default))
-            ((Etempvar _head (tptr (Tstruct __LLNode noattr))) :: nil))
-          (Sset _head (Etempvar _next (tptr (Tstruct __LLNode noattr)))))))
-    (Scall None
-      (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
-      ((Etempvar _chunk (tptr (Tstruct __COOChunk noattr))) :: nil))))
+        (Sset _i (Econst_int (Int.repr 0) tint))
+        (Sloop
+          (Ssequence
+            (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                           (Etempvar _len tuint) tint)
+              Sskip
+              Sbreak)
+            (Ssequence
+              (Sset _next
+                (Efield
+                  (Ederef (Etempvar _head (tptr (Tstruct __LLNode noattr)))
+                    (Tstruct __LLNode noattr)) _next
+                  (tptr (Tstruct __LLNode noattr))))
+              (Ssequence
+                (Scall None
+                  (Evar _LLNode_freeAll (Tfunction
+                                          (Tcons
+                                            (tptr (Tstruct __LLNode noattr))
+                                            Tnil) tvoid cc_default))
+                  ((Etempvar _head (tptr (Tstruct __LLNode noattr))) :: nil))
+                (Sset _head
+                  (Etempvar _next (tptr (Tstruct __LLNode noattr)))))))
+          (Sset _i
+            (Ebinop Oadd (Etempvar _i tuint) (Econst_int (Int.repr 1) tint)
+              tuint))))
+      (Scall None
+        (Evar _free (Tfunction (Tcons (tptr tvoid) Tnil) tvoid cc_default))
+        ((Etempvar _chunk (tptr (Tstruct __COOChunk noattr))) :: nil)))))
 |}.
 
 Definition f_COOChunk_push := {|
@@ -1929,35 +2009,29 @@ Definition f_mergeTop := {|
                (_currA, (tptr (Tstruct __COOChunk noattr))) ::
                (_currB, (tptr (Tstruct __COOChunk noattr))) ::
                (_maxChunk, (tptr (Tstruct __COOChunk noattr))) ::
-               (_t'10, tint) :: (_t'9, tint) :: (_t'8, tint) ::
-               (_t'7, tint) :: (_t'6, tint) :: (_t'5, tint) ::
-               (_t'4, tuint) :: (_t'3, tuint) :: (_t'2, tuint) ::
-               (_t'1, tuint) :: (_t'50, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'49, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'48, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'47, (tptr (Tstruct __LLNode noattr))) :: (_t'46, tuint) ::
-               (_t'45, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'44, (tptr (Tstruct __LLNode noattr))) :: (_t'43, tuint) ::
-               (_t'42, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'41, (tptr (Tstruct __LLNode noattr))) :: (_t'40, tuint) ::
+               (_t'11, tint) :: (_t'10, tint) :: (_t'9, tint) ::
+               (_t'8, (tptr (Tstruct __COOChunk noattr))) :: (_t'7, tint) ::
+               (_t'6, tint) :: (_t'5, tint) :: (_t'4, tuint) ::
+               (_t'3, tuint) :: (_t'2, tuint) :: (_t'1, tuint) ::
+               (_t'41, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'40, (tptr (Tstruct __LLNode noattr))) ::
                (_t'39, (tptr (Tstruct __COOItem noattr))) ::
                (_t'38, (tptr (Tstruct __LLNode noattr))) :: (_t'37, tuint) ::
                (_t'36, (tptr (Tstruct __COOItem noattr))) ::
                (_t'35, (tptr (Tstruct __LLNode noattr))) :: (_t'34, tuint) ::
-               (_t'33, tuint) :: (_t'32, tuint) :: (_t'31, tuint) ::
-               (_t'30, (tptr (Tstruct __LLNode noattr))) :: (_t'29, tuint) ::
-               (_t'28, tuint) :: (_t'27, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'26, tuint) ::
-               (_t'25, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'24, (tptr (Tstruct __LLNode noattr))) :: (_t'23, tuint) ::
+               (_t'33, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'32, (tptr (Tstruct __LLNode noattr))) :: (_t'31, tuint) ::
+               (_t'30, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'29, (tptr (Tstruct __LLNode noattr))) :: (_t'28, tuint) ::
+               (_t'27, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'26, (tptr (Tstruct __LLNode noattr))) :: (_t'25, tuint) ::
+               (_t'24, tuint) :: (_t'23, tuint) ::
                (_t'22, (tptr (Tstruct __COOItem noattr))) ::
                (_t'21, (tptr (Tstruct __LLNode noattr))) :: (_t'20, tuint) ::
-               (_t'19, tuint) :: (_t'18, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'17, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'16, (tptr (Tstruct __LLNode noattr))) :: (_t'15, tuint) ::
-               (_t'14, tuint) :: (_t'13, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'12, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'11, (tptr (Tstruct __LLNode noattr))) :: nil);
+               (_t'19, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'18, (tptr (Tstruct __LLNode noattr))) :: (_t'17, tuint) ::
+               (_t'16, tuint) :: (_t'15, tuint) :: (_t'14, tuint) ::
+               (_t'13, tuint) :: (_t'12, tuint) :: nil);
   fn_body :=
 (Ssequence
   (Sassign
@@ -2463,7 +2537,7 @@ Definition f_mergeTop := {|
                                                                   (Ssequence
                                                                     (Ssequence
                                                                     (Ssequence
-                                                                    (Sset _t'47
+                                                                    (Sset _t'38
                                                                     (Efield
                                                                     (Ederef
                                                                     (Ebinop Oadd
@@ -2474,15 +2548,15 @@ Definition f_mergeTop := {|
                                                                     _tail
                                                                     (tptr (Tstruct __LLNode noattr))))
                                                                     (Ssequence
-                                                                    (Sset _t'48
+                                                                    (Sset _t'39
                                                                     (Efield
                                                                     (Ederef
-                                                                    (Etempvar _t'47 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Etempvar _t'38 (tptr (Tstruct __LLNode noattr)))
                                                                     (Tstruct __LLNode noattr))
                                                                     _item
                                                                     (tptr (Tstruct __COOItem noattr))))
                                                                     (Ssequence
-                                                                    (Sset _t'49
+                                                                    (Sset _t'40
                                                                     (Efield
                                                                     (Ederef
                                                                     (Ebinop Oadd
@@ -2493,10 +2567,10 @@ Definition f_mergeTop := {|
                                                                     _tail
                                                                     (tptr (Tstruct __LLNode noattr))))
                                                                     (Ssequence
-                                                                    (Sset _t'50
+                                                                    (Sset _t'41
                                                                     (Efield
                                                                     (Ederef
-                                                                    (Etempvar _t'49 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Etempvar _t'40 (tptr (Tstruct __LLNode noattr)))
                                                                     (Tstruct __LLNode noattr))
                                                                     _item
                                                                     (tptr (Tstruct __COOItem noattr))))
@@ -2510,8 +2584,8 @@ Definition f_mergeTop := {|
                                                                     Tnil))
                                                                     tint
                                                                     cc_default))
-                                                                    ((Etempvar _t'48 (tptr (Tstruct __COOItem noattr))) ::
-                                                                    (Etempvar _t'50 (tptr (Tstruct __COOItem noattr))) ::
+                                                                    ((Etempvar _t'39 (tptr (Tstruct __COOItem noattr))) ::
+                                                                    (Etempvar _t'41 (tptr (Tstruct __COOItem noattr))) ::
                                                                     nil))))))
                                                                     (Sifthenelse 
                                                                     (Ebinop Ogt
@@ -2563,116 +2637,12 @@ Definition f_mergeTop := {|
                                                                 (LScons (Some 1)
                                                                   (Ssequence
                                                                     (Ssequence
-                                                                    (Sset _t'44
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Ebinop Oadd
-                                                                    (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 4))
-                                                                    (Etempvar _posX tuint)
-                                                                    (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'45
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'44 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _item
-                                                                    (tptr (Tstruct __COOItem noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'46
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'45 (tptr (Tstruct __COOItem noattr)))
-                                                                    (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint)
-                                                                    (Etempvar _t'46 tuint)))))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'41
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Ebinop Oadd
-                                                                    (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 4))
-                                                                    (Etempvar _posX tuint)
-                                                                    (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'42
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'41 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _item
-                                                                    (tptr (Tstruct __COOItem noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'43
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'42 (tptr (Tstruct __COOItem noattr)))
-                                                                    (Tstruct __COOItem noattr))
-                                                                    _col
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
-                                                                    _col
-                                                                    tuint)
-                                                                    (Etempvar _t'43 tuint)))))
-                                                                    Sbreak))
-                                                                  (LScons (Some 4294967295)
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'38
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Ebinop Oadd
-                                                                    (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 4))
-                                                                    (Etempvar _posY tuint)
-                                                                    (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'39
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'38 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _item
-                                                                    (tptr (Tstruct __COOItem noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'40
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'39 (tptr (Tstruct __COOItem noattr)))
-                                                                    (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint)
-                                                                    (Etempvar _t'40 tuint)))))
-                                                                    (Ssequence
-                                                                    (Ssequence
                                                                     (Sset _t'35
                                                                     (Efield
                                                                     (Ederef
                                                                     (Ebinop Oadd
-                                                                    (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 4))
-                                                                    (Etempvar _posY tuint)
+                                                                    (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 4))
+                                                                    (Etempvar _posX tuint)
                                                                     (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
                                                                     _head
@@ -2691,6 +2661,40 @@ Definition f_mergeTop := {|
                                                                     (Ederef
                                                                     (Etempvar _t'36 (tptr (Tstruct __COOItem noattr)))
                                                                     (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint))
+                                                                    (Sassign
+                                                                    (Efield
+                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint)
+                                                                    (Etempvar _t'37 tuint)))))
+                                                                    (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'32
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Ebinop Oadd
+                                                                    (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 4))
+                                                                    (Etempvar _posX tuint)
+                                                                    (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _head
+                                                                    (tptr (Tstruct __LLNode noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'33
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'32 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Tstruct __LLNode noattr))
+                                                                    _item
+                                                                    (tptr (Tstruct __COOItem noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'34
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'33 (tptr (Tstruct __COOItem noattr)))
+                                                                    (Tstruct __COOItem noattr))
                                                                     _col
                                                                     tuint))
                                                                     (Sassign
@@ -2698,7 +2702,77 @@ Definition f_mergeTop := {|
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     _col
                                                                     tuint)
-                                                                    (Etempvar _t'37 tuint)))))
+                                                                    (Etempvar _t'34 tuint)))))
+                                                                    Sbreak))
+                                                                  (LScons (Some 4294967295)
+                                                                    (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'29
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Ebinop Oadd
+                                                                    (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 4))
+                                                                    (Etempvar _posY tuint)
+                                                                    (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _head
+                                                                    (tptr (Tstruct __LLNode noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'30
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'29 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Tstruct __LLNode noattr))
+                                                                    _item
+                                                                    (tptr (Tstruct __COOItem noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'31
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'30 (tptr (Tstruct __COOItem noattr)))
+                                                                    (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint))
+                                                                    (Sassign
+                                                                    (Efield
+                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint)
+                                                                    (Etempvar _t'31 tuint)))))
+                                                                    (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'26
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Ebinop Oadd
+                                                                    (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 4))
+                                                                    (Etempvar _posY tuint)
+                                                                    (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _head
+                                                                    (tptr (Tstruct __LLNode noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'27
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'26 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Tstruct __LLNode noattr))
+                                                                    _item
+                                                                    (tptr (Tstruct __COOItem noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'28
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'27 (tptr (Tstruct __COOItem noattr)))
+                                                                    (Tstruct __COOItem noattr))
+                                                                    _col
+                                                                    tuint))
+                                                                    (Sassign
+                                                                    (Efield
+                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
+                                                                    _col
+                                                                    tuint)
+                                                                    (Etempvar _t'28 tuint)))))
                                                                     Sbreak))
                                                                     (LScons None
                                                                     (Ssequence
@@ -2765,7 +2839,7 @@ Definition f_mergeTop := {|
                                                                     (tptr (Tstruct __COOChunk noattr))))
                                                                     (Ssequence
                                                                     (Ssequence
-                                                                    (Sset _t'34
+                                                                    (Sset _t'25
                                                                     (Efield
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     _row
@@ -2775,10 +2849,10 @@ Definition f_mergeTop := {|
                                                                     (Evar _minBound (Tstruct __COOItem noattr))
                                                                     _row
                                                                     tuint)
-                                                                    (Etempvar _t'34 tuint)))
+                                                                    (Etempvar _t'25 tuint)))
                                                                     (Ssequence
                                                                     (Ssequence
-                                                                    (Sset _t'33
+                                                                    (Sset _t'24
                                                                     (Efield
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     _col
@@ -2788,7 +2862,7 @@ Definition f_mergeTop := {|
                                                                     (Evar _minBound (Tstruct __COOItem noattr))
                                                                     _col
                                                                     tuint)
-                                                                    (Etempvar _t'33 tuint)))
+                                                                    (Etempvar _t'24 tuint)))
                                                                     (Ssequence
                                                                     (Sset _lastDir
                                                                     (Etempvar _direction tint))
@@ -2818,153 +2892,39 @@ Definition f_mergeTop := {|
                                                                     (Etempvar _posX tuint)
                                                                     (Etempvar _lenA tuint)
                                                                     tint)
-                                                                    (Sset _t'10
+                                                                    (Sset _t'11
                                                                     (Ecast
                                                                     (Ebinop Olt
                                                                     (Etempvar _posY tuint)
                                                                     (Etempvar _lenB tuint)
                                                                     tint)
                                                                     tbool))
-                                                                    (Sset _t'10
+                                                                    (Sset _t'11
                                                                     (Econst_int (Int.repr 0) tint)))
-                                                                    (Sifthenelse (Etempvar _t'10 tint)
+                                                                    (Sifthenelse (Etempvar _t'11 tint)
+                                                                    (Ssequence
                                                                     (Ssequence
                                                                     (Sifthenelse 
                                                                     (Ebinop Oeq
                                                                     (Etempvar _direction tint)
                                                                     (Econst_int (Int.repr 1) tint)
                                                                     tint)
-                                                                    (Ssequence
-                                                                    (Sset _maxChunk
+                                                                    (Sset _t'8
+                                                                    (Ecast
                                                                     (Ebinop Oadd
                                                                     (Evar _chunkA (tarray (Tstruct __COOChunk noattr) 4))
                                                                     (Etempvar _posX tuint)
+                                                                    (tptr (Tstruct __COOChunk noattr)))
                                                                     (tptr (Tstruct __COOChunk noattr))))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'31
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Ssequence
-                                                                    (Sset _t'32
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _currA (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Ebinop Osub
-                                                                    (Etempvar _t'31 tuint)
-                                                                    (Etempvar _t'32 tuint)
-                                                                    tuint))))
-                                                                    (Ssequence
-                                                                    (Sset _t'30
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Etempvar _t'30 (tptr (Tstruct __LLNode noattr)))))))
-                                                                    (Ssequence
-                                                                    (Sset _maxChunk
+                                                                    (Sset _t'8
+                                                                    (Ecast
                                                                     (Ebinop Oadd
                                                                     (Evar _chunkB (tarray (Tstruct __COOChunk noattr) 4))
                                                                     (Etempvar _posY tuint)
-                                                                    (tptr (Tstruct __COOChunk noattr))))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'28
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Ssequence
-                                                                    (Sset _t'29
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Ebinop Osub
-                                                                    (Etempvar _t'28 tuint)
-                                                                    (Etempvar _t'29 tuint)
-                                                                    tuint))))
-                                                                    (Ssequence
-                                                                    (Sset _t'27
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Etempvar _t'27 (tptr (Tstruct __LLNode noattr))))))))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'24
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'25
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'24 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _item
-                                                                    (tptr (Tstruct __COOItem noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'26
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'25 (tptr (Tstruct __COOItem noattr)))
-                                                                    (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
-                                                                    _row
-                                                                    tuint)
-                                                                    (Etempvar _t'26 tuint)))))
+                                                                    (tptr (Tstruct __COOChunk noattr)))
+                                                                    (tptr (Tstruct __COOChunk noattr)))))
+                                                                    (Sset _maxChunk
+                                                                    (Etempvar _t'8 (tptr (Tstruct __COOChunk noattr)))))
                                                                     (Ssequence
                                                                     (Ssequence
                                                                     (Sset _t'21
@@ -2988,6 +2948,37 @@ Definition f_mergeTop := {|
                                                                     (Ederef
                                                                     (Etempvar _t'22 (tptr (Tstruct __COOItem noattr)))
                                                                     (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint))
+                                                                    (Sassign
+                                                                    (Efield
+                                                                    (Evar _maxBound (Tstruct __COOItem noattr))
+                                                                    _row
+                                                                    tuint)
+                                                                    (Etempvar _t'23 tuint)))))
+                                                                    (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'18
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _maxChunk (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _head
+                                                                    (tptr (Tstruct __LLNode noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'19
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'18 (tptr (Tstruct __LLNode noattr)))
+                                                                    (Tstruct __LLNode noattr))
+                                                                    _item
+                                                                    (tptr (Tstruct __COOItem noattr))))
+                                                                    (Ssequence
+                                                                    (Sset _t'20
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _t'19 (tptr (Tstruct __COOItem noattr)))
+                                                                    (Tstruct __COOItem noattr))
                                                                     _col
                                                                     tuint))
                                                                     (Sassign
@@ -2995,7 +2986,8 @@ Definition f_mergeTop := {|
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     _col
                                                                     tuint)
-                                                                    (Etempvar _t'23 tuint)))))
+                                                                    (Etempvar _t'20 tuint)))))
+                                                                    (Ssequence
                                                                     (Scall None
                                                                     (Evar _mergeLow 
                                                                     (Tfunction
@@ -3021,17 +3013,153 @@ Definition f_mergeTop := {|
                                                                     (Evar _maxBound (Tstruct __COOItem noattr))
                                                                     (tptr (Tstruct __COOItem noattr))) ::
                                                                     (Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
-                                                                    nil)))))
+                                                                    nil))
+                                                                    (Sifthenelse 
+                                                                    (Ebinop Oeq
+                                                                    (Etempvar _direction tint)
+                                                                    (Econst_int (Int.repr 1) tint)
+                                                                    tint)
+                                                                    (Ssequence
+                                                                    (Sset _t'17
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _currA (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _len
+                                                                    tuint))
+                                                                    (Scall None
+                                                                    (Evar _COOChunk_freeNodes 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _left (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'17 tuint) ::
+                                                                    nil)))
+                                                                    (Ssequence
+                                                                    (Sset _t'16
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _len
+                                                                    tuint))
+                                                                    (Scall None
+                                                                    (Evar _COOChunk_freeNodes 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _right (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'16 tuint) ::
+                                                                    nil))))))))
                                                                     (Ssequence
                                                                     (Sifthenelse 
                                                                     (Ebinop Oeq
                                                                     (Etempvar _posX tuint)
                                                                     (Etempvar _lenA tuint)
                                                                     tint)
-                                                                    (Sset _t'9
+                                                                    (Sset _t'10
                                                                     (Ecast
                                                                     (Ebinop Ole
                                                                     (Etempvar _lenLeft tuint)
+                                                                    (Ebinop Omul
+                                                                    (Econst_int (Int.repr 4) tint)
+                                                                    (Econst_int (Int.repr 4) tint)
+                                                                    tint)
+                                                                    tint)
+                                                                    tbool))
+                                                                    (Sset _t'10
+                                                                    (Econst_int (Int.repr 0) tint)))
+                                                                    (Sifthenelse (Etempvar _t'10 tint)
+                                                                    (Ssequence
+                                                                    (Scall None
+                                                                    (Evar _mergeLow 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOItem noattr))
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOItem noattr))
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    Tnil)))))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _currA (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Eaddrof
+                                                                    (Evar _minBound (Tstruct __COOItem noattr))
+                                                                    (tptr (Tstruct __COOItem noattr))) ::
+                                                                    (Ecast
+                                                                    (Econst_int (Int.repr 0) tint)
+                                                                    (tptr tvoid)) ::
+                                                                    (Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    nil))
+                                                                    (Ssequence
+                                                                    (Ssequence
+                                                                    (Sset _t'15
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _len
+                                                                    tuint))
+                                                                    (Scall None
+                                                                    (Evar _COOChunk_freeNodes 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _left (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'15 tuint) ::
+                                                                    nil)))
+                                                                    (Ssequence
+                                                                    (Sset _t'14
+                                                                    (Efield
+                                                                    (Ederef
+                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr)))
+                                                                    (Tstruct __COOChunk noattr))
+                                                                    _len
+                                                                    tuint))
+                                                                    (Scall None
+                                                                    (Evar _COOChunk_freeNodes 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _right (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'14 tuint) ::
+                                                                    nil)))))
+                                                                    (Ssequence
+                                                                    (Sifthenelse 
+                                                                    (Ebinop Oeq
+                                                                    (Etempvar _posY tuint)
+                                                                    (Etempvar _lenB tuint)
+                                                                    tint)
+                                                                    (Sset _t'9
+                                                                    (Ecast
+                                                                    (Ebinop Ole
+                                                                    (Etempvar _lenRight tuint)
                                                                     (Ebinop Omul
                                                                     (Econst_int (Int.repr 4) tint)
                                                                     (Econst_int (Int.repr 4) tint)
@@ -3069,271 +3197,48 @@ Definition f_mergeTop := {|
                                                                     (Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
                                                                     nil))
                                                                     (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Econst_int (Int.repr 0) tint))
                                                                     (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'19
+                                                                    (Sset _t'13
                                                                     (Efield
                                                                     (Ederef
                                                                     (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
                                                                     _len
                                                                     tuint))
-                                                                    (Ssequence
-                                                                    (Sset _t'20
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Ebinop Osub
-                                                                    (Etempvar _t'19 tuint)
-                                                                    (Etempvar _t'20 tuint)
-                                                                    tuint))))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'17
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'18
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'17 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _next
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Etempvar _t'18 (tptr (Tstruct __LLNode noattr))))))
-                                                                    (Ssequence
-                                                                    (Sset _t'16
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sifthenelse 
-                                                                    (Ebinop Oeq
-                                                                    (Etempvar _t'16 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid))
-                                                                    tint)
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    Sskip))))))))
-                                                                    (Ssequence
-                                                                    (Sifthenelse 
-                                                                    (Ebinop Oeq
-                                                                    (Etempvar _posY tuint)
-                                                                    (Etempvar _lenB tuint)
-                                                                    tint)
-                                                                    (Sset _t'8
-                                                                    (Ecast
-                                                                    (Ebinop Ole
-                                                                    (Etempvar _lenRight tuint)
-                                                                    (Ebinop Omul
-                                                                    (Econst_int (Int.repr 4) tint)
-                                                                    (Econst_int (Int.repr 4) tint)
-                                                                    tint)
-                                                                    tint)
-                                                                    tbool))
-                                                                    (Sset _t'8
-                                                                    (Econst_int (Int.repr 0) tint)))
-                                                                    (Sifthenelse (Etempvar _t'8 tint)
-                                                                    (Ssequence
                                                                     (Scall None
-                                                                    (Evar _mergeLow 
+                                                                    (Evar _COOChunk_freeNodes 
                                                                     (Tfunction
                                                                     (Tcons
                                                                     (tptr (Tstruct __COOChunk noattr))
                                                                     (Tcons
-                                                                    (tptr (Tstruct __COOChunk noattr))
-                                                                    (Tcons
-                                                                    (tptr (Tstruct __COOItem noattr))
-                                                                    (Tcons
-                                                                    (tptr (Tstruct __COOItem noattr))
-                                                                    (Tcons
-                                                                    (tptr (Tstruct __COOChunk noattr))
-                                                                    Tnil)))))
+                                                                    tuint
+                                                                    Tnil))
                                                                     tvoid
                                                                     cc_default))
-                                                                    ((Etempvar _currA (tptr (Tstruct __COOChunk noattr))) ::
-                                                                    (Etempvar _currB (tptr (Tstruct __COOChunk noattr))) ::
-                                                                    (Eaddrof
-                                                                    (Evar _minBound (Tstruct __COOItem noattr))
-                                                                    (tptr (Tstruct __COOItem noattr))) ::
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)) ::
-                                                                    (Etempvar _result (tptr (Tstruct __COOChunk noattr))) ::
-                                                                    nil))
-                                                                    (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Econst_int (Int.repr 0) tint))
-                                                                    (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    (Ssequence
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _right (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    (Ssequence
-                                                                    (Ssequence
-                                                                    (Sset _t'14
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Ssequence
-                                                                    (Sset _t'15
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _currA (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _len
-                                                                    tuint)
-                                                                    (Ebinop Osub
-                                                                    (Etempvar _t'14 tuint)
-                                                                    (Etempvar _t'15 tuint)
-                                                                    tuint))))
-                                                                    (Ssequence
+                                                                    ((Etempvar _right (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'13 tuint) ::
+                                                                    nil)))
                                                                     (Ssequence
                                                                     (Sset _t'12
                                                                     (Efield
                                                                     (Ederef
                                                                     (Etempvar _currA (tptr (Tstruct __COOChunk noattr)))
                                                                     (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Ssequence
-                                                                    (Sset _t'13
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _t'12 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Tstruct __LLNode noattr))
-                                                                    _next
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Etempvar _t'13 (tptr (Tstruct __LLNode noattr))))))
-                                                                    (Ssequence
-                                                                    (Sset _t'11
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _head
-                                                                    (tptr (Tstruct __LLNode noattr))))
-                                                                    (Sifthenelse 
-                                                                    (Ebinop Oeq
-                                                                    (Etempvar _t'11 (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid))
-                                                                    tint)
-                                                                    (Sassign
-                                                                    (Efield
-                                                                    (Ederef
-                                                                    (Etempvar _left (tptr (Tstruct __COOChunk noattr)))
-                                                                    (Tstruct __COOChunk noattr))
-                                                                    _tail
-                                                                    (tptr (Tstruct __LLNode noattr)))
-                                                                    (Ecast
-                                                                    (Econst_int (Int.repr 0) tint)
-                                                                    (tptr tvoid)))
-                                                                    Sskip))))))))
+                                                                    _len
+                                                                    tuint))
+                                                                    (Scall None
+                                                                    (Evar _COOChunk_freeNodes 
+                                                                    (Tfunction
+                                                                    (Tcons
+                                                                    (tptr (Tstruct __COOChunk noattr))
+                                                                    (Tcons
+                                                                    tuint
+                                                                    Tnil))
+                                                                    tvoid
+                                                                    cc_default))
+                                                                    ((Etempvar _left (tptr (Tstruct __COOChunk noattr))) ::
+                                                                    (Etempvar _t'12 tuint) ::
+                                                                    nil)))))
                                                                     (Sset _direction
                                                                     (Etempvar _lastDir tint))))))))))))))))
                                                                   Sskip)

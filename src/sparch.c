@@ -29,7 +29,7 @@ void LLNode_free(LLNode *node);
 void LLNode_freeAll(LLNode *node);
 COOChunk *COOChunk_malloc();
 void COOChunk_free(COOChunk *chunk);
-void COOChunk_freeNodes(COOChunk *chunk);
+void COOChunk_freeNodes(COOChunk *chunk, size_t cnt);
 void COOChunk_freeAll(COOChunk *chunk);
 void COOChunk_push(COOChunk *chunk, COOItem *item);
 void COOChunk_append(COOChunk *chunk, LLNode *node);
@@ -99,20 +99,28 @@ COOChunk* COOChunk_malloc() {
 void COOChunk_free(COOChunk *chunk) {
     free(chunk);
 }
-void COOChunk_freeNodes(COOChunk *chunk) {
-    LLNode *head, *next;
-    head = chunk->head;
-    while (head) {
-        next = head->next;
-        LLNode_freeAll(head);
-        head = next;
+
+void COOChunk_freeNodes(COOChunk *chunk, size_t cnt) {
+    LLNode *next;
+    while (chunk->len > 0 && cnt > 0) {
+        next = chunk->head->next;
+        LLNode_freeAll(chunk->head);
+        chunk->head = next;
+        chunk->len--;
+        cnt--;
+    }
+    
+    if (chunk->len == 0) {
+        chunk->head = NULL;
+        chunk->tail = NULL;
     }
 }
 
 void COOChunk_freeAll(COOChunk *chunk) {
     LLNode *head, *next;
+    size_t len = chunk->len;
     head = chunk->head;
-    while (head) {
+    for (size_t i = 0; i < len; i++) {
         next = head->next;
         LLNode_freeAll(head);
         head = next;
@@ -379,9 +387,7 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             maxBound.col = 0;
             break;
     }
-    
-    // determine whether we hit the border or not
-    //if (lenLeft <= LOW_COMP * TOP_COMP || lenRight <= LOW_COMP * TOP_COMP) {  
+
     int lastDir;
     while (posX < lenA && posY < lenB) {
         int currComp = comp[posY][posX];
@@ -402,49 +408,52 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
         }
 
         if (posX < lenA && posY < lenB) {
-            // set max bound
-            COOChunk *maxChunk;
-            if (direction == 1) { // go right before -> chunk A is min bound
-                maxChunk = &chunkA[posX];
-                left->len -= currA->len;
-                left->head = maxChunk->head;
-            } else { // go down before -> chunk B is min bound
-                maxChunk = &chunkB[posY];
-                right->len -= currB->len;
-                right->head = maxChunk->head;
-            }
+            // go right before -> chunk A is min bound
+            // go down before -> chunk B is min bound
+            COOChunk *maxChunk = (direction == 1) ? &chunkA[posX] : &chunkB[posY];  
             maxBound.row = maxChunk->head->item->row;
             maxBound.col = maxChunk->head->item->col;
                 
             mergeLow(currA, currB, &minBound, &maxBound, result);
+
+            if (direction == 1) {
+                /* left->len -= currA->len; */
+                /* left->head = maxChunk->head; */
+                COOChunk_freeNodes(left, currA->len);
+            } else {
+                /* right->len -= currB->len; */
+                /* right->head = maxChunk->head; */
+                COOChunk_freeNodes(right, currB->len);
+            }
         } else if (posX == lenA && lenLeft <= LOW_COMP * TOP_COMP){ // hit the maximal right border
             // remained chunks fit to top/low comparator: merge every remained chunks
             // maxBound NULL indicates unlimited.
             mergeLow(currA, currB, &minBound, NULL, result);
-            left->len = 0; 
-            left->head = NULL;
-            left->tail = NULL;
-            right->len -= currB->len;
-            right->head = currB->tail->next;
-            if (right->head == NULL) right->tail = NULL;
+            COOChunk_freeNodes(left, left->len);
+            COOChunk_freeNodes(right, currB->len);
+            /* left->len = 0; */
+            /* left->head = NULL; */
+            /* left->tail = NULL; */
+            /* right->len -= currB->len; */
+            /* right->head = currB->tail->next; */
+            /* if (right->head == NULL) { */
+            /*     right->tail = NULL; */
+            /* } */
         } else if (posY == lenB && lenRight <= LOW_COMP * TOP_COMP) { // hit the maximal bottom border
             mergeLow(currA, currB, &minBound, NULL, result);
-            right->len = 0; 
-            right->head = NULL;
-            right->tail = NULL;
-            left->len -= currA->len;
-            left->head = currA->tail->next;
-            if (left->head == NULL) left->tail = NULL;  
+            COOChunk_freeNodes(right, right->len);
+            COOChunk_freeNodes(left, currA->len);
+            /* right->len = 0; */
+            /* right->head = NULL; */
+            /* right->tail = NULL; */
+            /* left->len -= currA->len; */
+            /* left->head = currA->tail->next; */
+            /* if (left->head == NULL) { */
+            /*     left->tail = NULL; */
+            /* } */
         } else { // load last direction for next mergeTop
             direction = lastDir;
         }
-
-        // free skipped chunk.
-        /* if (currComp) {  */
-        /*     COOChunk_freeNodes(currA); */
-        /* } else { */
-        /*     COOChunk_freeNodes(currB); */
-        /* } */
     }
 
 
@@ -504,6 +513,7 @@ void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
     if (left->len > 0) {
         COOChunk_concat(result, left);
     }
+    
     if (right->len > 0) {
         COOChunk_concat(result, right);
     }
