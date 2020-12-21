@@ -92,7 +92,7 @@ int main(int argc, char *argv[]) {
   size_t randH = 4, randI = 4, randW = 4;
   Matrix *a, *b;
   clock_t begin, end;
-  printf("usage: ./sparch [--sparse] [--print] [--rand] [HEIGHT_A WIDTH_A WIDTH_B]\n\n");
+  // printf("usage: ./sparch [--sparse] [--print] [--rand] [HEIGHT_A WIDTH_A WIDTH_B]\n\n");
     
   if (argc >= 2) {
     for (int i = 0; i < argc; i++) {

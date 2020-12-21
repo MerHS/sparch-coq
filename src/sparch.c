@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "sparch.h"
 
-#define LOW_COMP 4
-#define TOP_COMP 4
+#define LOW_COMP 2
+#define TOP_COMP 2
 #define HUFF_WAY 64
 
 typedef struct _LLNode {
@@ -29,9 +29,11 @@ void LLNode_free(LLNode *node);
 void LLNode_freeAll(LLNode *node);
 COOChunk *COOChunk_malloc();
 void COOChunk_free(COOChunk *chunk);
+void COOChunk_freeNodes(COOChunk *chunk);
 void COOChunk_freeAll(COOChunk *chunk);
 void COOChunk_push(COOChunk *chunk, COOItem *item);
-void COOChunk_append(COOChunk *left, COOChunk *right);
+void COOChunk_append(COOChunk *chunk, LLNode *node);
+void COOChunk_concat(COOChunk *left, COOChunk *right);
 CSRMatrix* COOChunk_toCSR(COOChunk *chunk, size_t height, size_t width);
 void COOChunk_print(COOChunk *chunk);
 // Tier 0. outer product
@@ -97,6 +99,15 @@ COOChunk* COOChunk_malloc() {
 void COOChunk_free(COOChunk *chunk) {
     free(chunk);
 }
+void COOChunk_freeNodes(COOChunk *chunk) {
+    LLNode *head, *next;
+    head = chunk->head;
+    while (head) {
+        next = head->next;
+        LLNode_freeAll(head);
+        head = next;
+    }
+}
 
 void COOChunk_freeAll(COOChunk *chunk) {
     LLNode *head, *next;
@@ -111,6 +122,10 @@ void COOChunk_freeAll(COOChunk *chunk) {
 
 void COOChunk_push(COOChunk *chunk, COOItem* item) {
     LLNode *node = LLNode_malloc(item);
+    COOChunk_append(chunk, node);
+}
+
+void COOChunk_append(COOChunk *chunk, LLNode *node) {
     if (chunk->tail) {
         chunk->tail->next = node;
         chunk->tail = node;
@@ -121,7 +136,7 @@ void COOChunk_push(COOChunk *chunk, COOItem* item) {
     chunk->len += 1;
 }
 
-void COOChunk_append(COOChunk *left, COOChunk* right) {
+void COOChunk_concat(COOChunk *left, COOChunk* right) {
     if (left->tail) {
         if (right->tail) {
             left->len += right->len;
@@ -228,6 +243,73 @@ int posCmp(COOItem *left, COOItem* right) {
 void mergeLow(COOChunk *left, COOChunk *right, COOItem* minBound, COOItem* maxBound, COOChunk* result) {
     // comparator array
     int comp[LOW_COMP+1][LOW_COMP+1];
+    COOChunk temp;
+    temp.len = 0;
+    temp.head = NULL;
+    temp.tail = NULL;
+
+    // slice by chunk
+    size_t lenA = left->len;
+    size_t lenB = right->len;
+
+    // making top comparator
+    LLNode *an, *bn;
+    bn = right->head;
+    for (size_t i = 0; i < lenB; i++) {
+        an = left->head;
+        for (size_t j = 0; j < lenA; j++) {
+            comp[i][j] = posCmp(an->item, bn->item) > 0 ? 1 : 0;
+            an = an->next;
+        }
+        bn = bn->next;
+        comp[i][lenA] = 1;
+    }
+    for (size_t j = 0; j <= lenA; j++) {
+        comp[lenB][j] = 0;
+    }
+    
+    // merge
+    size_t posX = 0;
+    size_t posY = 0;
+    an = left->head;
+    bn = right->head;
+
+    // DANGER: left and right should be reused, so we must not break both chunks.
+    while (!(posX >= lenA && posY >= lenB)) {
+        int currComp = comp[posY][posX];
+        COOItem *item;
+            
+        if (currComp) { // current cell is < : go down
+            item = COOItem_malloc(bn->item->row, bn->item->col, bn->item->value);
+            bn = bn->next;
+            posY++;
+        } else { // current cell is >= : go right
+            item = COOItem_malloc(an->item->row, an->item->col, an->item->value);
+            an = an->next;
+            posX++;
+        }
+        
+        COOChunk_push(&temp, item);
+    }
+
+    // add same and set bound
+    size_t tempLen = temp.len;
+    an = temp.head;
+    for (size_t i = 0; i < tempLen; i++) {
+        if (an->next && (posCmp(an->item, an->next->item) == 0)) {
+            an->item->value += an->next->item->value;
+            an->next->item->value = 0;
+        }
+        if (!(posCmp(minBound, an->item) <= 0 && (!maxBound || posCmp(an->item, maxBound) < 0))) {
+            an->item->value = 0;
+        }
+        an = an->next;
+    }
+    
+    // eliminate zero and concat to result
+    elimZero(&temp);
+    
+    COOChunk_concat(result, &temp);
 }
 
 int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirection) {
@@ -240,8 +322,10 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
     size_t lenA, lenB;
     lenLeft = left->len;
     lenRight = right->len;
-    lenA = ((left->len + (LOW_COMP - 1)) / LOW_COMP) % TOP_COMP + 1;
-    lenB = ((right->len + (LOW_COMP - 1)) / LOW_COMP) % TOP_COMP + 1;
+    lenA = ((lenLeft + (LOW_COMP - 1)) / LOW_COMP);
+    lenA = lenA > TOP_COMP ? TOP_COMP : lenA;
+    lenB = ((lenRight + (LOW_COMP - 1)) / LOW_COMP);
+    lenB = lenB > TOP_COMP ? TOP_COMP : lenB;
 
     LLNode *head = left->head;
     for (size_t i = 0; i < lenA; i++) {
@@ -258,7 +342,7 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
 
     head = right->head;
     for (size_t i = 0; i < lenB; i++) {
-        size_t chunkLen = lenLeft - i * LOW_COMP;
+        size_t chunkLen = lenRight - i * LOW_COMP;
         chunkLen = chunkLen < LOW_COMP ? chunkLen : LOW_COMP;
         chunkB[i].len = chunkLen;
         chunkB[i].head = head;
@@ -309,10 +393,10 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             minBound.row = maxBound.row;
             minBound.col = maxBound.col;
             
-            if (currComp) { // current cell is > : go down
+            if (currComp) { // current cell is < : go down
                 posY++;
                 direction = -1;
-            } else { // current cell is <= : go right
+            } else { // current cell is >= : go right
                 posX++;
                 direction = 1;
             }
@@ -332,16 +416,23 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
                 // maxBound NULL indicates unlimited.
                 mergeLow(currA, currB, &minBound, NULL, result);
             }
+
+            // free skipped chunk.
+            /* if (currComp) {  */
+            /*     COOChunk_freeNodes(currA); */
+            /* } else { */
+            /*     COOChunk_freeNodes(currB); */
+            /* } */
         }
 
         // append remainder
         if (posX == lenA) { // append remained <
             for (size_t i = posY + 1; i < lenB; i++) {
-                COOChunk_append(result, &chunkB[i]);
+                COOChunk_concat(result, &chunkB[i]);
             }
         } else if (posY == lenB) { // append remained >
             for (size_t i = posX + 1; i < lenB; i++) {
-                COOChunk_append(result, &chunkA[i]);
+                COOChunk_concat(result, &chunkA[i]);
             }
         }
         
@@ -362,10 +453,10 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             minBound.row = maxBound.row;
             minBound.col = maxBound.col;
             
-            if (currComp) { // current cell is > : go down
+            if (currComp) { // current cell is < : go down
                 posY++;
                 direction = -1;
-            } else { // current cell is <= : go right
+            } else { // current cell is >= : go right
                 posX++;
                 direction = 1;
             }
@@ -387,6 +478,13 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             if (posX < lenA && posY < lenB) {
                 mergeLow(currA, currB, &minBound, &maxBound, result);
             } // else { } // the last chunk will be the first chunk of next window => do not merge.
+
+            // free skipped chunk.
+            /* if (currComp) {  */
+            /*     COOChunk_freeNodes(currA); */
+            /* } else { */
+            /*     COOChunk_freeNodes(currB); */
+            /* } */
         }
     }
 
@@ -395,7 +493,27 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
 
 void elimZero(COOChunk *chunk) {
     size_t zeroCount[LOW_COMP*2];
-    return;
+    COOChunk temp;
+    temp.len = 0;
+    temp.head = NULL;
+    temp.tail = NULL;
+
+    size_t len = chunk->len;
+    LLNode* node, *next;
+    node = chunk->head;
+    for (size_t i = 0; i < len; i++) {
+        next = node->next;
+        if (node->item->value == 0) {
+            LLNode_freeAll(node);
+        } else {
+            COOChunk_append(&temp, node);
+        }
+        node = next;    
+    }
+
+    chunk->len = temp.len;
+    chunk->head = temp.head;
+    chunk->tail = temp.tail;
 }
 
 void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
@@ -421,6 +539,10 @@ void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {
     int direction = 0;
     while (left->len > 0 && right->len > 0) {
         direction = mergeTop(left, right, result, direction);
+    }
+
+    if (result->tail) {
+        result->tail->next = NULL;
     }
 }
 
@@ -521,7 +643,7 @@ void flattenByMergeTree(COOChunk **chunks, size_t len, COOChunk *result) {
         for (size_t i = 0; i < nextLen; i++) {
             COOChunk *left = &merger[2 * i];
             COOChunk *right = 2 * i + 1 >= currLen ? NULL : &merger[2 * i + 1];
-            merge(left, right, &temp[i]);
+            mergeHier(left, right, &temp[i]);
         }
 
         for (size_t i = 0; i < nextLen; i++) {
