@@ -2,8 +2,8 @@
 #include <stdlib.h>
 #include "sparch.h"
 
-#define LOW_COMP 2
-#define TOP_COMP 2
+#define LOW_COMP 4
+#define TOP_COMP 4
 #define HUFF_WAY 64
 
 typedef struct _LLNode {
@@ -382,7 +382,7 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
     
     // determine whether we hit the border or not
     //if (lenLeft <= LOW_COMP * TOP_COMP || lenRight <= LOW_COMP * TOP_COMP) {  
-
+    int lastDir;
     while (posX < lenA && posY < lenB) {
         int currComp = comp[posY][posX];
         COOChunk *currA = &chunkA[posX];
@@ -391,7 +391,8 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
         // set min bound
         minBound.row = maxBound.row;
         minBound.col = maxBound.col;
-            
+
+        lastDir = direction;
         if (currComp) { // current cell is < : go down
             posY++;
             direction = -1;
@@ -434,6 +435,8 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             left->len -= currA->len;
             left->head = currA->tail->next;
             if (left->head == NULL) left->tail = NULL;  
+        } else { // load last direction for next mergeTop
+            direction = lastDir;
         }
 
         // free skipped chunk.

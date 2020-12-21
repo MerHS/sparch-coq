@@ -5,7 +5,7 @@
 #include <time.h>
 #include <unistd.h>
 
-#define ZERO_FILL 0.2f
+#define ZERO_FILL 0.8f
 
 Matrix *randMat(size_t height, size_t width) {
   Matrix *mat = Matrix_malloc(height, width);
@@ -100,8 +100,7 @@ int main(int argc, char *argv[]) {
       if (strcmp("--print", arg) == 0) {
         print = 1;
       } else if (strcmp("--rand", arg) == 0) {
-        //srand((unsigned int)time(NULL) * getpid());
-        srand(0);
+        srand((unsigned int)time(NULL) * getpid());
         genRand = 1;
         randH = atoi(argv[argc-3]);
         randI = atoi(argv[argc-2]);
