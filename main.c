@@ -100,8 +100,7 @@ int main(int argc, char *argv[]) {
       if (strcmp("--print", arg) == 0) {
         print = 1;
       } else if (strcmp("--rand", arg) == 0) {
-        //srand((unsigned int)time(NULL) * getpid());
-        srand(0);
+        srand((unsigned int)time(NULL) * getpid());
         genRand = 1;
         randH = atoi(argv[argc-3]);
         randI = atoi(argv[argc-2]);

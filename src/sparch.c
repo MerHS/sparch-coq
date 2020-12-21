@@ -416,13 +416,9 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
                 
             mergeLow(currA, currB, &minBound, &maxBound, result);
 
-            if (direction == 1) {
-                /* left->len -= currA->len; */
-                /* left->head = maxChunk->head; */
+            if (direction == 1) {                                
                 COOChunk_freeNodes(left, currA->len);
             } else {
-                /* right->len -= currB->len; */
-                /* right->head = maxChunk->head; */
                 COOChunk_freeNodes(right, currB->len);
             }
         } else if (posX == lenA && lenLeft <= LOW_COMP * TOP_COMP){ // hit the maximal right border
@@ -431,26 +427,10 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
             mergeLow(currA, currB, &minBound, NULL, result);
             COOChunk_freeNodes(left, left->len);
             COOChunk_freeNodes(right, currB->len);
-            /* left->len = 0; */
-            /* left->head = NULL; */
-            /* left->tail = NULL; */
-            /* right->len -= currB->len; */
-            /* right->head = currB->tail->next; */
-            /* if (right->head == NULL) { */
-            /*     right->tail = NULL; */
-            /* } */
         } else if (posY == lenB && lenRight <= LOW_COMP * TOP_COMP) { // hit the maximal bottom border
             mergeLow(currA, currB, &minBound, NULL, result);
             COOChunk_freeNodes(right, right->len);
             COOChunk_freeNodes(left, currA->len);
-            /* right->len = 0; */
-            /* right->head = NULL; */
-            /* right->tail = NULL; */
-            /* left->len -= currA->len; */
-            /* left->head = currA->tail->next; */
-            /* if (left->head == NULL) { */
-            /*     left->tail = NULL; */
-            /* } */
         } else { // load last direction for next mergeTop
             direction = lastDir;
         }
@@ -461,28 +441,63 @@ int mergeTop(COOChunk *left, COOChunk *right, COOChunk* result, int lastDirectio
 }
 
 void elimZero(COOChunk *chunk) {
-    size_t zeroCount[LOW_COMP*2];
-    COOChunk temp;
-    temp.len = 0;
-    temp.head = NULL;
-    temp.tail = NULL;
-
+    COOItem *items[2 * LOW_COMP];
+    
+    size_t shift = 1;
+    size_t zeroes = 0;
     size_t len = chunk->len;
-    LLNode* node, *next;
+
+    LLNode *node, *next;
     node = chunk->head;
+
     for (size_t i = 0; i < len; i++) {
-        next = node->next;
-        if (node->item->value == 0) {
-            LLNode_freeAll(node);
-        } else {
-            COOChunk_append(&temp, node);
-        }
-        node = next;    
+        items[i] = node->item->value != 0 ? node->item : NULL;
+        node = node->next;
     }
 
-    chunk->len = temp.len;
-    chunk->head = temp.head;
-    chunk->tail = temp.tail;
+    int shouldShift = 0;
+    while (shift < len) 
+    {
+        zeroes = 0;    
+        for (size_t i = 0; i < len; i++) {
+            shouldShift = zeroes & shift;
+            
+            if (items[i] == NULL) {
+                zeroes++;
+            }
+
+            if (shouldShift) {
+                items[i - shift] = items[i];
+                items[i] = NULL;
+            }
+        }
+
+        shift *= 2;
+    }
+
+    chunk->len = 0;
+    chunk->tail = NULL;
+    node = chunk->head;
+    
+    for (size_t i = 0; i < len; i++) {
+        next = node->next;
+        if (items[i]) {
+            chunk->len++;
+            node->item->value = items[i]->value;
+            node->item->col = items[i]->col;
+            node->item->row = items[i]->row;
+            chunk->tail = node;
+        } else {
+            break;
+        }
+        node = next;
+    }
+
+    for (size_t i = chunk->len; i < len; i++) {
+        next = node->next;
+        LLNode_freeAll(node);
+        node = next;
+    }
 }
 
 void mergeHier(COOChunk *left, COOChunk *right, COOChunk *result) {

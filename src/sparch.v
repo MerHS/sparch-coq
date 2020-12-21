@@ -26,17 +26,17 @@ Definition _COOChunk_malloc : ident := 86%positive.
 Definition _COOChunk_print : ident := 104%positive.
 Definition _COOChunk_push : ident := 93%positive.
 Definition _COOChunk_toCSR : ident := 100%positive.
-Definition _COOItem_free : ident := 172%positive.
+Definition _COOItem_free : ident := 176%positive.
 Definition _COOItem_malloc : ident := 113%positive.
-Definition _CSR_dense : ident := 183%positive.
-Definition _CSR_free : ident := 179%positive.
+Definition _CSR_dense : ident := 187%positive.
+Definition _CSR_free : ident := 183%positive.
 Definition _CSR_malloc : ident := 99%positive.
 Definition _LLNode_free : ident := 83%positive.
 Definition _LLNode_freeAll : ident := 84%positive.
 Definition _LLNode_malloc : ident := 82%positive.
-Definition _Matrix_free : ident := 175%positive.
-Definition _Matrix_malloc : ident := 174%positive.
-Definition _Matrix_toCSR : ident := 178%positive.
+Definition _Matrix_free : ident := 179%positive.
+Definition _Matrix_malloc : ident := 178%positive.
+Definition _Matrix_toCSR : ident := 182%positive.
 Definition __COOChunk : ident := 19%positive.
 Definition __COOItem : ident := 8%positive.
 Definition __CSRMatrix : ident := 12%positive.
@@ -100,57 +100,58 @@ Definition ___compcert_va_int64 : ident := 49%positive.
 Definition ___stringlit_1 : ident := 101%positive.
 Definition ___stringlit_2 : ident := 102%positive.
 Definition ___stringlit_3 : ident := 103%positive.
-Definition _addQueue : ident := 168%positive.
-Definition _ai : ident := 200%positive.
+Definition _addQueue : ident := 172%positive.
+Definition _ai : ident := 203%positive.
 Definition _an : ident := 122%positive.
-Definition _bi : ident := 201%positive.
+Definition _bi : ident := 204%positive.
 Definition _bn : ident := 123%positive.
 Definition _chunk : ident := 85%positive.
 Definition _chunkA : ident := 133%positive.
 Definition _chunkB : ident := 134%positive.
 Definition _chunkLen : ident := 137%positive.
 Definition _chunkLen__1 : ident := 138%positive.
-Definition _chunks : ident := 155%positive.
+Definition _chunks : ident := 159%positive.
 Definition _cnt : ident := 88%positive.
 Definition _col : ident := 6%positive.
 Definition _colHead : ident := 106%positive.
 Definition _cols : ident := 10%positive.
 Definition _comp : ident := 118%positive.
-Definition _condense : ident := 164%positive.
+Definition _condense : ident := 168%positive.
 Definition _count : ident := 20%positive.
 Definition _csr : ident := 97%positive.
 Definition _currA : ident := 143%positive.
 Definition _currB : ident := 144%positive.
 Definition _currComp : ident := 128%positive.
-Definition _currLen : ident := 156%positive.
+Definition _currLen : ident := 160%positive.
 Definition _direction : ident := 141%positive.
 Definition _elimZero : ident := 130%positive.
-Definition _flattenByMergeTree : ident := 159%positive.
+Definition _flattenByMergeTree : ident := 163%positive.
 Definition _free : ident := 80%positive.
-Definition _gemm_sparch : ident := 198%positive.
+Definition _gemm_sparch : ident := 201%positive.
 Definition _head : ident := 17%positive.
 Definition _heap : ident := 22%positive.
 Definition _height : ident := 1%positive.
 Definition _i : ident := 90%positive.
 Definition _i__1 : ident := 110%positive.
 Definition _i__2 : ident := 139%positive.
-Definition _i__3 : ident := 194%positive.
-Definition _i__4 : ident := 195%positive.
-Definition _idx : ident := 163%positive.
-Definition _index : ident := 176%positive.
+Definition _i__3 : ident := 151%positive.
+Definition _i__4 : ident := 198%positive.
+Definition _idx : ident := 167%positive.
+Definition _index : ident := 180%positive.
 Definition _item : ident := 13%positive.
-Definition _iterLen : ident := 199%positive.
+Definition _items : ident := 147%positive.
+Definition _iterLen : ident := 202%positive.
 Definition _j : ident := 124%positive.
 Definition _j__1 : ident := 125%positive.
 Definition _j__2 : ident := 140%positive.
-Definition _k : ident := 202%positive.
-Definition _kInit : ident := 191%positive.
+Definition _k : ident := 205%positive.
+Definition _kInit : ident := 195%positive.
 Definition _lastDir : ident := 142%positive.
 Definition _lastDirection : ident := 132%positive.
 Definition _left : ident := 94%positive.
-Definition _leftChunk : ident := 187%positive.
-Definition _leftIdx : ident := 169%positive.
-Definition _leftLen : ident := 186%positive.
+Definition _leftChunk : ident := 191%positive.
+Definition _leftIdx : ident := 173%positive.
+Definition _leftLen : ident := 190%positive.
 Definition _leftVal : ident := 107%positive.
 Definition _len : ident := 16%positive.
 Definition _lenA : ident := 120%positive.
@@ -158,110 +159,112 @@ Definition _lenB : ident := 121%positive.
 Definition _lenLeft : ident := 135%positive.
 Definition _lenRight : ident := 136%positive.
 Definition _lenVal : ident := 9%positive.
-Definition _li : ident := 149%positive.
-Definition _litem : ident := 151%positive.
-Definition _main : ident := 204%positive.
+Definition _li : ident := 153%positive.
+Definition _litem : ident := 155%positive.
+Definition _main : ident := 207%positive.
 Definition _malloc : ident := 79%positive.
-Definition _mat : ident := 180%positive.
-Definition _matA : ident := 184%positive.
-Definition _matB : ident := 185%positive.
-Definition _matmul : ident := 203%positive.
-Definition _matrix : ident := 173%positive.
+Definition _mat : ident := 184%positive.
+Definition _matA : ident := 188%positive.
+Definition _matB : ident := 189%positive.
+Definition _matmul : ident := 206%positive.
+Definition _matrix : ident := 177%positive.
 Definition _maxBound : ident := 117%positive.
 Definition _maxChunk : ident := 145%positive.
 Definition _maxCount : ident := 21%positive.
-Definition _merge : ident := 154%positive.
-Definition _mergeHier : ident := 148%positive.
+Definition _merge : ident := 158%positive.
+Definition _mergeHier : ident := 152%positive.
 Definition _mergeLow : ident := 131%positive.
 Definition _mergeTop : ident := 146%positive.
-Definition _mergedIdx : ident := 190%positive.
-Definition _mergedVal : ident := 193%positive.
-Definition _merger : ident := 157%positive.
+Definition _mergedIdx : ident := 194%positive.
+Definition _mergedVal : ident := 197%positive.
+Definition _merger : ident := 161%positive.
 Definition _minBound : ident := 116%positive.
-Definition _mm : ident := 197%positive.
-Definition _multVal : ident := 188%positive.
+Definition _mm : ident := 200%positive.
+Definition _multVal : ident := 192%positive.
 Definition _newItem : ident := 112%positive.
 Definition _next : ident := 15%positive.
-Definition _nextLen : ident := 158%positive.
+Definition _nextLen : ident := 162%positive.
 Definition _node : ident := 81%positive.
-Definition _offset : ident := 177%positive.
-Definition _outLen : ident := 160%positive.
+Definition _offset : ident := 181%positive.
+Definition _outLen : ident := 164%positive.
 Definition _outerProd : ident := 114%positive.
-Definition _parent : ident := 167%positive.
-Definition _popQueue : ident := 171%positive.
+Definition _parent : ident := 171%positive.
+Definition _popQueue : ident := 175%positive.
 Definition _posCmp : ident := 115%positive.
 Definition _posX : ident := 126%positive.
 Definition _posY : ident := 127%positive.
-Definition _pq : ident := 189%positive.
+Definition _pq : ident := 193%positive.
 Definition _printf : ident := 78%positive.
-Definition _queue : ident := 166%positive.
+Definition _queue : ident := 170%positive.
 Definition _result : ident := 105%positive.
-Definition _ri : ident := 150%positive.
+Definition _ri : ident := 154%positive.
 Definition _right : ident := 95%positive.
-Definition _rightIdx : ident := 170%positive.
+Definition _rightIdx : ident := 174%positive.
 Definition _rightRowEnd : ident := 109%positive.
 Definition _rightRowStart : ident := 108%positive.
 Definition _rightVal : ident := 111%positive.
-Definition _ritem : ident := 152%positive.
+Definition _ritem : ident := 156%positive.
 Definition _row : ident := 5%positive.
-Definition _rowCnt : ident := 161%positive.
-Definition _rowCnt__1 : ident := 162%positive.
-Definition _rowEnd : ident := 182%positive.
+Definition _rowCnt : ident := 165%positive.
+Definition _rowCnt__1 : ident := 166%positive.
+Definition _rowEnd : ident := 186%positive.
 Definition _rowId : ident := 98%positive.
-Definition _rowStart : ident := 181%positive.
+Definition _rowStart : ident := 185%positive.
 Definition _rows : ident := 11%positive.
-Definition _spgemm_sparch : ident := 196%positive.
-Definition _swapHeap : ident := 165%positive.
+Definition _shift : ident := 148%positive.
+Definition _shouldShift : ident := 150%positive.
+Definition _spgemm_sparch : ident := 199%positive.
+Definition _swapHeap : ident := 169%positive.
 Definition _tail : ident := 18%positive.
-Definition _tailItem : ident := 153%positive.
+Definition _tailItem : ident := 157%positive.
 Definition _temp : ident := 119%positive.
 Definition _tempLen : ident := 129%positive.
-Definition _treeItems : ident := 192%positive.
+Definition _treeItems : ident := 196%positive.
 Definition _value : ident := 7%positive.
 Definition _values : ident := 3%positive.
 Definition _width : ident := 2%positive.
-Definition _zeroCount : ident := 147%positive.
-Definition _t'1 : ident := 205%positive.
-Definition _t'10 : ident := 214%positive.
-Definition _t'11 : ident := 215%positive.
-Definition _t'12 : ident := 216%positive.
-Definition _t'13 : ident := 217%positive.
-Definition _t'14 : ident := 218%positive.
-Definition _t'15 : ident := 219%positive.
-Definition _t'16 : ident := 220%positive.
-Definition _t'17 : ident := 221%positive.
-Definition _t'18 : ident := 222%positive.
-Definition _t'19 : ident := 223%positive.
-Definition _t'2 : ident := 206%positive.
-Definition _t'20 : ident := 224%positive.
-Definition _t'21 : ident := 225%positive.
-Definition _t'22 : ident := 226%positive.
-Definition _t'23 : ident := 227%positive.
-Definition _t'24 : ident := 228%positive.
-Definition _t'25 : ident := 229%positive.
-Definition _t'26 : ident := 230%positive.
-Definition _t'27 : ident := 231%positive.
-Definition _t'28 : ident := 232%positive.
-Definition _t'29 : ident := 233%positive.
-Definition _t'3 : ident := 207%positive.
-Definition _t'30 : ident := 234%positive.
-Definition _t'31 : ident := 235%positive.
-Definition _t'32 : ident := 236%positive.
-Definition _t'33 : ident := 237%positive.
-Definition _t'34 : ident := 238%positive.
-Definition _t'35 : ident := 239%positive.
-Definition _t'36 : ident := 240%positive.
-Definition _t'37 : ident := 241%positive.
-Definition _t'38 : ident := 242%positive.
-Definition _t'39 : ident := 243%positive.
-Definition _t'4 : ident := 208%positive.
-Definition _t'40 : ident := 244%positive.
-Definition _t'41 : ident := 245%positive.
-Definition _t'5 : ident := 209%positive.
-Definition _t'6 : ident := 210%positive.
-Definition _t'7 : ident := 211%positive.
-Definition _t'8 : ident := 212%positive.
-Definition _t'9 : ident := 213%positive.
+Definition _zeroes : ident := 149%positive.
+Definition _t'1 : ident := 208%positive.
+Definition _t'10 : ident := 217%positive.
+Definition _t'11 : ident := 218%positive.
+Definition _t'12 : ident := 219%positive.
+Definition _t'13 : ident := 220%positive.
+Definition _t'14 : ident := 221%positive.
+Definition _t'15 : ident := 222%positive.
+Definition _t'16 : ident := 223%positive.
+Definition _t'17 : ident := 224%positive.
+Definition _t'18 : ident := 225%positive.
+Definition _t'19 : ident := 226%positive.
+Definition _t'2 : ident := 209%positive.
+Definition _t'20 : ident := 227%positive.
+Definition _t'21 : ident := 228%positive.
+Definition _t'22 : ident := 229%positive.
+Definition _t'23 : ident := 230%positive.
+Definition _t'24 : ident := 231%positive.
+Definition _t'25 : ident := 232%positive.
+Definition _t'26 : ident := 233%positive.
+Definition _t'27 : ident := 234%positive.
+Definition _t'28 : ident := 235%positive.
+Definition _t'29 : ident := 236%positive.
+Definition _t'3 : ident := 210%positive.
+Definition _t'30 : ident := 237%positive.
+Definition _t'31 : ident := 238%positive.
+Definition _t'32 : ident := 239%positive.
+Definition _t'33 : ident := 240%positive.
+Definition _t'34 : ident := 241%positive.
+Definition _t'35 : ident := 242%positive.
+Definition _t'36 : ident := 243%positive.
+Definition _t'37 : ident := 244%positive.
+Definition _t'38 : ident := 245%positive.
+Definition _t'39 : ident := 246%positive.
+Definition _t'4 : ident := 211%positive.
+Definition _t'40 : ident := 247%positive.
+Definition _t'41 : ident := 248%positive.
+Definition _t'5 : ident := 212%positive.
+Definition _t'6 : ident := 213%positive.
+Definition _t'7 : ident := 214%positive.
+Definition _t'8 : ident := 215%positive.
+Definition _t'9 : ident := 216%positive.
 
 Definition v___stringlit_1 := {|
   gvar_info := (tarray tschar 7);
@@ -3249,130 +3252,378 @@ Definition f_elimZero := {|
   fn_return := tvoid;
   fn_callconv := cc_default;
   fn_params := ((_chunk, (tptr (Tstruct __COOChunk noattr))) :: nil);
-  fn_vars := ((_zeroCount, (tarray tuint 8)) ::
-              (_temp, (Tstruct __COOChunk noattr)) :: nil);
-  fn_temps := ((_len, tuint) :: (_node, (tptr (Tstruct __LLNode noattr))) ::
+  fn_vars := ((_items, (tarray (tptr (Tstruct __COOItem noattr)) 8)) :: nil);
+  fn_temps := ((_shift, tuint) :: (_zeroes, tuint) :: (_len, tuint) ::
+               (_node, (tptr (Tstruct __LLNode noattr))) ::
                (_next, (tptr (Tstruct __LLNode noattr))) :: (_i, tuint) ::
-               (_t'5, tfloat) :: (_t'4, (tptr (Tstruct __COOItem noattr))) ::
-               (_t'3, tuint) :: (_t'2, (tptr (Tstruct __LLNode noattr))) ::
-               (_t'1, (tptr (Tstruct __LLNode noattr))) :: nil);
+               (_shouldShift, tint) :: (_i__1, tuint) :: (_i__2, tuint) ::
+               (_i__3, tuint) :: (_t'1, (tptr tvoid)) ::
+               (_t'17, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'16, tfloat) ::
+               (_t'15, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'14, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'13, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'12, tuint) :: (_t'11, tfloat) ::
+               (_t'10, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'9, (tptr (Tstruct __COOItem noattr))) :: (_t'8, tuint) ::
+               (_t'7, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'6, (tptr (Tstruct __COOItem noattr))) :: (_t'5, tuint) ::
+               (_t'4, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'3, (tptr (Tstruct __COOItem noattr))) ::
+               (_t'2, (tptr (Tstruct __COOItem noattr))) :: nil);
   fn_body :=
 (Ssequence
-  (Sassign (Efield (Evar _temp (Tstruct __COOChunk noattr)) _len tuint)
-    (Econst_int (Int.repr 0) tint))
+  (Sset _shift (Econst_int (Int.repr 1) tint))
   (Ssequence
-    (Sassign
-      (Efield (Evar _temp (Tstruct __COOChunk noattr)) _head
-        (tptr (Tstruct __LLNode noattr)))
-      (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+    (Sset _zeroes (Econst_int (Int.repr 0) tint))
     (Ssequence
-      (Sassign
-        (Efield (Evar _temp (Tstruct __COOChunk noattr)) _tail
-          (tptr (Tstruct __LLNode noattr)))
-        (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+      (Sset _len
+        (Efield
+          (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+            (Tstruct __COOChunk noattr)) _len tuint))
       (Ssequence
-        (Sset _len
+        (Sset _node
           (Efield
             (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
-              (Tstruct __COOChunk noattr)) _len tuint))
+              (Tstruct __COOChunk noattr)) _head
+            (tptr (Tstruct __LLNode noattr))))
         (Ssequence
-          (Sset _node
-            (Efield
-              (Ederef (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
-                (Tstruct __COOChunk noattr)) _head
-              (tptr (Tstruct __LLNode noattr))))
           (Ssequence
-            (Ssequence
-              (Sset _i (Econst_int (Int.repr 0) tint))
-              (Sloop
+            (Sset _i (Econst_int (Int.repr 0) tint))
+            (Sloop
+              (Ssequence
+                (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
+                               (Etempvar _len tuint) tint)
+                  Sskip
+                  Sbreak)
                 (Ssequence
-                  (Sifthenelse (Ebinop Olt (Etempvar _i tuint)
-                                 (Etempvar _len tuint) tint)
-                    Sskip
-                    Sbreak)
                   (Ssequence
-                    (Sset _next
-                      (Efield
-                        (Ederef
-                          (Etempvar _node (tptr (Tstruct __LLNode noattr)))
-                          (Tstruct __LLNode noattr)) _next
-                        (tptr (Tstruct __LLNode noattr))))
                     (Ssequence
+                      (Sset _t'15
+                        (Efield
+                          (Ederef
+                            (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                            (Tstruct __LLNode noattr)) _item
+                          (tptr (Tstruct __COOItem noattr))))
                       (Ssequence
-                        (Sset _t'4
+                        (Sset _t'16
                           (Efield
                             (Ederef
-                              (Etempvar _node (tptr (Tstruct __LLNode noattr)))
-                              (Tstruct __LLNode noattr)) _item
-                            (tptr (Tstruct __COOItem noattr))))
-                        (Ssequence
-                          (Sset _t'5
-                            (Efield
-                              (Ederef
-                                (Etempvar _t'4 (tptr (Tstruct __COOItem noattr)))
-                                (Tstruct __COOItem noattr)) _value tfloat))
-                          (Sifthenelse (Ebinop Oeq (Etempvar _t'5 tfloat)
-                                         (Econst_int (Int.repr 0) tint) tint)
-                            (Scall None
-                              (Evar _LLNode_freeAll (Tfunction
-                                                      (Tcons
-                                                        (tptr (Tstruct __LLNode noattr))
-                                                        Tnil) tvoid
-                                                      cc_default))
-                              ((Etempvar _node (tptr (Tstruct __LLNode noattr))) ::
-                               nil))
-                            (Scall None
-                              (Evar _COOChunk_append (Tfunction
-                                                       (Tcons
-                                                         (tptr (Tstruct __COOChunk noattr))
-                                                         (Tcons
-                                                           (tptr (Tstruct __LLNode noattr))
-                                                           Tnil)) tvoid
-                                                       cc_default))
-                              ((Eaddrof
-                                 (Evar _temp (Tstruct __COOChunk noattr))
-                                 (tptr (Tstruct __COOChunk noattr))) ::
-                               (Etempvar _node (tptr (Tstruct __LLNode noattr))) ::
-                               nil)))))
-                      (Sset _node
-                        (Etempvar _next (tptr (Tstruct __LLNode noattr)))))))
-                (Sset _i
-                  (Ebinop Oadd (Etempvar _i tuint)
-                    (Econst_int (Int.repr 1) tint) tuint))))
+                              (Etempvar _t'15 (tptr (Tstruct __COOItem noattr)))
+                              (Tstruct __COOItem noattr)) _value tfloat))
+                        (Sifthenelse (Ebinop One (Etempvar _t'16 tfloat)
+                                       (Econst_int (Int.repr 0) tint) tint)
+                          (Ssequence
+                            (Sset _t'17
+                              (Efield
+                                (Ederef
+                                  (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                  (Tstruct __LLNode noattr)) _item
+                                (tptr (Tstruct __COOItem noattr))))
+                            (Sset _t'1
+                              (Ecast
+                                (Etempvar _t'17 (tptr (Tstruct __COOItem noattr)))
+                                (tptr tvoid))))
+                          (Sset _t'1
+                            (Ecast
+                              (Ecast (Econst_int (Int.repr 0) tint)
+                                (tptr tvoid)) (tptr tvoid))))))
+                    (Sassign
+                      (Ederef
+                        (Ebinop Oadd
+                          (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                          (Etempvar _i tuint)
+                          (tptr (tptr (Tstruct __COOItem noattr))))
+                        (tptr (Tstruct __COOItem noattr)))
+                      (Etempvar _t'1 (tptr tvoid))))
+                  (Sset _node
+                    (Efield
+                      (Ederef
+                        (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                        (Tstruct __LLNode noattr)) _next
+                      (tptr (Tstruct __LLNode noattr))))))
+              (Sset _i
+                (Ebinop Oadd (Etempvar _i tuint)
+                  (Econst_int (Int.repr 1) tint) tuint))))
+          (Ssequence
+            (Sset _shouldShift (Econst_int (Int.repr 0) tint))
             (Ssequence
+              (Swhile
+                (Ebinop Olt (Etempvar _shift tuint) (Etempvar _len tuint)
+                  tint)
+                (Ssequence
+                  (Sset _zeroes (Econst_int (Int.repr 0) tint))
+                  (Ssequence
+                    (Ssequence
+                      (Sset _i__1 (Econst_int (Int.repr 0) tint))
+                      (Sloop
+                        (Ssequence
+                          (Sifthenelse (Ebinop Olt (Etempvar _i__1 tuint)
+                                         (Etempvar _len tuint) tint)
+                            Sskip
+                            Sbreak)
+                          (Ssequence
+                            (Sset _shouldShift
+                              (Ebinop Oand (Etempvar _zeroes tuint)
+                                (Etempvar _shift tuint) tuint))
+                            (Ssequence
+                              (Ssequence
+                                (Sset _t'14
+                                  (Ederef
+                                    (Ebinop Oadd
+                                      (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                      (Etempvar _i__1 tuint)
+                                      (tptr (tptr (Tstruct __COOItem noattr))))
+                                    (tptr (Tstruct __COOItem noattr))))
+                                (Sifthenelse (Ebinop Oeq
+                                               (Etempvar _t'14 (tptr (Tstruct __COOItem noattr)))
+                                               (Ecast
+                                                 (Econst_int (Int.repr 0) tint)
+                                                 (tptr tvoid)) tint)
+                                  (Sset _zeroes
+                                    (Ebinop Oadd (Etempvar _zeroes tuint)
+                                      (Econst_int (Int.repr 1) tint) tuint))
+                                  Sskip))
+                              (Sifthenelse (Etempvar _shouldShift tint)
+                                (Ssequence
+                                  (Ssequence
+                                    (Sset _t'13
+                                      (Ederef
+                                        (Ebinop Oadd
+                                          (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                          (Etempvar _i__1 tuint)
+                                          (tptr (tptr (Tstruct __COOItem noattr))))
+                                        (tptr (Tstruct __COOItem noattr))))
+                                    (Sassign
+                                      (Ederef
+                                        (Ebinop Oadd
+                                          (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                          (Ebinop Osub (Etempvar _i__1 tuint)
+                                            (Etempvar _shift tuint) tuint)
+                                          (tptr (tptr (Tstruct __COOItem noattr))))
+                                        (tptr (Tstruct __COOItem noattr)))
+                                      (Etempvar _t'13 (tptr (Tstruct __COOItem noattr)))))
+                                  (Sassign
+                                    (Ederef
+                                      (Ebinop Oadd
+                                        (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                        (Etempvar _i__1 tuint)
+                                        (tptr (tptr (Tstruct __COOItem noattr))))
+                                      (tptr (Tstruct __COOItem noattr)))
+                                    (Ecast (Econst_int (Int.repr 0) tint)
+                                      (tptr tvoid))))
+                                Sskip))))
+                        (Sset _i__1
+                          (Ebinop Oadd (Etempvar _i__1 tuint)
+                            (Econst_int (Int.repr 1) tint) tuint))))
+                    (Sset _shift
+                      (Ebinop Omul (Etempvar _shift tuint)
+                        (Econst_int (Int.repr 2) tint) tuint)))))
               (Ssequence
-                (Sset _t'3
-                  (Efield (Evar _temp (Tstruct __COOChunk noattr)) _len
-                    tuint))
                 (Sassign
                   (Efield
                     (Ederef
                       (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
                       (Tstruct __COOChunk noattr)) _len tuint)
-                  (Etempvar _t'3 tuint)))
-              (Ssequence
+                  (Econst_int (Int.repr 0) tint))
                 (Ssequence
-                  (Sset _t'2
-                    (Efield (Evar _temp (Tstruct __COOChunk noattr)) _head
-                      (tptr (Tstruct __LLNode noattr))))
-                  (Sassign
-                    (Efield
-                      (Ederef
-                        (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
-                        (Tstruct __COOChunk noattr)) _head
-                      (tptr (Tstruct __LLNode noattr)))
-                    (Etempvar _t'2 (tptr (Tstruct __LLNode noattr)))))
-                (Ssequence
-                  (Sset _t'1
-                    (Efield (Evar _temp (Tstruct __COOChunk noattr)) _tail
-                      (tptr (Tstruct __LLNode noattr))))
                   (Sassign
                     (Efield
                       (Ederef
                         (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
                         (Tstruct __COOChunk noattr)) _tail
                       (tptr (Tstruct __LLNode noattr)))
-                    (Etempvar _t'1 (tptr (Tstruct __LLNode noattr)))))))))))))
+                    (Ecast (Econst_int (Int.repr 0) tint) (tptr tvoid)))
+                  (Ssequence
+                    (Sset _node
+                      (Efield
+                        (Ederef
+                          (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                          (Tstruct __COOChunk noattr)) _head
+                        (tptr (Tstruct __LLNode noattr))))
+                    (Ssequence
+                      (Ssequence
+                        (Sset _i__2 (Econst_int (Int.repr 0) tint))
+                        (Sloop
+                          (Ssequence
+                            (Sifthenelse (Ebinop Olt (Etempvar _i__2 tuint)
+                                           (Etempvar _len tuint) tint)
+                              Sskip
+                              Sbreak)
+                            (Ssequence
+                              (Sset _next
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                    (Tstruct __LLNode noattr)) _next
+                                  (tptr (Tstruct __LLNode noattr))))
+                              (Ssequence
+                                (Ssequence
+                                  (Sset _t'2
+                                    (Ederef
+                                      (Ebinop Oadd
+                                        (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                        (Etempvar _i__2 tuint)
+                                        (tptr (tptr (Tstruct __COOItem noattr))))
+                                      (tptr (Tstruct __COOItem noattr))))
+                                  (Sifthenelse (Etempvar _t'2 (tptr (Tstruct __COOItem noattr)))
+                                    (Ssequence
+                                      (Ssequence
+                                        (Sset _t'12
+                                          (Efield
+                                            (Ederef
+                                              (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                                              (Tstruct __COOChunk noattr))
+                                            _len tuint))
+                                        (Sassign
+                                          (Efield
+                                            (Ederef
+                                              (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                                              (Tstruct __COOChunk noattr))
+                                            _len tuint)
+                                          (Ebinop Oadd (Etempvar _t'12 tuint)
+                                            (Econst_int (Int.repr 1) tint)
+                                            tuint)))
+                                      (Ssequence
+                                        (Ssequence
+                                          (Sset _t'9
+                                            (Efield
+                                              (Ederef
+                                                (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                                (Tstruct __LLNode noattr))
+                                              _item
+                                              (tptr (Tstruct __COOItem noattr))))
+                                          (Ssequence
+                                            (Sset _t'10
+                                              (Ederef
+                                                (Ebinop Oadd
+                                                  (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                                  (Etempvar _i__2 tuint)
+                                                  (tptr (tptr (Tstruct __COOItem noattr))))
+                                                (tptr (Tstruct __COOItem noattr))))
+                                            (Ssequence
+                                              (Sset _t'11
+                                                (Efield
+                                                  (Ederef
+                                                    (Etempvar _t'10 (tptr (Tstruct __COOItem noattr)))
+                                                    (Tstruct __COOItem noattr))
+                                                  _value tfloat))
+                                              (Sassign
+                                                (Efield
+                                                  (Ederef
+                                                    (Etempvar _t'9 (tptr (Tstruct __COOItem noattr)))
+                                                    (Tstruct __COOItem noattr))
+                                                  _value tfloat)
+                                                (Etempvar _t'11 tfloat)))))
+                                        (Ssequence
+                                          (Ssequence
+                                            (Sset _t'6
+                                              (Efield
+                                                (Ederef
+                                                  (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                                  (Tstruct __LLNode noattr))
+                                                _item
+                                                (tptr (Tstruct __COOItem noattr))))
+                                            (Ssequence
+                                              (Sset _t'7
+                                                (Ederef
+                                                  (Ebinop Oadd
+                                                    (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                                    (Etempvar _i__2 tuint)
+                                                    (tptr (tptr (Tstruct __COOItem noattr))))
+                                                  (tptr (Tstruct __COOItem noattr))))
+                                              (Ssequence
+                                                (Sset _t'8
+                                                  (Efield
+                                                    (Ederef
+                                                      (Etempvar _t'7 (tptr (Tstruct __COOItem noattr)))
+                                                      (Tstruct __COOItem noattr))
+                                                    _col tuint))
+                                                (Sassign
+                                                  (Efield
+                                                    (Ederef
+                                                      (Etempvar _t'6 (tptr (Tstruct __COOItem noattr)))
+                                                      (Tstruct __COOItem noattr))
+                                                    _col tuint)
+                                                  (Etempvar _t'8 tuint)))))
+                                          (Ssequence
+                                            (Ssequence
+                                              (Sset _t'3
+                                                (Efield
+                                                  (Ederef
+                                                    (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                                    (Tstruct __LLNode noattr))
+                                                  _item
+                                                  (tptr (Tstruct __COOItem noattr))))
+                                              (Ssequence
+                                                (Sset _t'4
+                                                  (Ederef
+                                                    (Ebinop Oadd
+                                                      (Evar _items (tarray (tptr (Tstruct __COOItem noattr)) 8))
+                                                      (Etempvar _i__2 tuint)
+                                                      (tptr (tptr (Tstruct __COOItem noattr))))
+                                                    (tptr (Tstruct __COOItem noattr))))
+                                                (Ssequence
+                                                  (Sset _t'5
+                                                    (Efield
+                                                      (Ederef
+                                                        (Etempvar _t'4 (tptr (Tstruct __COOItem noattr)))
+                                                        (Tstruct __COOItem noattr))
+                                                      _row tuint))
+                                                  (Sassign
+                                                    (Efield
+                                                      (Ederef
+                                                        (Etempvar _t'3 (tptr (Tstruct __COOItem noattr)))
+                                                        (Tstruct __COOItem noattr))
+                                                      _row tuint)
+                                                    (Etempvar _t'5 tuint)))))
+                                            (Sassign
+                                              (Efield
+                                                (Ederef
+                                                  (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                                                  (Tstruct __COOChunk noattr))
+                                                _tail
+                                                (tptr (Tstruct __LLNode noattr)))
+                                              (Etempvar _node (tptr (Tstruct __LLNode noattr))))))))
+                                    Sbreak))
+                                (Sset _node
+                                  (Etempvar _next (tptr (Tstruct __LLNode noattr)))))))
+                          (Sset _i__2
+                            (Ebinop Oadd (Etempvar _i__2 tuint)
+                              (Econst_int (Int.repr 1) tint) tuint))))
+                      (Ssequence
+                        (Sset _i__3
+                          (Efield
+                            (Ederef
+                              (Etempvar _chunk (tptr (Tstruct __COOChunk noattr)))
+                              (Tstruct __COOChunk noattr)) _len tuint))
+                        (Sloop
+                          (Ssequence
+                            (Sifthenelse (Ebinop Olt (Etempvar _i__3 tuint)
+                                           (Etempvar _len tuint) tint)
+                              Sskip
+                              Sbreak)
+                            (Ssequence
+                              (Sset _next
+                                (Efield
+                                  (Ederef
+                                    (Etempvar _node (tptr (Tstruct __LLNode noattr)))
+                                    (Tstruct __LLNode noattr)) _next
+                                  (tptr (Tstruct __LLNode noattr))))
+                              (Ssequence
+                                (Scall None
+                                  (Evar _LLNode_freeAll (Tfunction
+                                                          (Tcons
+                                                            (tptr (Tstruct __LLNode noattr))
+                                                            Tnil) tvoid
+                                                          cc_default))
+                                  ((Etempvar _node (tptr (Tstruct __LLNode noattr))) ::
+                                   nil))
+                                (Sset _node
+                                  (Etempvar _next (tptr (Tstruct __LLNode noattr)))))))
+                          (Sset _i__3
+                            (Ebinop Oadd (Etempvar _i__3 tuint)
+                              (Econst_int (Int.repr 1) tint) tuint)))))))))))))))
 |}.
 
 Definition f_mergeHier := {|
