@@ -106,11 +106,10 @@ int main(int argc, char *argv[]) {
   }
   printf("==== absolute difference: (%f) ====\n", diff);
   
-  
+  Matrix_free(mm);
   Matrix_free(gem);
   Matrix_free(b);
   Matrix_free(a);
-  
   
   return 0;
 }

@@ -67,7 +67,7 @@ COOChunk* popQueue(PriorQ *queue);
 
 
 // == Function implementations ==
-LLNode* LLNode_malloc(COOItem *item) {    
+LLNode* LLNode_malloc(COOItem *item) {
     LLNode *node = (LLNode *)malloc(sizeof(LLNode));
     node->item = item;
     node->next = NULL;
@@ -103,6 +103,7 @@ void COOChunk_freeAll(COOChunk *chunk) {
         LLNode_freeAll(head);
         head = next;
     }
+    free(chunk);
 }
 
 void COOChunk_push(COOChunk *chunk, COOItem* item) {
@@ -626,7 +627,7 @@ CSRMatrix* spgemm_sparch(CSRMatrix* matA, CSRMatrix* matB) {
     }
     
     for (size_t i = 0; i < leftLen; i++) {
-        COOChunk_free(leftChunk[i]);
+        COOChunk_freeAll(leftChunk[i]);
     }
     free(leftChunk);
     free(pq.heap);
