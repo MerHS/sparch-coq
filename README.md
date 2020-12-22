@@ -1,6 +1,13 @@
 # sparch-coq
 Reconstruct SpArch from C-light && Coq/Gallina
 
+## tl;dr
+
+```sh
+make main
+./sparch --print --random 10 10 10
+```
+
 ## How to install
 
 I tested it on Linux only (Ubuntu/Arch).
